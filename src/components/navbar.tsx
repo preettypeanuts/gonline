@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { GrAdd } from "react-icons/gr";
+import ThemeSwitch from "./theme";
 
 /* ============================= */
 /* Types                         */
@@ -63,15 +64,15 @@ const MegaMenu = ({
                 >
                     <Link
                         href={item.href ?? "#"}
-                        className="block group p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-2xl"
+                        className="block group p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10  border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-2xl"
                     >
                         <div className="text-2xl mb-2 transition-transform">
                             {item.icon}
                         </div>
-                        <h3 className="text-white font-semibold text-sm mb-1">
+                        <h3 className="font-semibold text-sm mb-1">
                             {item.title}
                         </h3>
-                        <p className="text-white/60 text-xs leading-relaxed">
+                        <p className="opacity-60 text-xs leading-relaxed">
                             {item.description}
                         </p>
                     </Link>
@@ -112,11 +113,11 @@ export const Navbar = () => {
                 description: "Strategic tech guidance",
                 icon: "💡",
             },
-                {
+            {
                 title: "Consulting",
                 description: "Strategic tech guidance",
                 icon: "💡",
-            },    {
+            }, {
                 title: "Consulting",
                 description: "Strategic tech guidance",
                 icon: "💡",
@@ -156,8 +157,8 @@ export const Navbar = () => {
                 key ? setActiveMenu(key) : null
             }
         >
-            <button className="text-white/70 hover:text-white relative">
-                <div className={`${activeMenu === key ? "rounded-full px-3 py-1 bg-white text-darkColor" : ""} cursor-pointer duration-500 ease-in-out text-sm font-semibold`}>
+            <button className="opacity-70 hover:opacity-100 relative">
+                <div className={`${activeMenu === key ? "rounded-full px-3 py-1 bg-black text-lightColor dark:bg-white dark:text-darkColor" : ""} cursor-pointer duration-500 ease-in-out text-sm font-semibold`}>
                     {label}
                     <span>
                         {key && <GrAdd className={`inline-block ml-1 mb-1 text-xs duration-300 ${activeMenu === key ? "rotate-225 mb-0 mt-0.5" : ""}`} />}
@@ -168,10 +169,10 @@ export const Navbar = () => {
     );
 
     return (
-        <nav className="hidden md:block fixed left-1/2 top-5 z-50 -translate-x-1/2">
+        <nav className="hidden fixed left-1/2 top-5 z-50 -translate-x-1/2 md:flex items-start gap-1">
             <div
                 onMouseLeave={() => setActiveMenu(null)}
-                className={`relative bg-black rounded-[25px] px-4 pt-2 pb-3 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
+                className={`relative bg-white dark:bg-black rounded-[25px] px-4 pt-2 pb-3 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}
@@ -207,6 +208,7 @@ export const Navbar = () => {
                     onMouseLeave={() => setActiveMenu(null)}
                 />
             </div>
+            <ThemeSwitch />
         </nav>
     );
 };

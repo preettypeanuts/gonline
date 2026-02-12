@@ -79,7 +79,7 @@ export default function ServicesScroll() {
     return (
         <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans">
 
-            <div className="absolute top-16 left-16 text-sm text-gray-800 leading-relaxed">
+            <div className="absolute top-16 left-16 text-sm leading-relaxed">
                 Where Innovation<br />Meets Aesthetics
             </div>
 

@@ -62,8 +62,9 @@ export const HomeBanner = () => {
             {/* Get Started Button - Responsive */}
             <Button
                 size={"lg"}
+                variant={"default"}
                 className="absolute left-4 top-1/2 md:left-6 lg:left-10 text-sm md:text-base md:w-60">
-                <div className="flex items-center justify-between! gap-2 text-mainColor w-full">
+                <div className="flex items-center justify-between! gap-2 text-mainColor dark:text-white w-full">
                     <div>
                         Start Project
                     </div>
@@ -79,7 +80,7 @@ export const HomeBanner = () => {
                             where ideas
                         </p>
                         <br className="hidden lg:block" />
-                        <p className="text-secondaryColor">
+                        <p className="text-secondaryColor dark:text-mainColor">
                             go online.
                         </p>
                     </h1>
@@ -89,7 +90,7 @@ export const HomeBanner = () => {
             </div>
 
             {/* Right Content - Responsive */}
-            <div className="absolute right-0 top-1/4 md:top-2/12 p-4 md:p-6 lg:p-10 bg-lightColor rounded-l-2xl md:rounded-l-3xl max-w-50 sm:max-w-62.5 md:max-w-xs lg:max-w-none">
+            <div className="absolute right-0 top-1/4 md:top-2/12 p-4 md:p-6 lg:p-10 bg-lightColor dark:bg-darkColor rounded-l-2xl md:rounded-l-3xl max-w-50 sm:max-w-62.5 md:max-w-xs lg:max-w-none">
                 <p className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-3 lg:mb-5">
                     <span className="text-thirdColor">100%</span>
                 </p>
@@ -99,7 +100,7 @@ export const HomeBanner = () => {
                 <div>
                     <Button
                         variant={"invert"}
-                        className="mt-5 text-white">
+                        className="mt-5 ">
                         Learn More
                     </Button>
                 </div>
