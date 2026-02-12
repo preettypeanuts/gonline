@@ -171,7 +171,7 @@ export const Navbar = () => {
         <nav className="hidden md:block fixed left-1/2 top-5 z-50 -translate-x-1/2">
             <div
                 onMouseLeave={() => setActiveMenu(null)}
-                className="relative bg-black rounded-[25px] px-4 pt-2 pb-3 flex flex-col items-center"
+                className={`relative bg-black rounded-[25px] px-4 pt-2 pb-3 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}

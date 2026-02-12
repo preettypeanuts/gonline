@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { IoMdArrowForward } from "react-icons/io";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const images = [
     "https://images.unsplash.com/photo-1519397652863-aad621636ac7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -31,11 +32,13 @@ export const HomeBanner = () => {
             {/* Carousel Images */}
             <div className="relative w-full h-screen">
                 {images.map((image, index) => (
-                    <img
+                    <Image
+                        width={1000}
+                        height={1000}
                         key={index}
                         src={image}
                         alt={`BG Banner ${index + 1}`}
-                        className={`absolute top-0 left-0 w-full h-screen object-cover object-center transition-opacity duration-1000 brightness-90 ${index === currentIndex ? "opacity-100 blur-none" : "opacity-0 blur-xs"
+                        className={`absolute top-0 left-0 w-full h-screen object-cover object-center transition-opacity duration-1000 brightness-90 rounded-br-3xl ${index === currentIndex ? "opacity-100 blur-none" : "opacity-0 blur-xs"
                             }`}
                     />
                 ))}
@@ -62,8 +65,7 @@ export const HomeBanner = () => {
                 className="absolute left-4 top-1/2 md:left-6 lg:left-10 text-sm md:text-base md:w-60">
                 <div className="flex items-center justify-between! gap-2 text-mainColor w-full">
                     <div>
-                        <span className="hidden sm:inline">Get Started</span>
-                        <span className="sm:hidden">Start</span>
+                        Start Project
                     </div>
                     <IoMdArrowForward className="inline-block" />
                 </div>
@@ -87,7 +89,7 @@ export const HomeBanner = () => {
             </div>
 
             {/* Right Content - Responsive */}
-            <div className="absolute right-0 top-1/4 md:top-2/12 p-4 md:p-6 lg:p-10 bg-lightColor rounded-l-2xl md:rounded-l-3xl max-w-[200px] sm:max-w-[250px] md:max-w-xs lg:max-w-none">
+            <div className="absolute right-0 top-1/4 md:top-2/12 p-4 md:p-6 lg:p-10 bg-lightColor rounded-l-2xl md:rounded-l-3xl max-w-50 sm:max-w-62.5 md:max-w-xs lg:max-w-none">
                 <p className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-3 lg:mb-5">
                     <span className="text-thirdColor">100%</span>
                 </p>
