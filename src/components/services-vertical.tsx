@@ -77,9 +77,9 @@ export default function ServicesScroll() {
 
 
     return (
-        <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans">
+        <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
 
-            <div className="absolute top-16 left-16 text-sm leading-relaxed">
+            <div className="absolute top-65 left-16 text-sm leading-relaxed">
                 Where Innovation<br />Meets Aesthetics
             </div>
 
@@ -121,7 +121,7 @@ export default function ServicesScroll() {
                 onClick={scrollToNext}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 
              w-12 h-12 rounded-full 
-             bg-neutral-400 text-white 
+             bg-neutral-400 dark:bg-secondaryDark text-white 
              flex items-center justify-center  hover:scale-110 transition-all duration-300"
             >
                 ↓

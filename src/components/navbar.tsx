@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { GrAdd } from "react-icons/gr";
 import ThemeSwitch from "./theme";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
 
 /* ============================= */
 /* Types                         */
@@ -87,9 +90,9 @@ const MegaMenu = ({
 /* ============================= */
 
 export const Navbar = () => {
-    const [activeMenu, setActiveMenu] = useState<MenuKey | null>(
-        null
-    );
+    const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
+    const [activeLabel, setActiveLabel] = useState<string | null>(null);
+    const pathname = usePathname();
 
     const menuData: Record<MenuKey, MenuItem[]> = {
         services: [
@@ -150,47 +153,105 @@ export const Navbar = () => {
 
     const isExpanded = activeMenu !== null;
 
-    const renderNavItem = (label: string, key?: MenuKey) => (
-        <div
-            className="relative"
-            onMouseEnter={() =>
-                key ? setActiveMenu(key) : null
-            }
-        >
-            <button className="opacity-70 hover:opacity-100 relative">
-                <div className={`${activeMenu === key ? "rounded-full px-3 py-1 bg-black text-lightColor dark:bg-white dark:text-darkColor" : ""} cursor-pointer duration-500 ease-in-out text-sm font-semibold`}>
-                    {label}
-                    <span>
-                        {key && <GrAdd className={`inline-block ml-1 mb-1 text-xs duration-300 ${activeMenu === key ? "rotate-225 mb-0 mt-0.5" : ""}`} />}
-                    </span>
-                </div>
-            </button>
-        </div>
-    );
+    const renderNavItem = (label: string, key?: MenuKey, href: string = "#") => {
+        const isActiveRoute =
+            !key && href !== "#" && pathname === href;
+
+        const content = (
+            <div
+                className={`
+                ${isActiveRoute || activeMenu === key
+                        ? "px-3 py-1 bg-black text-white dark:bg-white dark:text-black"
+                        : ""
+                    }
+                hover:px-3 hover:py-1 hover:bg-black hover:text-white
+                dark:hover:bg-white dark:hover:text-black
+                rounded-full cursor-pointer duration-500 ease-in-out
+                text-sm font-semibold
+                truncate flex items-center
+            `}
+            >
+                {label}
+                {key && (
+                    <GrAdd
+                        className={`ml-1 mb-1 text-xs duration-300 ${activeMenu === key
+                            ? "rotate-225 mb-0 mt-0.5"
+                            : ""
+                            }`}
+                    />
+                )}
+            </div>
+        );
+
+        return (
+            <div
+                className="relative"
+                onMouseEnter={() => {
+                    setActiveLabel(label);
+
+                    if (key) {
+                        setActiveMenu(key);
+                    } else {
+                        setActiveMenu(null);
+                    }
+                }}
+            >
+                {key ? (
+                    <button className="relative">
+                        {content}
+                    </button>
+                ) : (
+                    <Link
+                        href={href}
+                        className="relative"
+                    >
+                        {content}
+                    </Link>
+                )}
+            </div>
+        );
+    };
+
 
     return (
-        <nav className="hidden fixed left-1/2 top-5 z-50 -translate-x-1/2 md:flex items-start gap-1">
-            <div
-                onMouseLeave={() => setActiveMenu(null)}
-                className={`relative bg-white dark:bg-black rounded-[25px] px-4 pt-2 pb-3 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
+        <nav className="hidden fixed left-1/2 top-5 z-50 -translate-x-1/2 md:flex w-auto items-start gap-1">
+            <Link
+                href="/"
+                className="bg-white dark:bg-black rounded-full w-fit"
+            >
+                <Image
+                    width={100}
+                    height={100}
+                    src="/icon.png"
+                    alt="GONLINE Logo"
+                    className="w-32 h-11 object-cover px-1.5 dark:saturate-0 dark:brightness-500 dark:contrast-200"
+                />
+            </Link>
+            <nav
+                onMouseLeave={() => {
+                    setActiveMenu(null);
+                    setActiveLabel(null);
+                }}
+
+                className={`relative bg-white dark:bg-black rounded-[25px] px-2 py-2 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}
             >
                 {/* Top Links */}
                 <div
-                    className="flex gap-10 justify-center items-center w-full"
+                    className={`flex gap-10 justify-center items-center w-full!`}
                     style={{
                         marginBottom: isExpanded ? "24px" : "0px",
                         transition: "margin-bottom 300ms ease",
                     }}
                 >
-                    {renderNavItem("Home")}
+                    {renderNavItem("Home", undefined, "/")}
                     {renderNavItem("Services", "services")}
                     {renderNavItem("About", "about")}
-                    {renderNavItem("Our Works")}
-                    {renderNavItem("Insight")}
-                    {renderNavItem("Contact")}
+                    {renderNavItem("Our Works", undefined, "/works")}
+                    {renderNavItem("Insight", undefined, "/insight")}
+                    {renderNavItem("Contact", undefined, "/contact")}
                 </div>
 
                 {/* Single MegaMenu */}
@@ -205,9 +266,13 @@ export const Navbar = () => {
                         if (activeMenu)
                             setActiveMenu(activeMenu);
                     }}
-                    onMouseLeave={() => setActiveMenu(null)}
+                    onMouseLeave={() => {
+                        setActiveMenu(null);
+                        setActiveLabel(null);
+                    }}
+
                 />
-            </div>
+            </nav>
             <ThemeSwitch />
         </nav>
     );
