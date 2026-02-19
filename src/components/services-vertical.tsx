@@ -9,12 +9,12 @@ export default function ServicesScroll() {
 
     const services = [
         'What We Do?',
+        'Web Development',
+        'Social Media Management',
         'Mobile App Design',
         'Web Design',
         'Expertise',
         'Visual Identity',
-        'Web Development',
-        'Social Media Management',
         'Digital Marketing',
         'Consulting',
         'E-commerce Solutions',
@@ -80,7 +80,7 @@ export default function ServicesScroll() {
         <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
 
             <div className="absolute top-65 left-16 text-sm leading-relaxed">
-                Where Innovation<br />Meets Aesthetics
+                Our Expertise
             </div>
 
             <div className="w-full max-w-3xl h-50">
