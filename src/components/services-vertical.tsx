@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export default function ServicesScroll() {
+export const ServicesVertical = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [activeIndex, setActiveIndex] = useState(0);
@@ -74,8 +74,6 @@ export default function ServicesScroll() {
             behavior: 'smooth',
         });
     };
-
-
     return (
         <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
 
@@ -126,7 +124,6 @@ export default function ServicesScroll() {
             >
                 ↓
             </button>
-
         </div>
-    );
+    )
 }

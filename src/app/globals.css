@@ -165,11 +165,11 @@ body {
 }
 
 .margin {
-  @apply mx-4 md:mx-10 lg:mx-20;
+  @apply mx-4 md:mx-10;
 }
 
 .spacing {
-  @apply py-10 md:py-16 lg:py-24;
+  @apply py-10 md:py-20;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

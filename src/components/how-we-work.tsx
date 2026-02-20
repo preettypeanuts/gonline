@@ -48,7 +48,6 @@ export const HowWeWork = () => {
                                 <h3 className="text-xl font-semibold mb-2">{el.title}</h3>
                                 <p className="opacity-80 mb-2">{el.shortDesc}</p>
                             </div>
-                            {/* <p className="opacity-60">{el.detail}</p> */}
                         </div>
                     ))}
                 </div>
