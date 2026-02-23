@@ -15,14 +15,14 @@ export const ComingSoonPage = () => {
       <div className="relative w-full max-w-4xl rounded-[40px] bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl shadow-2xl border border-white/40 dark:border-neutral-800 px-8 md:px-16 py-16 text-center">
 
         {/* Badge */}
-        <span className="inline-block mb-6 px-5 py-2 text-sm rounded-full bg-violet-100 text-mainColor dark:bg-blue-500/10 dark:text-blue-400 font-medium">
+        <span className="inline-block mb-6 px-5 py-2 text-sm rounded-full bg-violet-100 text-mainColor dark:bg-pink-500/10 dark:text-thirdColor font-medium">
           Website Under Development
         </span>
 
         {/* Heading */}
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           We're Refining
-          <span className="block text-mainColor dark:text-blue-400">
+          <span className="block text-mainColor dark:text-thirdColor">
             Our Digital Experience.
           </span>
         </h1>
@@ -39,7 +39,7 @@ export const ComingSoonPage = () => {
           <Link
             href="https://wa.me/6281292749915"
             target="_blank"
-            className="px-8 py-4 rounded-2xl bg-mainColor text-white font-medium shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+            className="px-8 py-4 rounded-2xl bg-mainColor dark:bg-thirdColor text-white font-medium shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
           >
             Contact via WhatsApp →
           </Link>
