@@ -248,7 +248,7 @@ export const Navbar = () => {
                 >
                     {renderNavItem("Home", undefined, "/")}
                     {renderNavItem("Services", "services")}
-                    {renderNavItem("About", "about")}
+                    {renderNavItem("About", undefined, "/about")}
                     {renderNavItem("Our Works", undefined, "/works")}
                     {renderNavItem("Insight", undefined, "/insight")}
                     {renderNavItem("Contact", undefined, "/contact")}
