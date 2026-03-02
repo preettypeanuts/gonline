@@ -1,4 +1,5 @@
 import { ClientLogo } from "@/components/client-logo";
+import { CTA } from "@/components/cta";
 import { OurSpecialty } from "@/components/our-specialty";
 import { ReusableBanner } from "@/components/reusable-banner";
 import { VissionMission } from "@/components/vision-mission";
@@ -18,6 +19,7 @@ export default function About() {
             <OurSpecialty />
             <WhyChooseUs />
             <ClientLogo />
+            <CTA/>
         </>
     )
 }

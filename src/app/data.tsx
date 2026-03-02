@@ -1,3 +1,7 @@
+import { IoIosCall } from "react-icons/io";
+import { RiFacebookFill, RiInstagramFill, RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
+import { TbMailFilled } from "react-icons/tb";
+
 export const webWorks = [
     // =========================
     // ADVANCED DYNAMIC
@@ -230,4 +234,43 @@ export const webWorks = [
         features: ["Custom CMS", "User Management", "CRUD", "Blog Manager", "Post Admin"],
         kind: "CMS Platform"
     }
+];
+
+export const dataContact = [
+    {
+        label: "Email",
+        icon: <TbMailFilled />,
+        data: "gonlinecreative@gmail.com",
+        link: "mailto:gonlinecreative@gmail.com"
+    },
+    {
+        label: "Phone",
+        icon: <IoIosCall />,
+        data: "0851 7388 8880",
+        link: "tel:085173888880"
+    },
+    {
+        label: "WhatsApp",
+        icon: <RiWhatsappFill />,
+        data: "+62 851 7388 8880",
+        link: "https://api.whatsapp.com/send?phone=6285173888880"
+    },
+    {
+        label: "Instagram",
+        icon: <RiInstagramFill />,
+        data: "@ganeshaec.co.id",
+        link: "https://www.instagram.com/gonline_id"
+    },
+    {
+        label: "Facebook",
+        icon: <RiFacebookFill />,
+        data: "GONLINE",
+        link: "https://www.facebook.com/share/1CHyvzr49e/"
+    },
+    {
+        label: "LinkedIN",
+        icon: <RiLinkedinFill />,
+        data: "GONLINE",
+        link: "https://www.linkedin.com/company/gonline-creative/"
+    },
 ];
