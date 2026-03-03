@@ -33,9 +33,9 @@ export const ContactForm = () => {
     return (
         <section>
             <div className="grid grid-cols-2 gap-2">
-                <div className="py-3 pl-10 pr-3 bg-black rounded-r-3xl relative">
-                    <div className="rounded-out-lt-3xl bg-darkColor dark:bg-lightColor"></div>
-                    <div className="rounded-out-lb-3xl bg-darkColor dark:bg-lightColor"></div>
+                <div className="py-3 pl-10 pr-3 bg-black dark:bg-white rounded-r-3xl relative">
+                    <div className="rounded-out-lt-3xl bg-black dark:bg-white"></div>
+                    <div className="rounded-out-lb-3xl bg-black dark:bg-white"></div>
 
                     <div className="relative">
                         <Image
@@ -46,14 +46,14 @@ export const ContactForm = () => {
                             alt=""
                         />
 
-                        <div className="absolute bottom-0 right-0 pl-4 pt-2 pb-1 pr-1 bg-black text-white font-semibold rounded-tl-3xl text-lg">
+                        <div className="absolute bottom-0 right-0 pl-4 pt-2 pb-1 pr-1 bg-black text-white dark:bg-white dark:text-black font-semibold rounded-tl-3xl text-lg">
                         <div className="rounded-out-rt-xl bg-black dark:bg-white"></div>
                         <div className="rounded-out-bl-xl bg-black dark:bg-white"></div>
                             Contact Us!
                         </div>
                     </div>
                 </div>
-                <div className="bg-white pl-3 py-3 pr-10 rounded-l-3xl relative">
+                <div className="bg-white dark:bg-black pl-3 py-3 pr-10 rounded-l-3xl relative">
                     <div className="rounded-out-rt-3xl bg-white dark:bg-black"></div>
                     <div className="rounded-out-rb-3xl bg-white dark:bg-black"></div>
 
@@ -67,7 +67,7 @@ export const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder=" "
-                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-black/95 focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
+                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-darkColor focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
                             />
                             <p className="absolute top-1/2 transform -translate-y-1/2 left-3 text-xs sm:text-sm opacity-60 pointer-events-none">
                                 Name
@@ -83,7 +83,7 @@ export const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder=" "
-                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-black/95 focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
+                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-darkColor focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
                             />
                             <p className="absolute top-1/2 transform -translate-y-1/2 left-3 text-xs sm:text-sm opacity-60 pointer-events-none">
                                 Email
@@ -98,7 +98,7 @@ export const ContactForm = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder=" "
-                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-black/95 focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
+                                className="peer h-23 w-full pl-16 sm:pl-20 pr-3 py-2 sm:py-3 bg-lightColor dark:bg-darkColor focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
                             />
                             <p className="absolute top-1/2 transform -translate-y-1/2 left-3 text-xs sm:text-sm opacity-60 pointer-events-none">
                                 Phone
@@ -114,7 +114,7 @@ export const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder=" "
-                                className="peer h-23 w-full pl-20 sm:pl-24 pr-3 py-2 sm:py-3 resize-none bg-lightColor dark:bg-black/95 focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
+                                className="peer h-23 w-full pl-20 sm:pl-24 pr-3 py-2 sm:py-3 resize-none bg-lightColor dark:bg-darkColor focus:outline-none focus:ring-2 focus:ring-secondaryLight duration-200 ease-in-out"
                             />
                             <p className="absolute top-4 left-3 text-xs sm:text-sm opacity-60 pointer-events-none">
                                 Message
