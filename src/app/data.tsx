@@ -1,6 +1,60 @@
 import { IoIosCall } from "react-icons/io";
 import { RiFacebookFill, RiInstagramFill, RiLinkedinFill, RiWhatsappFill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
+import {
+    FiBriefcase,
+    FiShoppingBag,
+    FiCoffee,
+    FiUser,
+    FiBookOpen,
+    FiHome,
+    FiHeart,
+    FiScissors,
+    FiCalendar,
+    FiMap,
+    FiTruck,
+    FiCamera,
+    FiMonitor,
+    FiBox,
+    FiLayers,
+    FiDollarSign,
+    FiBarChart2,
+    FiGlobe,
+    FiTool,
+    FiCpu,
+    FiPhone,
+    FiMusic,
+    FiFilm,
+    FiImage,
+    FiShield,
+    FiUsers,
+    FiClipboard,
+    FiEdit,
+    FiPackage,
+    FiShoppingCart,
+    FiAward,
+    FiGift,
+    FiAnchor,
+    FiFeather,
+    FiPenTool,
+    FiTrendingUp,
+    FiPieChart,
+    FiTarget,
+    FiArchive,
+    FiCreditCard,
+    FiDatabase,
+    FiHardDrive,
+    FiMapPin,
+    FiNavigation,
+    FiSend,
+    FiThumbsUp,
+    FiWatch,
+    FiWifi,
+    FiZap,
+    FiLayout,
+    FiShare2,
+} from "react-icons/fi"
+
 
 export const webWorks = [
     // =========================
@@ -498,4 +552,165 @@ export const dataArticles = [
         createdAt: "2024-04-22T06:30:00Z",
         updatedAt: "2024-04-25T08:00:00Z"
     },
+];
+
+export const DataBusinessSpecialties = [
+    { title: "Corporate", icon: FiBriefcase },
+    { title: "Online Shop", icon: FiShoppingCart },
+    { title: "Retail Business", icon: FiShoppingBag },
+    { title: "Restaurant & Cafe", icon: FiCoffee },
+    { title: "Personal Brand", icon: FiUser },
+    { title: "Education & Course", icon: FiBookOpen },
+    { title: "Property & Real Estate", icon: FiHome },
+    { title: "Health & Clinic", icon: FiHeart },
+    { title: "Beauty & Skincare", icon: FiScissors },
+    { title: "Event Organizer", icon: FiCalendar },
+    { title: "Travel & Tour", icon: FiMap },
+    { title: "Logistics & Delivery", icon: FiTruck },
+    { title: "Photography Studio", icon: FiCamera },
+    { title: "Digital Product", icon: FiMonitor },
+    { title: "Manufacturing", icon: FiBox },
+    { title: "Construction", icon: FiLayers },
+    { title: "Finance & Consulting", icon: FiDollarSign },
+    { title: "Marketing Agency", icon: FiBarChart2 },
+    { title: "Global Business", icon: FiGlobe },
+    { title: "Repair Services", icon: FiTool },
+    { title: "Technology Startup", icon: FiCpu },
+    { title: "Telecommunication", icon: FiPhone },
+    { title: "Music & Entertainment", icon: FiMusic },
+    { title: "Film & Production", icon: FiFilm },
+    { title: "Design Studio", icon: FiImage },
+    { title: "Security Services", icon: FiShield },
+    { title: "Community Organization", icon: FiUsers },
+    { title: "Legal Services", icon: FiClipboard },
+    { title: "Content Creator", icon: FiEdit },
+    { title: "Wholesale Supplier", icon: FiPackage },
+    { title: "Startup Business", icon: FiZap },
+    { title: "Investment Firm", icon: FiTrendingUp },
+    { title: "Data & Analytics", icon: FiPieChart },
+    { title: "SaaS Platform", icon: FiDatabase },
+    { title: "Cloud Services", icon: FiHardDrive },
+    { title: "Coworking Space", icon: FiMapPin },
+    { title: "Local Business", icon: FiNavigation },
+    { title: "Product Brand", icon: FiGift },
+    { title: "Marketplace Seller", icon: FiShoppingCart },
+    { title: "Luxury Brand", icon: FiAward },
+    { title: "Creative Portfolio", icon: FiFeather },
+    { title: "Illustration Studio", icon: FiPenTool },
+    { title: "Business Consulting", icon: FiTarget },
+    { title: "Membership Platform", icon: FiArchive },
+    { title: "Subscription Service", icon: FiCreditCard },
+    { title: "Nonprofit Organization", icon: FiThumbsUp },
+    { title: "Marine & Shipping", icon: FiAnchor },
+    { title: "Wearable Technology", icon: FiWatch },
+    { title: "Internet Provider", icon: FiWifi },
+    { title: "Delivery Platform", icon: FiSend }
+]
+
+export const webProblem = [
+    {
+        id: 1,
+        title: "Bisnis Sulit Ditemukan",
+        overlay: "dark",
+        subtext: "Calon pelanggan kesulitan menemukan bisnismu di internet.",
+        description:
+            "Tanpa website, bisnis sulit muncul di pencarian Google sehingga banyak calon pelanggan tidak pernah menemukan produk atau layanan yang kamu tawarkan.",
+        image:
+            "https://images.unsplash.com/photo-1616499370260-485b3e5ed653?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 2,
+        title: "Terlalu Bergantung Sosmed",
+        overlay: "light",
+        subtext: "Bisnis hanya bergantung pada Instagram atau marketplace.",
+        description:
+            "Tanpa website, bisnis sepenuhnya bergantung pada platform pihak ketiga seperti social media atau marketplace yang jangkauan dan kontrolnya terbatas.",
+        image:
+            "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 3,
+        title: "Informasi Tidak Terpusat",
+        overlay: "dark",
+        subtext: "Informasi bisnis tersebar di berbagai platform.",
+        description:
+            "Tanpa website, informasi tentang produk, layanan, harga, atau portofolio tersebar di berbagai platform sehingga calon pelanggan sulit mendapatkan gambaran lengkap.",
+        image:
+            "https://images.unsplash.com/photo-1739953335542-a974e15a2b09?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 4,
+        title: "Kehilangan Peluang Leads",
+        overlay: "dark",
+        subtext: "Banyak calon pelanggan tidak tahu harus menghubungi ke mana.",
+        description:
+            "Website membantu mengarahkan pengunjung menjadi calon pelanggan melalui formulir, kontak, atau call to action yang jelas.",
+        image:
+            "https://images.unsplash.com/photo-1681505531034-8d67054e07f6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 5,
+        title: "Brand Terlihat Kurang Serius",
+        overlay: "light",
+        subtext: "Bisnis tanpa website sering terlihat kurang profesional.",
+        description:
+            "Banyak pelanggan menilai kredibilitas bisnis dari keberadaan website resmi. Tanpa website, brand bisa terlihat kurang terpercaya.",
+        image:
+            "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1055&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+        id: 6,
+        title: "Tidak Punya Pusat Bisnis",
+        overlay: "dark",
+        subtext: "Tidak ada satu tempat resmi untuk bisnis online.",
+        description:
+            "Website berfungsi sebagai pusat digital bisnis tempat pelanggan dapat menemukan informasi, layanan, dan cara menghubungi bisnis secara langsung.",
+        image:
+            "https://images.unsplash.com/photo-1434082033009-b81d41d32e1c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+];
+
+export const whyUsWeb = [
+  {
+    id: 1,
+    title: "Website Berorientasi Bisnis",
+    icon: FiTarget,
+    description:
+      "Kami tidak hanya membuat website yang terlihat bagus, tetapi dirancang untuk membantu bisnis mendapatkan leads dan peluang baru."
+  },
+  {
+    id: 2,
+    title: "Desain Profesional & Modern",
+    icon: FiLayout,
+    description:
+      "Setiap website dibuat dengan desain yang modern, responsif, dan mencerminkan kredibilitas brand di mata pelanggan."
+  },
+  {
+    id: 3,
+    title: "Optimasi Kecepatan & SEO",
+    icon: FiZap,
+    description:
+      "Website dibangun dengan struktur yang cepat, ringan, dan siap dioptimasi agar mudah ditemukan di mesin pencari seperti Google."
+  },
+  {
+    id: 4,
+    title: "Mudah Dikelola & Dikembangkan",
+    icon: FiLayers,
+    description:
+      "Website dirancang fleksibel sehingga mudah diperbarui, ditambah konten, atau dikembangkan seiring pertumbuhan bisnis."
+  },
+  {
+    id: 5,
+    title: "Terintegrasi dengan Digital Marketing",
+    icon: FiShare2,
+    description:
+      "Website dapat terhubung dengan social media, WhatsApp, analytics, dan tools marketing lainnya untuk mendukung strategi digital bisnis."
+  },
+  {
+    id: 6,
+    title: "Didukung Tim Berpengalaman",
+    icon: FiUsers,
+    description:
+      "Tim kami memahami kebutuhan bisnis digital dan membantu memastikan website bekerja sebagai aset pertumbuhan bisnis."
+  }
 ];

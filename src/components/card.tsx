@@ -32,7 +32,7 @@ export const Card = ({
                 {category}
                 <div className="bg-white dark:bg-black rounded-out-br-2xl"></div>
             </div>
-            <div className="flex flex-col justify-between bg-white dark:bg-black rounded-3xl rounded-tl-none space-y-4 p-5 hover:shadow-xl duration-300">
+            <div className="flex flex-col justify-between bg-white dark:bg-black rounded-main rounded-tl-none space-y-4 p-5 hover:shadow-xl duration-300">
                 <div>
                     <h3 className="text-lg font-semibold">{brandName}</h3>
                     <p className="text-sm text-neutral-500">{companyName}</p>

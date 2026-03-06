@@ -27,9 +27,9 @@ body {
   --color-secondaryLight: #e3e3e3;
 
   /* Border Radius */
-  --radius-main: 20px;
-  --radius-secondary: 16px;
-  --radius-third: 12px;
+  --radius-main: 30px;
+  --radius-secondary: 25px;
+  --radius-third: 17px;
 
   /* Blur */
   --backdrop-blur-min: 2px;
@@ -182,4 +182,3 @@ p
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-

@@ -46,7 +46,7 @@ export const OurSpecialty = () => {
                         {specialties.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-white dark:bg-black/40 rounded-3xl backdrop-blur-sm border border-black/5 dark:border-white/10 hover:-translate-y-1 transition duration-300"
+                                className="bg-white dark:bg-black/40 rounded-main backdrop-blur-sm border border-black/5 dark:border-white/10 hover:-translate-y-1 transition duration-300"
                             >
                                 <div className="m-">
                                     <div className="p-1.5 bg-lightColor dark:bg-darkColor rounded-2xl">

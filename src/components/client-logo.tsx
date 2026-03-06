@@ -45,7 +45,7 @@ export const ClientLogo = () => {
                             className="flex flex-col items-center gap-3 group"
                         >
                             {/* iOS Style Icon Box */}
-                            <div className="bg-white dark:bg-black p-3 w-20 h-20 sm:w-24 sm:h-24 rounded-3xl flex items-center justify-center group-hover:-translate-y-1 transition-all duration-300 relative "
+                            <div className="bg-white dark:bg-black p-3 w-20 h-20 sm:w-24 sm:h-24 rounded-main flex items-center justify-center group-hover:-translate-y-1 transition-all duration-300 relative "
                             >
                                 <Icon className="text-2xl sm:text-3xl text-neutral-700 dark:text-neutral-200 group-hover:opacity-0 duration-300" />
                                 <div className="absolute inset-0 flex items-center justify-center">

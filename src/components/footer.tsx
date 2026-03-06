@@ -3,7 +3,7 @@ import Image from "next/image"
 export const Footer = () => {
     return (
         <footer className="relative bg-black text-white dark:bg-white dark:text-black mt-40 transition-colors duration-500 overflow-hidden">
-            <div className="absolute -top-10 rounded-3xl w-full h-20 bg-lightColor dark:bg-darkColor"></div>
+            <div className="absolute -top-10 rounded-main w-full h-20 bg-lightColor dark:bg-darkColor"></div>
 
             {/* Huge Background Typography */}
             <div className="absolute -bottom-10 md:-bottom-26 left-1/2 -translate-x-1/2 pointer-events-none select-none">

@@ -14,7 +14,7 @@ export const NewsCard = () => {
                         href=""
                         className=""
                     >
-                        <div className="relative bg-white dark:bg-black rounded-3xl h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
+                        <div className="relative bg-white dark:bg-black rounded-main h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
                             <Image
                                 width={500}
                                 height={300}

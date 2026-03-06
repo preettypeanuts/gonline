@@ -1,6 +1,7 @@
 import { webWorks } from "@/app/data";
 import { TabsClient } from "./tabs-client";
 import { Card } from "./card";
+import { Button } from "./ui/button";
 
 export const Showcase = () => {
     return (
@@ -42,6 +43,14 @@ export const Showcase = () => {
                     </div>
                 }
             />
+            <a href="/our-work/website" className="block text-center">
+                <Button
+                    variant="invert"
+                    className="mx-auto"
+                >
+                    View All<span className="text-thirdColor dark:text-mainColor -ml-1">Projects</span>
+                </Button>
+            </a>
         </section>
     );
 };

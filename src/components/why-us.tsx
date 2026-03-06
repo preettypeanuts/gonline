@@ -58,7 +58,7 @@ export const WhyChooseUs = () => {
                 {items.map((item, index) => (
                     <div
                         key={index}
-                        className={`ml-4 md:ml-0 relative overflow-hidden min-h-100 hover:min-w-120 md:min-w-0 ease-in-out bg-white dark:bg-neutral-900 rounded-3xl p-8 border border-neutral-200 dark:border-neutral-800 hover:shadow-xl transition-all duration-500 flex flex-col justify-between`}
+                        className={`ml-4 md:ml-0 relative overflow-hidden min-h-100 hover:min-w-120 md:min-w-0 ease-in-out bg-white dark:bg-neutral-900 rounded-main p-8 border border-neutral-200 dark:border-neutral-800 hover:shadow-xl transition-all duration-500 flex flex-col justify-between`}
                     >
                         <div className="text-3xl mb-6 text-white dark:text-black p-2.5 bg-black dark:bg-white rounded-full w-fit z-10">
                             {item.icon}

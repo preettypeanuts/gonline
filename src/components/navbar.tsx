@@ -42,8 +42,7 @@ const MegaMenu = ({
         <div
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            className={`grid gap-3 w-full overflow-hidden ${isOpen ? "pb-3" : "p-0"
-                }`}
+            className={`grid gap-3 w-full overflow-hidden`}
             style={{
                 gridTemplateColumns: isOpen
                     ? "repeat(2, 1fr)"
@@ -233,7 +232,7 @@ export const Navbar = () => {
                     setActiveLabel(null);
                 }}
 
-                className={`relative bg-white dark:bg-black rounded-[25px] px-2 py-2 flex flex-col items-center w-full ${isExpanded ? "shadow-mainColor/50 shadow-mainShadow" : ""}`}
+                className={`relative bg-white dark:bg-black rounded-[25px] px-2 py-2.5 flex flex-col items-center w-full ${isExpanded ? "border shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}

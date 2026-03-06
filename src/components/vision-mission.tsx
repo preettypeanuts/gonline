@@ -12,7 +12,7 @@ export const VissionMission = () => {
                         <div className="rounded-out-lb-3xl bg-darkColor dark:bg-lightColor"></div>
                     </div>
 
-                    <h2 className="font-medium text-base md:text-3xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-3xl mr-4">
+                    <h2 className="font-medium text-base md:text-3xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-main mr-4">
                         To redefine how businesses build and manage their digital infrastructure in the modern era.
                     </h2>
 
@@ -25,16 +25,16 @@ export const VissionMission = () => {
 
                     {/* LEFT SIDE - Mission Points */}
                     <div className="flex flex-wrap justify-end gap-3 ml-4">
-                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-3xl">
+                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-main">
                             Build conversion-focused digital platforms.
                         </p>
-                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-3xl">
+                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-main">
                             Transform social media into structured growth systems.
                         </p>
-                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-3xl">
+                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-main">
                             Replace vanity metrics with measurable performance.
                         </p>
-                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-3xl">
+                        <p className="font-medium text-sm md:text-xl px-4 md:px-5 py-3 bg-white dark:bg-black rounded-main">
                             Operate with clarity, precision, and long-term strategy.
                         </p>
                     </div>

@@ -12,7 +12,7 @@ export const FeaturedInsight = () => {
 
                 {/* Featured / Hero Article */}
                 <a href="" className="col-span-1 md:col-span-6">
-                    <div className="bg-white dark:bg-black rounded-3xl w-full h-full hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 relative">
+                    <div className="bg-white dark:bg-black rounded-main w-full h-full hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 relative">
                         <Image
                             width={800}
                             height={450}
@@ -45,7 +45,7 @@ export const FeaturedInsight = () => {
                 <div className="col-span-1 md:col-span-4 flex flex-col gap-3">
                     {highlightedArticles.slice(1, 4).map((el, idx) => (
                         <a href="" key={idx} className="flex-1">
-                            <div className="bg-white dark:bg-black rounded-3xl h-full flex flex-row hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 overflow-hidden">
+                            <div className="bg-white dark:bg-black rounded-main h-full flex flex-row hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 overflow-hidden">
                                 <div className="relative w-32 sm:w-40 md:w-44 shrink-0">
                                     <Image
                                         width={300}
