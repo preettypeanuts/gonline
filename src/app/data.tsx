@@ -671,46 +671,141 @@ export const webProblem = [
 ];
 
 export const whyUsWeb = [
-  {
-    id: 1,
-    title: "Website Berorientasi Bisnis",
-    icon: FiTarget,
-    description:
-      "Kami tidak hanya membuat website yang terlihat bagus, tetapi dirancang untuk membantu bisnis mendapatkan leads dan peluang baru."
-  },
-  {
-    id: 2,
-    title: "Desain Profesional & Modern",
-    icon: FiLayout,
-    description:
-      "Setiap website dibuat dengan desain yang modern, responsif, dan mencerminkan kredibilitas brand di mata pelanggan."
-  },
-  {
-    id: 3,
-    title: "Optimasi Kecepatan & SEO",
-    icon: FiZap,
-    description:
-      "Website dibangun dengan struktur yang cepat, ringan, dan siap dioptimasi agar mudah ditemukan di mesin pencari seperti Google."
-  },
-  {
-    id: 4,
-    title: "Mudah Dikelola & Dikembangkan",
-    icon: FiLayers,
-    description:
-      "Website dirancang fleksibel sehingga mudah diperbarui, ditambah konten, atau dikembangkan seiring pertumbuhan bisnis."
-  },
-  {
-    id: 5,
-    title: "Terintegrasi dengan Digital Marketing",
-    icon: FiShare2,
-    description:
-      "Website dapat terhubung dengan social media, WhatsApp, analytics, dan tools marketing lainnya untuk mendukung strategi digital bisnis."
-  },
-  {
-    id: 6,
-    title: "Didukung Tim Berpengalaman",
-    icon: FiUsers,
-    description:
-      "Tim kami memahami kebutuhan bisnis digital dan membantu memastikan website bekerja sebagai aset pertumbuhan bisnis."
-  }
+    {
+        id: 1,
+        title: "Website Berorientasi Bisnis",
+        icon: FiTarget,
+        description:
+            "Kami tidak hanya membuat website yang terlihat bagus, tetapi dirancang untuk membantu bisnis mendapatkan leads dan peluang baru."
+    },
+    {
+        id: 2,
+        title: "Desain Profesional & Modern",
+        icon: FiLayout,
+        description:
+            "Setiap website dibuat dengan desain yang modern, responsif, dan mencerminkan kredibilitas brand di mata pelanggan."
+    },
+    {
+        id: 3,
+        title: "Optimasi Kecepatan & SEO",
+        icon: FiZap,
+        description:
+            "Website dibangun dengan struktur yang cepat, ringan, dan siap dioptimasi agar mudah ditemukan di mesin pencari seperti Google."
+    },
+    {
+        id: 4,
+        title: "Mudah Dikelola & Dikembangkan",
+        icon: FiLayers,
+        description:
+            "Website dirancang fleksibel sehingga mudah diperbarui, ditambah konten, atau dikembangkan seiring pertumbuhan bisnis."
+    },
+    {
+        id: 5,
+        title: "Terintegrasi dengan Digital Marketing",
+        icon: FiShare2,
+        description:
+            "Website dapat terhubung dengan social media, WhatsApp, analytics, dan tools marketing lainnya untuk mendukung strategi digital bisnis."
+    },
+    {
+        id: 6,
+        title: "Didukung Tim Berpengalaman",
+        icon: FiUsers,
+        description:
+            "Tim kami memahami kebutuhan bisnis digital dan membantu memastikan website bekerja sebagai aset pertumbuhan bisnis."
+    }
+];
+
+export const WebsitePackages = [
+    {
+        name: "Landing Page",
+        favorite: true,
+        priceRange: "Start From 1JT",
+        pricing: {
+            fixed: 1500000,
+            gimmick: 7000000,
+            discount: 29,
+        },
+        deliverables: [
+            "1 Static Page (scroll-based)",
+            "Responsive (mobile optimized)",
+            "Basic UI Design",
+            "Basic SEO setup (meta & structure)",
+            "Contact form / CTA integration",
+            "1x revision per section",
+        ],
+    },
+    {
+        name: "Company Profile Website",
+        favorite: false,
+        priceRange: "Start From 3JT",
+        pricing: {
+            fixed: 3000000,
+            gimmick: 19000000,
+            discount: 32,
+        },
+        deliverables: [
+            "Up to 5 Pages (Home, About, Services, Portfolio, Contact)",
+            "Responsive design",
+            "Structured layout & UX basic",
+            "Basic SEO setup",
+            "Contact form integration",
+            "CMS integration (jika perlu)",
+            "2x revision per page",
+        ],
+    },
+    {
+        name: "Showcase Product Website",
+        favorite: false,
+        priceRange: "Start From 7JT",
+        pricing: {
+            fixed: 8000000,
+            gimmick: 24000000,
+            discount: 25,
+        },
+        deliverables: [
+            "Up to 8 Pages",
+            "Product showcase layout",
+            "Category structure",
+            "Responsive design",
+            "Basic on-page SEO",
+            "Inquiry form / WhatsApp integration",
+            "CMS product management basic",
+            "2x revision per page",
+        ],
+    },
+    {
+        name: "Blog Website",
+        favorite: false,
+        priceRange: "Start From 15JT",
+        pricing: {
+            fixed: 15000000,
+            gimmick: 31000000,
+            discount: 19,
+        },
+        deliverables: [
+            "Up to 10 Pages",
+            "Blog system (CMS ready)",
+            "Category & tagging structure",
+            "Responsive UI/UX",
+            "Basic SEO optimization",
+            "Article template design",
+            "Contact & CTA integration",
+            "2x revision per page",
+        ],
+    },
+    {
+        name: "Custom Website",
+        pricing: {
+            gimmick: 0,
+            fixed: 0,
+        },
+        deliverables: [
+            "Fully Custom Design",
+            "Unlimited Pages",
+            "Advanced Features",
+            "Custom Integrations",
+            "Scalable Architecture",
+            "Priority Support",
+        ],
+    },
 ];

@@ -35,7 +35,7 @@ export const WebWork = () => {
         if (!scrollRef.current) return
         const cardWidth = scrollRef.current.querySelector("a")?.offsetWidth ?? 320
         const gap = 12
-        const scrollAmount = cardWidth + gap
+        const scrollAmount = cardWidth + gap * 70
 
         scrollRef.current.scrollBy({
             left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -56,11 +56,12 @@ export const WebWork = () => {
                 </div>
 
                 {/* Right nav buttons */}
-                <div className="hidden self-end md:self-auto pr-10 py-3 rounded-l-3xl bg-black dark:bg-white relative w-fit md:flex items-center gap-2">
-                    <div className="rounded-out-rt-3xl bg-black dark:bg-white"></div>
-                    <div className="rounded-out-rb-3xl bg-black dark:bg-white"></div>
+                <div className="hidden self-end md:self-auto pr-10 py-3 rounded-l-3xl relative w-fit md:flex items-center gap-2">
+                    <div className="rounded-out-rt-3xl"></div>
+                    <div className="rounded-out-rb-3xl"></div>
                     <Button
                         size={"icon-lg"}
+                        variant={"invert"}
                         onClick={() => scroll("left")}
                         aria-label="Scroll left"
                         disabled={isAtStart}
@@ -70,6 +71,7 @@ export const WebWork = () => {
                     </Button>
                     <Button
                         size={"icon-lg"}
+                        variant={"invert"}
                         onClick={() => scroll("right")}
                         aria-label="Scroll right"
                         disabled={isAtEnd}
@@ -95,14 +97,15 @@ export const WebWork = () => {
                                 View
                             </Link>
                         </div>
-                        <div className="absolute inset-0 w-full h-full rounded-main bg-lightColor/40 dark:bg-darkColor/40 z-10 backdrop-blur-min opacity-0 group-hover:opacity-100 duration-200"></div>
+                        <div className="absolute inset-0 w-full h-full rounded-main bg-lightColor/70 dark:bg-darkColor/70 z-10 opacity-0 group-hover:opacity-100 duration-200"></div>
+                        
                         <div className="min-w-90 max-w-90 md:max-w-120 h-full md:min-w-120 bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                             <Image
                                 width={500}
                                 height={300}
                                 src={el.imagePreview}
                                 alt={el.brandName}
-                                className="rounded-t-3xl w-full h-auto object-cover"
+                                className="rounded-t-main w-full h-auto object-cover"
                             />
                             <div className="p-5 sm:p-8 space-y-2">
                                 <h1 className="font-bold text-lg sm:text-xl">

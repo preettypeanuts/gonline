@@ -6,6 +6,11 @@ import { GrAdd } from "react-icons/gr";
 import ThemeSwitch from "./theme";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { SiSemanticweb } from "react-icons/si";
+import { IconType } from "react-icons";
+import { FiGlobe, FiShare2 } from "react-icons/fi";
+import { PiCloverFill } from "react-icons/pi";
+import { FaTablets } from "react-icons/fa";
 
 
 /* ============================= */
@@ -17,7 +22,7 @@ type MenuKey = "services" | "about";
 interface MenuItem {
     title: string;
     description: string;
-    icon: string;
+    icon: IconType;
     href?: string;
 }
 
@@ -68,12 +73,15 @@ const MegaMenu = ({
                         href={item.href ?? "#"}
                         className="block group p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10  border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-2xl"
                     >
-                        <div className="text-2xl mb-2 transition-transform">
-                            {item.icon}
+                        <div className="flex items-center gap-2 mb-2">
+
+                            <div className="text-xl transition-transform">
+                                <item.icon />
+                            </div>
+                            <h3 className="font-semibold text-md">
+                                {item.title}
+                            </h3>
                         </div>
-                        <h3 className="font-semibold text-sm mb-1">
-                            {item.title}
-                        </h3>
                         <p className="opacity-60 text-xs leading-relaxed">
                             {item.description}
                         </p>
@@ -96,56 +104,45 @@ export const Navbar = () => {
     const menuData: Record<MenuKey, MenuItem[]> = {
         services: [
             {
+                title: "GO Digital",
+                description: "A bundled service combining Website Development and Social Media Management to build a complete digital presence for your business.",
+                href: "/go-digital",
+                icon: SiSemanticweb,
+            },
+            {
                 title: "Web Development",
-                description: "Custom websites & web applications",
-                icon: "🌐",
+                description: "Professional website development designed to increase credibility and generate more leads for your business.",
+                href: "/website-development",
+                icon: FaTablets,
             },
             {
-                title: "Mobile Apps",
-                description: "iOS & Android development",
-                icon: "📱",
-            },
-            {
-                title: "UI/UX Design",
-                description: "Beautiful & functional interfaces",
-                icon: "🎨",
-            },
-            {
-                title: "Consulting",
-                description: "Strategic tech guidance",
-                icon: "💡",
-            },
-            {
-                title: "Consulting",
-                description: "Strategic tech guidance",
-                icon: "💡",
-            }, {
-                title: "Consulting",
-                description: "Strategic tech guidance",
-                icon: "💡",
-            },
+                title: "Social Media Management",
+                description: "End-to-end social media management including content strategy, design, and optimization to grow engagement.",
+                href: "/social-media",
+                icon: PiCloverFill,
+            }
 
         ],
         about: [
             {
                 title: "Our Story",
                 description: "How we started & our journey",
-                icon: "📖",
+                icon: SiSemanticweb,
             },
             {
                 title: "Our Team",
                 description: "Meet the experts behind us",
-                icon: "👥",
+                icon: SiSemanticweb,
             },
             {
                 title: "Careers",
                 description: "Join our growing team",
-                icon: "🚀",
+                icon: SiSemanticweb,
             },
             {
                 title: "Culture",
                 description: "What drives our company",
-                icon: "🏢",
+                icon: SiSemanticweb,
             },
         ],
     };
@@ -232,7 +229,7 @@ export const Navbar = () => {
                     setActiveLabel(null);
                 }}
 
-                className={`relative bg-white dark:bg-black rounded-[25px] px-2 py-2.5 flex flex-col items-center w-full ${isExpanded ? "border shadow-mainShadow" : ""}`}
+                className={`relative bg-white dark:bg-black rounded-secondary px-2 py-2.5 flex flex-col items-center w-full ${isExpanded ? "border shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}

@@ -31,7 +31,7 @@ export const WebSpecialty = () => {
         <section className="py-4 overflow-hidden">
             <style>{`
         :root {
-          --scroll-speed: 180s;
+          --scroll-speed: 380s;
         }
 
         @keyframes scroll-x-left {
@@ -47,7 +47,7 @@ export const WebSpecialty = () => {
         .scroll-track {
           display: flex;
           width: max-content;
-          gap: 10px;
+          gap: 5px;
           will-change: transform;
         }
 
