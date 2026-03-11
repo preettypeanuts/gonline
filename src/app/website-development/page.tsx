@@ -6,6 +6,8 @@ import { whyUsWeb } from "../data";
 import { WebWork } from "@/components/web-work";
 import { RunningClientsLogo } from "@/components/running-clients-logo";
 import { PricingCard } from "@/components/pricing-card";
+import { FaqSection } from "@/components/faq";
+import { CtaWebsite } from "@/components/cta-website";
 
 export default function WebsiteDevelopment() {
     return (
@@ -26,6 +28,8 @@ export default function WebsiteDevelopment() {
             <WebWork />
             <RunningClientsLogo />
             <PricingCard />
+            <FaqSection />
+            <CtaWebsite />
         </>
     )
 }

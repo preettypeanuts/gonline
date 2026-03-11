@@ -66,7 +66,7 @@ export const RunningClientsLogo = () => {
   const row2 = [...shuffleArray(clientsLogo), ...shuffleArray(clientsLogo)];
 
   return (
-    <section className=" overflow-hidden relative">
+    <section className="spacing overflow-hidden relative">
       <style>{`
         :root {
           --scroll-speed: 120s;

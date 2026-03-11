@@ -809,3 +809,91 @@ export const WebsitePackages = [
         ],
     },
 ];
+
+export const WebsiteFaq = [
+  {
+    question: "Berapa lama proses pembuatan website?",
+    answer:
+      "Waktu pengerjaan biasanya berkisar antara 2 hingga 6 minggu tergantung kompleksitas website, jumlah halaman, dan fitur yang dibutuhkan.",
+  },
+  {
+    question: "Apakah saya akan mendapatkan domain dan hosting?",
+    answer:
+      "Ya. Kami dapat membantu menyediakan domain dan hosting, atau menggunakan layanan hosting milik Anda jika sudah ada.",
+  },
+  {
+    question: "Apakah website bisa diakses di mobile?",
+    answer:
+      "Semua website yang kami buat sudah responsive, sehingga dapat diakses dengan baik di desktop, tablet, maupun smartphone.",
+  },
+  {
+    question: "Apakah website sudah SEO friendly?",
+    answer:
+      "Ya. Website kami dibangun dengan struktur yang SEO-friendly seperti kecepatan optimal, struktur heading yang benar, dan basic on-page SEO.",
+  },
+  {
+    question: "Apakah saya bisa mengupdate konten website sendiri?",
+    answer:
+      "Tentu. Kami dapat menyediakan sistem CMS sehingga Anda dapat mengubah teks, gambar, atau artikel tanpa perlu mengerti coding.",
+  },
+  {
+    question: "Apakah ada biaya maintenance?",
+    answer:
+      "Maintenance bersifat opsional. Kami menyediakan paket maintenance untuk update sistem, backup, dan monitoring keamanan website.",
+  },
+  {
+    question: "Bagaimana sistem pembayarannya?",
+    answer:
+      "Pembayaran biasanya dilakukan dengan sistem DP di awal proyek dan pelunasan setelah website selesai sebelum proses launching.",
+  },
+  {
+    question: "Apakah bisa request fitur custom?",
+    answer:
+      "Tentu saja. Kami dapat membuat fitur khusus sesuai kebutuhan bisnis Anda seperti booking system, membership, dashboard, atau integrasi API.",
+  },
+]
+
+export const socialMediaProblem = [
+    {
+        image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=600&fit=crop",
+        title: "Engagement Rendah",
+        subtext: "Konten Kamu Diabaikan",
+        description: "Postingan dapat sepi tanpa interaksi. Kami merancang strategi konten yang memancing percakapan nyata dan mengubah penonton pasif menjadi followers setia.",
+        overlay: "dark",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=500&h=600&fit=crop",
+        title: "Posting Tidak Konsisten",
+        subtext: "Tidak Eksis, Tidak Dilirik",
+        description: "Upload seminggu sekali tidak cukup. Kami buatkan kalender konten dan jadwal otomatis agar brand kamu tetap terlihat setiap hari.",
+        overlay: "light",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1636051028886-0059ad2383c8?w=500&h=600&fit=crop",
+        title: "Identitas Visual Lemah",
+        subtext: "Tenggelam di Antara Kompetitor",
+        description: "Kalau kontenmu terlihat seperti semua orang, audiens akan melewatinya begitu saja. Kami rancang identitas visual yang kuat agar brand kamu mudah dikenali.",
+        overlay: "dark",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=600&fit=crop",
+        title: "Melawan Algoritma",
+        subtext: "Tidak Masuk For You Page",
+        description: "Algoritma mengubur konten yang tidak dipahaminya. Kami optimalkan format, waktu posting, dan hook agar algoritma bekerja untuk kamu, bukan sebaliknya.",
+        overlay: "light",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=500&h=600&fit=crop",
+        title: "Tidak Ada Konversi",
+        subtext: "Likes Tidak Bayar Tagihan",
+        description: "Ribuan followers tapi penjualan nol. Kami bangun funnel yang mengubah followers menjadi leads dan leads menjadi pelanggan yang membayar.",
+        overlay: "dark",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=500&h=600&fit=crop",
+        title: "Krisis Reputasi",
+        subtext: "Satu Postingan Bisa Hancurkan Segalanya",
+        description: "Komentar negatif menyebar cepat. Kami pantau brand kamu 24 jam dan merespons secara strategis untuk melindungi serta memperkuat reputasi online kamu.",
+        overlay: "light",
+    },
+]
