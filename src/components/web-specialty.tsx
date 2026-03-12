@@ -1,4 +1,4 @@
-import { DataBusinessSpecialties } from "@/app/data"
+import { dataBusinessSpecialties } from "@/app/data"
 
 function shuffleArray<T>(array: T[]): T[] {
     const arr = [...array]
@@ -11,7 +11,7 @@ function shuffleArray<T>(array: T[]): T[] {
     return arr
 }
 
-const shuffledSpecialties = shuffleArray(DataBusinessSpecialties)
+const shuffledSpecialties = shuffleArray(dataBusinessSpecialties)
 
 const Pill = ({ title, icon: Icon }: { title: string; icon: React.ComponentType }) => (
     <div className="flex items-center p-2 bg-white dark:bg-black rounded-full group hover:invert duration-200">
@@ -63,7 +63,7 @@ export const WebSpecialty = () => {
             {/* ROW 1 */}
             <div className="scroll-wrapper overflow-hidden cursor-default select-none">
                 <div className="scroll-track scroll-left pb-3">
-                    {[...DataBusinessSpecialties, ...DataBusinessSpecialties].map((el, idx) => (
+                    {[...dataBusinessSpecialties, ...dataBusinessSpecialties].map((el, idx) => (
                       <Pill key={`top-${idx}`} title={el.title} icon={el.icon} />
                     ))}
                 </div>

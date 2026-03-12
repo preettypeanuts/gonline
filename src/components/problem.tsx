@@ -74,7 +74,7 @@ export const Problem = ({
                                 <h2 className={`font-bold text-2xl ${isDark ? "text-white" : "text-black"}`}>{el.subtext}</h2>
                             </div>
                             <div className="absolute bottom-0 translate-y-full duration-300 ease-in-out group-hover:translate-y-0 scale-50 group-hover:scale-100">
-                                <p className={`${isDark ? "text-white bg-black" : "text-black bg-white"} p-8 rounded-t-main text-lg font-medium`}>
+                                <p className={`${isDark ? "text-white bg-black" : "text-black bg-white"} p-8 text-lg font-medium rounded-t-[100px] group-hover:rounded-t-main duration-300`}>
                                     {el.description}
                                 </p>
                             </div>

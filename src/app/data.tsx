@@ -53,8 +53,8 @@ import {
     FiZap,
     FiLayout,
     FiShare2,
+    FiMessageSquare
 } from "react-icons/fi"
-
 
 export const webWorks = [
     // =========================
@@ -554,7 +554,7 @@ export const dataArticles = [
     },
 ];
 
-export const DataBusinessSpecialties = [
+export const dataBusinessSpecialties = [
     { title: "Corporate", icon: FiBriefcase },
     { title: "Online Shop", icon: FiShoppingCart },
     { title: "Retail Business", icon: FiShoppingBag },
@@ -715,7 +715,7 @@ export const whyUsWeb = [
     }
 ];
 
-export const WebsitePackages = [
+export const websitePackages = [
     {
         name: "Landing Page",
         favorite: true,
@@ -810,90 +810,292 @@ export const WebsitePackages = [
     },
 ];
 
-export const WebsiteFaq = [
-  {
-    question: "Berapa lama proses pembuatan website?",
-    answer:
-      "Waktu pengerjaan biasanya berkisar antara 2 hingga 6 minggu tergantung kompleksitas website, jumlah halaman, dan fitur yang dibutuhkan.",
-  },
-  {
-    question: "Apakah saya akan mendapatkan domain dan hosting?",
-    answer:
-      "Ya. Kami dapat membantu menyediakan domain dan hosting, atau menggunakan layanan hosting milik Anda jika sudah ada.",
-  },
-  {
-    question: "Apakah website bisa diakses di mobile?",
-    answer:
-      "Semua website yang kami buat sudah responsive, sehingga dapat diakses dengan baik di desktop, tablet, maupun smartphone.",
-  },
-  {
-    question: "Apakah website sudah SEO friendly?",
-    answer:
-      "Ya. Website kami dibangun dengan struktur yang SEO-friendly seperti kecepatan optimal, struktur heading yang benar, dan basic on-page SEO.",
-  },
-  {
-    question: "Apakah saya bisa mengupdate konten website sendiri?",
-    answer:
-      "Tentu. Kami dapat menyediakan sistem CMS sehingga Anda dapat mengubah teks, gambar, atau artikel tanpa perlu mengerti coding.",
-  },
-  {
-    question: "Apakah ada biaya maintenance?",
-    answer:
-      "Maintenance bersifat opsional. Kami menyediakan paket maintenance untuk update sistem, backup, dan monitoring keamanan website.",
-  },
-  {
-    question: "Bagaimana sistem pembayarannya?",
-    answer:
-      "Pembayaran biasanya dilakukan dengan sistem DP di awal proyek dan pelunasan setelah website selesai sebelum proses launching.",
-  },
-  {
-    question: "Apakah bisa request fitur custom?",
-    answer:
-      "Tentu saja. Kami dapat membuat fitur khusus sesuai kebutuhan bisnis Anda seperti booking system, membership, dashboard, atau integrasi API.",
-  },
+export const websiteFaq = [
+    {
+        question: "Berapa lama proses pembuatan website?",
+        answer:
+            "Waktu pengerjaan biasanya berkisar antara 2 hingga 6 minggu tergantung kompleksitas website, jumlah halaman, dan fitur yang dibutuhkan.",
+    },
+    {
+        question: "Apakah saya akan mendapatkan domain dan hosting?",
+        answer:
+            "Ya. Kami dapat membantu menyediakan domain dan hosting, atau menggunakan layanan hosting milik Anda jika sudah ada.",
+    },
+    {
+        question: "Apakah website bisa diakses di mobile?",
+        answer:
+            "Semua website yang kami buat sudah responsive, sehingga dapat diakses dengan baik di desktop, tablet, maupun smartphone.",
+    },
+    {
+        question: "Apakah website sudah SEO friendly?",
+        answer:
+            "Ya. Website kami dibangun dengan struktur yang SEO-friendly seperti kecepatan optimal, struktur heading yang benar, dan basic on-page SEO.",
+    },
+    {
+        question: "Apakah saya bisa mengupdate konten website sendiri?",
+        answer:
+            "Tentu. Kami dapat menyediakan sistem CMS sehingga Anda dapat mengubah teks, gambar, atau artikel tanpa perlu mengerti coding.",
+    },
+    {
+        question: "Apakah ada biaya maintenance?",
+        answer:
+            "Maintenance bersifat opsional. Kami menyediakan paket maintenance untuk update sistem, backup, dan monitoring keamanan website.",
+    },
+    {
+        question: "Bagaimana sistem pembayarannya?",
+        answer:
+            "Pembayaran biasanya dilakukan dengan sistem DP di awal proyek dan pelunasan setelah website selesai sebelum proses launching.",
+    },
+    {
+        question: "Apakah bisa request fitur custom?",
+        answer:
+            "Tentu saja. Kami dapat membuat fitur khusus sesuai kebutuhan bisnis Anda seperti booking system, membership, dashboard, atau integrasi API.",
+    },
 ]
 
 export const socialMediaProblem = [
     {
-        image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=600&fit=crop",
-        title: "Engagement Rendah",
-        subtext: "Konten Kamu Diabaikan",
-        description: "Postingan dapat sepi tanpa interaksi. Kami merancang strategi konten yang memancing percakapan nyata dan mengubah penonton pasif menjadi followers setia.",
+        image: "https://images.unsplash.com/photo-1560270579-d515a443eb3b?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Tidak Punya Strategi Konten",
+        subtext: "Posting Tanpa Arah",
+        description:
+            "Banyak bisnis aktif posting, tapi tidak memiliki tujuan yang jelas. Kami membantu menyusun strategi konten yang terarah agar setiap postingan mendukung pertumbuhan brand dan bisnis.",
         overlay: "dark",
     },
     {
-        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=500&h=600&fit=crop",
+        image: "https://images.unsplash.com/photo-1617791160536-598cf32026fb?q=80&w=1664&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         title: "Posting Tidak Konsisten",
-        subtext: "Tidak Eksis, Tidak Dilirik",
-        description: "Upload seminggu sekali tidak cukup. Kami buatkan kalender konten dan jadwal otomatis agar brand kamu tetap terlihat setiap hari.",
-        overlay: "light",
-    },
-    {
-        image: "https://images.unsplash.com/photo-1636051028886-0059ad2383c8?w=500&h=600&fit=crop",
-        title: "Identitas Visual Lemah",
-        subtext: "Tenggelam di Antara Kompetitor",
-        description: "Kalau kontenmu terlihat seperti semua orang, audiens akan melewatinya begitu saja. Kami rancang identitas visual yang kuat agar brand kamu mudah dikenali.",
+        subtext: "Brand Sulit Diingat",
+        description:
+            "Ketika posting tidak konsisten, brand akan mudah dilupakan. Kami membuat kalender konten yang terencana agar brand kamu tetap hadir secara rutin di hadapan audiens.",
         overlay: "dark",
     },
     {
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=600&fit=crop",
-        title: "Melawan Algoritma",
-        subtext: "Tidak Masuk For You Page",
-        description: "Algoritma mengubur konten yang tidak dipahaminya. Kami optimalkan format, waktu posting, dan hook agar algoritma bekerja untuk kamu, bukan sebaliknya.",
-        overlay: "light",
-    },
-    {
-        image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=500&h=600&fit=crop",
-        title: "Tidak Ada Konversi",
-        subtext: "Likes Tidak Bayar Tagihan",
-        description: "Ribuan followers tapi penjualan nol. Kami bangun funnel yang mengubah followers menjadi leads dan leads menjadi pelanggan yang membayar.",
+        image: "https://images.unsplash.com/photo-1605548587049-8bda5bfdbbf7?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Identitas Visual Tidak Kuat",
+        subtext: "Sulit Dibedakan Dari Kompetitor",
+        description:
+            "Jika tampilan konten tidak memiliki karakter, brand akan terlihat sama seperti yang lain. Kami merancang identitas visual yang konsisten agar brand mudah dikenali.",
         overlay: "dark",
     },
     {
-        image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=500&h=600&fit=crop",
-        title: "Krisis Reputasi",
-        subtext: "Satu Postingan Bisa Hancurkan Segalanya",
-        description: "Komentar negatif menyebar cepat. Kami pantau brand kamu 24 jam dan merespons secara strategis untuk melindungi serta memperkuat reputasi online kamu.",
+        image: "https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Konten Tidak Relevan",
+        subtext: "Tidak Menarik Bagi Audiens",
+        description:
+            "Konten yang tidak sesuai dengan kebutuhan audiens akan mudah dilewati. Kami membantu merancang konten yang relevan, informatif, dan sesuai dengan karakter target market.",
+        overlay: "dark",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1556742208-999815fca738?q=80&w=1049&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Followers Tidak Jadi Leads",
+        subtext: "Social Media Tidak Mendukung Bisnis",
+        description:
+            "Banyak bisnis aktif di social media, tetapi belum memanfaatkannya untuk menghasilkan calon pelanggan. Kami membantu membangun alur konten yang mengarah pada leads dan peluang penjualan.",
         overlay: "light",
+    },
+    {
+        image: "https://images.unsplash.com/photo-1634334339429-660e1b088026?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Brand Kurang Dipercaya",
+        subtext: "Social Media Belum Mencerminkan Profesionalitas",
+        description:
+            "Tampilan social media sering menjadi kesan pertama bagi calon pelanggan. Kami membantu membangun tampilan dan komunikasi brand yang lebih profesional dan terpercaya.",
+        overlay: "light",
+    },
+]
+
+export const whyUsSocialMedia = [
+    {
+        id: 1,
+        title: "Strategi Konten Terarah",
+        icon: FiTarget,
+        description:
+            "Kami tidak hanya membuat konten, tetapi menyusun strategi yang selaras dengan tujuan bisnis agar social media berfungsi sebagai aset brand."
+    },
+    {
+        id: 2,
+        title: "Visual Brand yang Konsisten",
+        icon: FiLayout,
+        description:
+            "Setiap desain konten dibuat dengan identitas visual yang konsisten sehingga brand terlihat lebih profesional dan mudah dikenali."
+    },
+    {
+        id: 3,
+        title: "Konten yang Relevan dengan Audiens",
+        icon: FiMessageSquare,
+        description:
+            "Kami merancang konten yang informatif, edukatif, dan sesuai dengan karakter target market agar brand tetap relevan di mata audiens."
+    },
+    {
+        id: 4,
+        title: "Perencanaan Konten yang Rapi",
+        icon: FiCalendar,
+        description:
+            "Dengan kalender konten yang terstruktur, social media brand kamu tetap aktif dan konsisten tanpa harus memikirkan ide posting setiap hari."
+    },
+    {
+        id: 5,
+        title: "Mendukung Pertumbuhan Brand",
+        icon: FiTrendingUp,
+        description:
+            "Social media dirancang untuk memperkuat kehadiran digital bisnis, membangun kepercayaan, dan membuka peluang interaksi dengan calon pelanggan."
+    },
+    {
+        id: 6,
+        title: "Didukung Tim Kreatif & Strategis",
+        icon: FiUsers,
+        description:
+            "Tim kami menggabungkan kreativitas desain dan pemahaman strategi digital untuk membantu brand tampil lebih kuat di social media."
+    }
+];
+
+export const dataClientSocmed = [
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773300588/1_1_11zon_c5yvnj.webp",
+        brandName: "K-One Event",
+        name: "@k_oneevent",
+        link: "https://www.instagram.com/k_oneevent/",
+        package: ""
+    },
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773301660/22_11zon_hdzwtr.webp",
+        brandName: "Go Space",
+        name: "@gospace.official",
+        link: "https://www.instagram.com/gospace.official/",
+        package: ""
+    },
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773300588/3_3_11zon_lb8mhm.webp",
+        brandName: "Ganesha Consulting",
+        name: "@ganeshamultikreatif",
+        link: "https://www.instagram.com/ganeshamultikreatif/",
+        package: ""
+    },
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773300589/4_4_11zon_reru28.webp",
+        brandName: "SEIC",
+        name: "@seic.corp",
+        link: "https://www.instagram.com/seic.corp/",
+        package: ""
+    },
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773300589/5_5_11zon_i5m9ap.webp",
+        brandName: "Jasa Cuci Toren Farhan",
+        name: "@jasacucitorenpipafarhan",
+        link: "https://www.instagram.com/jasacucitorenpipafarhan/",
+        package: ""
+    },
+    {
+        preview: "https://res.cloudinary.com/di3cnyfg3/image/upload/v1773300588/6_6_11zon_zvyon2.webp",
+        brandName: "Ganapatih",
+        name: "@ganapatih.co.id",
+        link: "https://www.instagram.com/ganapatih.co.id/",
+        package: ""
+    },
+]
+
+export const socmedPackages = [
+    {
+        name: "Basic",
+        favorite: false,
+        pricing: {
+            fixed: 4000000,
+            gimmick: 6500000,
+        },
+        deliverables: [
+            "12 Feed Content (static/carousel)",
+            "1 bulan (ongoing)",
+            "Basic caption writing",
+            "1x monthly content planning",
+            "Basic hashtag research",
+            "1x revision per konten",
+            "Scheduling & posting",
+            "Simple monthly report",
+        ],
+    },
+    {
+        name: "Growth",
+        favorite: true,
+        pricing: {
+            fixed: 8900000,
+            gimmick: 13000000,
+        },
+        deliverables: [
+            "20 Feed Content",
+            "4 Reels",
+            "1 bulan (ongoing)",
+            "Strategic content pillar mapping",
+            "CTA-based caption writing",
+            "Monthly content calendar",
+            "2x revision per konten",
+            "Scheduling & optimization timing",
+            "Basic competitor snapshot",
+            "1x strategy call",
+            "Insight report + recommendation",
+        ],
+    },
+    {
+        name: "High Scale",
+        favorite: false,
+        pricing: {
+            fixed: 15000000,
+            gimmick: 21000000,
+        },
+        deliverables: [
+            "30 Feed Content",
+            "8 Reels",
+            "1 bulan (ongoing)",
+            "Full funnel content mapping (Awareness–Conversion)",
+            "Advanced sales-driven copywriting",
+            "Visual direction alignment",
+            "3x revision per konten",
+            "Weekly monitoring & adjustment",
+            "2x strategy meeting",
+            "Detailed performance report",
+            "Basic ads setup guidance (tanpa budget)",
+        ],
+    },
+]
+
+export const socmedFaq = [
+    {
+        question: "Apa yang dimaksud dengan 'Feed Content' dalam paket ini?",
+        answer: "Feed Content adalah konten yang diunggah ke grid Instagram berupa gambar statis, carousel (multi-slide), atau infografis. Setiap konten dirancang sesuai brand guideline dan tujuan komunikasi bisnis Anda.",
+    },
+    {
+        question: "Apa bedanya Reels dengan Feed Content?",
+        answer: "Feed Content berupa gambar/carousel yang bersifat statis, sedangkan Reels adalah konten video pendek (biasanya 15–60 detik) yang memiliki jangkauan organik lebih luas di algoritma Instagram.",
+    },
+    {
+        question: "Apakah saya perlu menyediakan materi konten sendiri?",
+        answer: "Tidak wajib, namun kami sangat menyarankan Anda menyediakan foto/video produk atau kegiatan bisnis asli. Jika tidak ada, kami dapat menggunakan aset desain atau stock visual yang sesuai dengan brand Anda.",
+    },
+    {
+        question: "Berapa lama proses onboarding sebelum konten mulai berjalan?",
+        answer: "Proses onboarding biasanya memakan waktu 3–5 hari kerja, mencakup brief brand, riset kompetitor awal, dan penyusunan content plan bulan pertama.",
+    },
+    {
+        question: "Apakah ada kontrak jangka panjang yang mengikat?",
+        answer: "Tidak ada kontrak jangka panjang yang memaksa. Layanan berjalan per bulan (ongoing) dan Anda dapat melanjutkan atau menghentikan langganan dengan pemberitahuan minimal 7 hari sebelum periode berikutnya.",
+    },
+    {
+        question: "Apa itu 'content pillar' dan mengapa penting?",
+        answer: "Content pillar adalah kategori tema konten yang menjadi fondasi strategi media sosial Anda, misalnya edukasi, promosi, behind-the-scenes, dan testimoni. Dengan pillar yang jelas, konten lebih konsisten dan terarah dalam membangun brand.",
+    },
+    {
+        question: "Apakah paket ini termasuk pengelolaan iklan (ads)?",
+        answer: "Paket Basic dan Medium tidak termasuk pengelolaan iklan berbayar. Paket High (Scale) menyertakan basic ads setup guidance, namun budget iklan tetap di luar paket dan menjadi tanggung jawab klien.",
+    },
+    {
+        question: "Bagaimana sistem revisi konten bekerja?",
+        answer: "Setiap konten memiliki kuota revisi sesuai paket (1x, 2x, atau 3x). Revisi dilakukan sebelum konten dijadwalkan tayang. Permintaan revisi di luar kuota akan dikenakan biaya tambahan.",
+    },
+    {
+        question: "Apakah saya bisa upgrade paket di tengah bulan berjalan?",
+        answer: "Upgrade paket dapat dilakukan di awal periode bulan berikutnya. Kami akan menyesuaikan content plan dan deliverables sesuai paket baru mulai bulan tersebut.",
+    },
+    {
+        question: "Laporan performa seperti apa yang akan saya terima?",
+        answer: "Tergantung paket: Basic mendapat simple monthly report berisi ringkasan metrik utama, Medium mendapat insight report dengan rekomendasi, dan High mendapat detailed performance report mencakup analisis mendalam reach, engagement, dan rekomendasi strategi bulan berikutnya.",
     },
 ]

@@ -34,12 +34,12 @@ export const WhyUsSection = ({
                         <Image
                             width={500}
                             height={500}
-                            className="w-full h-full object-cover rounded-main dark:invert"
+                            className="w-full h-full object-cover rounded-main"
                             src={imageUrl}
                             alt={imageAlt}
                         />
                     )}
-                    <div className="text-black dark:text-white absolute inset-0 flex items-center justify-center">
+                    <div className="text-black dark:text-white absolute inset-0 flex items-center justify-center bg-white/10 dark:bg-black/10">
                         <p className="text-3xl md:text-4xl font-semibold text-center px-4">
                             {title}
                         </p>

@@ -2,7 +2,7 @@ import { Problem } from "@/components/problem";
 import { ReusableBanner } from "@/components/reusable-banner";
 import { WebSpecialty } from "@/components/web-specialty";
 import { WhyUsSection } from "@/components/why-us-service";
-import { whyUsWeb } from "../data";
+import { websiteFaq, websitePackages, whyUsWeb } from "../data";
 import { WebWork } from "@/components/web-work";
 import { RunningClientsLogo } from "@/components/running-clients-logo";
 import { PricingCard } from "@/components/pricing-card";
@@ -27,8 +27,12 @@ export default function WebsiteDevelopment() {
             />
             <WebWork />
             <RunningClientsLogo />
-            <PricingCard />
-            <FaqSection />
+            <PricingCard
+                packages={websitePackages}
+                title="Website Packages"
+                showStartingFrom
+            />
+            <FaqSection faqs={websiteFaq} />
             <CtaWebsite />
         </>
     )
