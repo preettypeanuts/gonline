@@ -31,8 +31,8 @@ function calculateDiscount(gimmick: number, fixed: number) {
 
 const GRID_COLS: Record<number, string> = {
     1: "grid-cols-1",
-    2: "grid-cols-2",
-    3: "grid-cols-3",
+    2: "grid-cols-1 md:grid-cols-2",
+    3: "grid-cols-1 md:grid-cols-3",
 }
 
 export const PricingCard = ({
@@ -182,7 +182,7 @@ export const PricingCard = ({
             {/* CARDS — grid if ≤3, scroll if >3 */}
             {useGrid ? (
                 <div className={`
-                    grid gap-5 py-16
+                    grid gap-13 md:gap-5 py-16
                     px-4 md:px-10
                     ${GRID_COLS[packages.length] ?? "grid-cols-3"}
                 `}>
