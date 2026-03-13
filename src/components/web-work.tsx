@@ -50,9 +50,9 @@ export const WebWork = () => {
                 <div className="pl-10 py-3 pr-3 rounded-r-3xl bg-black dark:bg-white dark:text-black text-white relative w-fit">
                     <div className="rounded-out-lt-3xl bg-darkColor dark:bg-lightColor"></div>
                     <div className="rounded-out-lb-3xl bg-darkColor dark:bg-lightColor"></div>
-                    <h1 className="text-2xl sm:text-3xl font-bold">
+                    <h2 className="text-2xl sm:text-3xl font-bold">
                         Our Web <span className="text-thirdColor dark:text-mainColor">Work</span>
-                    </h1>
+                    </h2>
                 </div>
 
                 {/* Right nav buttons */}
@@ -108,20 +108,20 @@ export const WebWork = () => {
                                 className="rounded-t-main w-full h-auto object-cover"
                             />
                             <div className="p-5 sm:p-8 space-y-2">
-                                <h1 className="font-bold text-lg sm:text-xl">
+                                <h2 className="font-bold text-lg sm:text-xl">
                                     {el.brandName}
-                                </h1>
-                                <p className="text-thirdColor uppercase font-semibold text-xs">
+                                </h2>
+                                <h3 className="text-thirdColor uppercase font-semibold text-xs">
                                     {el.category}
-                                </p>
+                                </h3>
                                 <div className="flex flex-wrap gap-1">
                                     {el.features.map((feature, featureIdx) => (
-                                        <p
+                                        <h4
                                             key={featureIdx}
                                             className="px-2 py-1 bg-darkColor w-fit rounded-full text-white dark:bg-lightColor dark:text-black text-xs font-medium"
                                         >
                                             {feature}
-                                        </p>
+                                        </h4>
                                     ))}
                                 </div>
                             </div>

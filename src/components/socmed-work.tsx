@@ -131,14 +131,14 @@ export const SocmedWork = () => {
                 ))}
             </div>
 
-            <a href="/our-work/socmed" className="block text-center">
+            {/* <a href="/our-work/socmed" className="block text-center">
                 <Button
                     variant="invert"
                     className="mx-auto mt-4"
                 >
                     View All
                 </Button>
-            </a>
+            </a> */}
         </section>
     )
 }

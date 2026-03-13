@@ -30,14 +30,14 @@ export const ReusableBanner = ({
           <div className="rounded-out-br-3xl bg-lightColor dark:bg-darkColor"></div>
 
           <div className="px-4 py-2 md:px-6 md:py-3 bg-linear-to-t from-white dark:from-black rounded-b-3xl text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-semibold leading-tight truncate">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-semibold leading-tight truncate">
               {title}{" "}
               {highlight && (
                 <span className="text-mainColor">
                   {highlight}
                 </span>
               )}
-            </h2>
+            </h1>
           </div>
 
         </div>

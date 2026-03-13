@@ -40,9 +40,9 @@ export const WhyUsSection = ({
                         />
                     )}
                     <div className="text-black dark:text-white absolute inset-0 flex items-center justify-center bg-white/10 dark:bg-black/10">
-                        <p className="text-3xl md:text-4xl font-semibold text-center px-4">
+                        <h2 className="text-3xl md:text-4xl font-semibold text-center px-4">
                             {title}
-                        </p>
+                        </h2>
                     </div>
                 </div>
 
@@ -58,12 +58,12 @@ export const WhyUsSection = ({
                                     <el.icon />
                                 </div>
                                 <div className="space-y-2 md:space-y-3">
-                                    <h3 className="text-xl md:text-2xl font-bold">
+                                    <h2 className="text-xl md:text-2xl font-bold">
                                         {el.title}
-                                    </h3>
-                                    <p className="text-sm font-medium opacity-80">
+                                    </h2>
+                                    <h3 className="text-sm font-medium opacity-80">
                                         {el.description}
-                                    </p>
+                                    </h3>
                                 </div>
                             </div>
                         ))}

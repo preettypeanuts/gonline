@@ -80,7 +80,7 @@ function FaqAccordionItem({
                     no-underline hover:no-underline
                 "
             >
-                <span>{item.question}</span>
+                <h2>{item.question}</h2>
                 <span
                     className="
                         ml-4 shrink-0 size-6 rounded-md

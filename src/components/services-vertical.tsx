@@ -75,7 +75,8 @@ export const ServicesVertical = () => {
         });
     };
     return (
-        <div className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
+        <div
+            className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
 
             <div className="absolute top-65 left-16 text-sm leading-relaxed">
                 Our Expertise
@@ -84,7 +85,7 @@ export const ServicesVertical = () => {
             <div className="w-full max-w-3xl h-50">
                 <div
                     ref={containerRef}
-                    className="w-full h-full overflow-y-scroll scrollbar-hide py-48 no-scrollbar"
+                    className="w-full h-full overflow-y-scroll scrollbar-hide py-48 no-scrollbar overscroll-auto"
                     style={{
                         scrollSnapType: 'y mandatory',
                         WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)'

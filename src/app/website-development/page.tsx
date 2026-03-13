@@ -10,8 +10,7 @@ import { FaqSection } from "@/components/faq"
 import { CtaWebsite } from "@/components/cta-website"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
-
-import { Layers, HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
+import { HelpCircle, Star, Briefcase, DollarSign } from "lucide-react"
 import { BiQuestionMark } from "react-icons/bi"
 
 const WEB_SUBNAV = [
@@ -21,6 +20,21 @@ const WEB_SUBNAV = [
     { label: "Pricing", id: "pricing", icon: <DollarSign size={15} /> },
     { label: "FAQ", id: "faq", icon: <BiQuestionMark size={15} /> },
 ]
+
+export const metadata = {
+  title: "Website Development Services | GONLINE",
+  description: "Professional business website development.",
+  alternates: {
+    canonical: "https://gonline.id/website-development",
+  },
+  openGraph: {
+    title: "Website Development Services | GONLINE",
+    description: "Professional business website development.",
+    url: "https://gonline.id/website-development",
+    images: ["/og-image.jpg"],
+  },
+}
+
 export default function WebsiteDevelopment() {
     return (
         <>
@@ -33,7 +47,9 @@ export default function WebsiteDevelopment() {
             <SubNav items={WEB_SUBNAV} />
 
             <WebSpecialty />
+
             <SectionAnchor id="problem"><Problem /></SectionAnchor>
+
             <SectionAnchor id="why-us">
                 <WhyUsSection
                     items={whyUsWeb}

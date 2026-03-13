@@ -56,7 +56,7 @@ export const SubNav = ({ items }: SubNavProps) => {
                         >
                             {/* Label — slides in from right on hover */}
                             <span className="
-                            absolute right-full mr-2
+                            absolute right-full mr-3
                             px-3 py-1 rounded-full
                             bg-black dark:bg-white
                             text-white dark:text-black
@@ -71,7 +71,7 @@ export const SubNav = ({ items }: SubNavProps) => {
 
                             {/* Icon pill */}
                             <div className={`
-                            size-9 rounded-full flex items-center justify-center
+                            size-7 rounded-full flex items-center justify-center
                             border transition-all duration-50
                             ${isActive
                                     ? "bg-mainColor text-white border-neutral-500/5 scale-110"

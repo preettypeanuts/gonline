@@ -24,7 +24,7 @@ export const Title = ({ children, side = "left", className }: TitleProps) => {
                     <div className="rounded-out-rb-3xl bg-black dark:bg-white" />
                 </>
             )}
-            <p className={`text-2xl font-bold ${className}`}>{children}</p>
+            <h2 className={`text-2xl font-bold ${className}`}>{children}</h2>
         </div>
     )
 }

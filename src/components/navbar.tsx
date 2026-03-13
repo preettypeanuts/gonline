@@ -24,6 +24,8 @@ interface MenuItem {
     description: string;
     icon: IconType;
     href?: string;
+    col?: string;
+    img?: string;
 }
 
 interface MegaMenuProps {
@@ -60,6 +62,7 @@ const MegaMenu = ({
         >
             {items.map((item, index) => (
                 <div
+                    className={`${item.col}`}
                     key={index}
                     style={{
                         opacity: isOpen ? 1 : 0,
@@ -71,9 +74,17 @@ const MegaMenu = ({
                 >
                     <Link
                         href={item.href ?? "#"}
-                        className="block group p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10  border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-2xl"
+                        className={`overflow-hidden relative flex flex-col justify-between group p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10  border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-2xl`}
                     >
-                        <div className="flex items-center gap-2 mb-2">
+                        <Image
+                            width={300}
+                            height={300}
+                            src={item.img ? item.img : "https://images.unsplash.com/photo-1694327875197-252cfe16f668?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+                            alt={item.title}
+                            className={`${item.img ? "group-hover:scale-110 duration-200 absolute inset-0 z-0 w-full h-full object-cover brightness-110 dark:invert dark:hue-rotate-30" : "hidden"}`}
+                        />
+
+                        <div className="flex items-center gap-2 mb-2 z-50">
 
                             <div className="text-xl transition-transform">
                                 <item.icon />
@@ -82,7 +93,7 @@ const MegaMenu = ({
                                 {item.title}
                             </h3>
                         </div>
-                        <p className="opacity-60 text-xs leading-relaxed">
+                        <p className="opacity-60 text-xs leading-relaxed z-50">
                             {item.description}
                         </p>
                     </Link>
@@ -107,18 +118,22 @@ export const Navbar = () => {
                 title: "GO Digital",
                 description: "A bundled service combining Website Development and Social Media Management to build a complete digital presence for your business.",
                 href: "/go-digital",
+                col: "row-span-2",
+                img: "https://images.unsplash.com/photo-1579543228532-77621eee55a0?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 icon: SiSemanticweb,
             },
             {
                 title: "Web Development",
                 description: "Professional website development designed to increase credibility and generate more leads for your business.",
                 href: "/website-development",
+                col: "row-span-1",
                 icon: FaTablets,
             },
             {
                 title: "Social Media Management",
                 description: "End-to-end social media management including content strategy, design, and optimization to grow engagement.",
                 href: "/social-media",
+                col: "row-span-1",
                 icon: PiCloverFill,
             }
 

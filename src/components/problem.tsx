@@ -70,13 +70,13 @@ export const Problem = ({
                             />
                             <div className={`${isDark ? "from-darkColor/30" : "from-lightColor/30"} to-transparent absolute top-0 bg-linear-to-b w-full h-70`} />
                             <div className="absolute inset-0 p-8 space-y-2.5">
-                                <h1 className={`font-semibold ${isDark ? "text-white" : "text-black"}`}>{el.title}</h1>
+                                <h2 className={`font-semibold ${isDark ? "text-white" : "text-black"}`}>{el.title}</h2>
                                 <h2 className={`font-bold text-2xl ${isDark ? "text-white" : "text-black"}`}>{el.subtext}</h2>
                             </div>
                             <div className="absolute bottom-0 translate-y-full duration-300 ease-in-out group-hover:translate-y-0 scale-50 group-hover:scale-100">
-                                <p className={`${isDark ? "text-white bg-black" : "text-black bg-white"} p-8 text-lg font-medium rounded-t-[100px] group-hover:rounded-t-main duration-300`}>
+                                <h3 className={`${isDark ? "text-white bg-black" : "text-black bg-white"} p-8 text-lg font-medium rounded-t-[100px] group-hover:rounded-t-main duration-300`}>
                                     {el.description}
-                                </p>
+                                </h3>
                             </div>
                         </div>
                     )
