@@ -609,7 +609,6 @@ export const dataBusinessSpecialties = [
 
 export const webProblem = [
     {
-        id: 1,
         title: "Bisnis Sulit Ditemukan",
         overlay: "dark",
         subtext: "Calon pelanggan kesulitan menemukan bisnismu di internet.",
@@ -619,7 +618,6 @@ export const webProblem = [
             "https://images.unsplash.com/photo-1616499370260-485b3e5ed653?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        id: 2,
         title: "Terlalu Bergantung Sosmed",
         overlay: "light",
         subtext: "Bisnis hanya bergantung pada Instagram atau marketplace.",
@@ -629,7 +627,6 @@ export const webProblem = [
             "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        id: 3,
         title: "Informasi Tidak Terpusat",
         overlay: "dark",
         subtext: "Informasi bisnis tersebar di berbagai platform.",
@@ -639,7 +636,6 @@ export const webProblem = [
             "https://images.unsplash.com/photo-1739953335542-a974e15a2b09?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        id: 4,
         title: "Kehilangan Peluang Leads",
         overlay: "dark",
         subtext: "Banyak calon pelanggan tidak tahu harus menghubungi ke mana.",
@@ -649,7 +645,6 @@ export const webProblem = [
             "https://images.unsplash.com/photo-1681505531034-8d67054e07f6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        id: 5,
         title: "Brand Terlihat Kurang Serius",
         overlay: "light",
         subtext: "Bisnis tanpa website sering terlihat kurang profesional.",
@@ -659,7 +654,6 @@ export const webProblem = [
             "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1055&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-        id: 6,
         title: "Tidak Punya Pusat Bisnis",
         overlay: "dark",
         subtext: "Tidak ada satu tempat resmi untuk bisnis online.",
