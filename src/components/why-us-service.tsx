@@ -1,3 +1,4 @@
+import { MoveRight } from "lucide-react"
 import Image from "next/image"
 
 type WhyUsItem = {
@@ -46,14 +47,19 @@ export const WhyUsSection = ({
                     </div>
                 </div>
 
-                {/* Cards */}
-                <div className="md:col-span-8">
-                    <div className="flex gap-5 overflow-x-auto no-scrollbar rounded-main">
+                {/* Cards + Slider Indicator */}
+                <div className="md:col-span-8 flex flex-col gap-3 relative">
+                    <div
+                        id="why-us-scroll"
+                        className="flex gap-5 overflow-x-auto no-scrollbar rounded-main scroll-smooth"
+                        style={{ scrollSnapType: "x mandatory" }}
+                    >
                         {items.map((el, idx) => (
-                        <div
-                            key={idx}
-                            className="p-8 bg-lightColor dark:bg-darkColor rounded-main min-w-80 min-h-120 flex flex-col justify-between"
-                        >
+                            <div
+                                key={idx}
+                                className="p-8 bg-lightColor dark:bg-darkColor rounded-main min-w-80 min-h-120 flex flex-col justify-between"
+                                style={{ scrollSnapAlign: "start" }}
+                            >
                                 <div className="text-3xl md:text-4xl mb-6 md:mb-10">
                                     <el.icon />
                                 </div>
@@ -67,6 +73,11 @@ export const WhyUsSection = ({
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* SSR-safe scroll indicator using scroll-driven animation */}
+                    <div className="md:flex justify-end text-white dark:text-black absolute hidden md:-bottom-7 right-0 opacity-60">
+                        <MoveRight/>
                     </div>
                 </div>
 

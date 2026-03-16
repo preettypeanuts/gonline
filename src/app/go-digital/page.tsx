@@ -2,12 +2,13 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { socialMediaProblem, socmedFaq, socmedPackages, whyUsSocialMedia } from "@/app/data"
+import { goDigitalFaq, goDigitalPackages, goDigitalProblem, socmedFaq, socmedPackages, whyUsGoDigital, } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
 import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
+import { Showcase } from "@/components/showcase"
 import { ctaConfigs } from "@/components/cta-service"
 
 const SocmedWork = dynamic(
@@ -28,7 +29,7 @@ const PricingCard = dynamic(
         import("@/components/pricing-card").then(
             (mod) => mod.PricingCard
         ),
-    { loading: () => <div className="h-125mate-pulse bg-muted rounded-xl" /> }
+    { loading: () => <div className="h-125 animate-pulse bg-muted rounded-xl" /> }
 )
 
 const FaqSection = dynamic(
@@ -47,7 +48,7 @@ const CtaService = dynamic(
     { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
 )
 
-const SOCMED_SUBNAV = [
+const GODIG_SUBNAV = [
     { label: "Problem", id: "problem", icon: <HelpCircle size={15} /> },
     { label: "Why Us", id: "why-us", icon: <Star size={15} /> },
     { label: "Our Work", id: "our-work", icon: <Briefcase size={15} /> },
@@ -115,56 +116,57 @@ export const metadata: Metadata = {
     },
 }
 
-export default function SocialMediaPage() {
+export default function GoDIgitalaPge() {
     return (
         <>
             <ReusableBanner
-                title="Social Media"
-                highlight="Management"
-                imageUrl="https://images.unsplash.com/photo-1504465039710-0f49c0a47eb7?q=80&w=1035&auto=format&fit=crop"
+                title="GO"
+                highlight="Digital"
+                imageUrl="https://images.unsplash.com/photo-1693487048787-a19cc08ded79?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 
-            <SubNav items={SOCMED_SUBNAV} />
+            <SubNav items={GODIG_SUBNAV} />
 
             <SectionAnchor id="problem">
-                <Problem title="We Fix Your Social Media" items={socialMediaProblem} />
+                <Problem title="Problem We Fix" items={goDigitalProblem} />
             </SectionAnchor>
 
             <SectionAnchor id="why-us">
                 <WhyUsSection
-                    items={whyUsSocialMedia}
+                    items={whyUsGoDigital}
                     title="Why Us?"
-                    imageUrl="https://images.unsplash.com/photo-1762227145259-99ddbe0122b9?q=80&w=2920&auto=format&fit=crop"
+                    imageUrl="https://images.unsplash.com/photo-1772752021241-2d922cadbab1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
             </SectionAnchor>
 
             <SectionAnchor id="our-work">
-                <SocmedWork />
+                <Showcase />
             </SectionAnchor>
 
             <RunningClientsLogo />
 
             <SectionAnchor id="pricing">
                 <PricingCard
-                    packages={socmedPackages}
-                    title="Social Media Packages"
+                    packages={goDigitalPackages}
+                    title="GO Digital Packages"
                     showStartingFrom
                 />
             </SectionAnchor>
 
             <SectionAnchor id="faq">
                 <FaqSection
-                    faqs={socmedFaq}
+                    faqs={goDigitalFaq}
                     title={
                         <>
-                            Pertanyaan Seputar{" "}
-                            <span className="text-thirdColor">Social Media</span>
+                           Got Question?{" "}
+                            <span className="text-thirdColor">We Answer</span>
                         </>
                     }
                 />
             </SectionAnchor>
 
-            <CtaService config={ctaConfigs.sosmed} />
+            <CtaService config={ctaConfigs.godigital} />
+
         </>
     )
 }

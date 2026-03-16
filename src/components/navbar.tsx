@@ -81,8 +81,8 @@ const MegaMenu = ({
 
                         <div className="flex items-center gap-2 mb-2 z-50">
 
-                            <div className="text-xl transition-transform">
-                                <item.icon />
+                            <div className="transition-transform">
+                                <item.icon className="size-4.5" />
                             </div>
                             <h3 className="font-semibold text-md">
                                 {item.title}
@@ -118,14 +118,14 @@ export const Navbar = () => {
                 icon: Boxes,
             },
             {
-                title: "Web Development",
+                title: "GO Website",
                 description: "Professional website development designed to increase credibility and generate more leads for your business.",
                 href: "/website-development",
                 col: "row-span-1",
                 icon: Atom,
             },
             {
-                title: "Social Media Management",
+                title: "GO Social",
                 description: "End-to-end social media management including content strategy, design, and optimization to grow engagement.",
                 href: "/social-media",
                 col: "row-span-1",

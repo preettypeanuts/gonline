@@ -60,6 +60,8 @@ import {
   Feather,
   PenTool,
   Anchor,
+  Link,
+  ArrowRight
 } from "lucide-react";
 
 export const webWorks = [
@@ -1233,3 +1235,210 @@ export const introBadgesWebsite = {
     },
   ],
 };
+
+export const goDigitalProblem = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1603899122911-27c0cb85824a?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Tidak Singkron",
+    subtext: "Website & Sosmed Tidak Terhubung",
+    description:
+      "Banyak bisnis memiliki website dan social media, tetapi keduanya tidak saling mendukung. Social media hanya menjadi tempat posting, sementara website tidak dimanfaatkan sebagai pusat informasi dan konversi. Kami membantu menyatukan keduanya agar bekerja sebagai satu ekosistem digital.",
+    overlay: "light",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1608503120873-61c4643f96b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Traffic Sia-sia",
+    subtext: "Pengunjung Tidak Diarahkan",
+    description:
+      "Banyak bisnis berhasil menarik perhatian di social media, tetapi tidak memiliki tempat yang tepat untuk mengarahkan audiens tersebut. Tanpa website yang terintegrasi, potensi traffic dari social media sering kali tidak menghasilkan peluang bisnis.",
+    overlay: "light",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1589009602939-0351d5180c5b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Inconsistent",
+    subtext: "Brand Berbeda di Tiap Platform",
+    description:
+      "Website dan social media sering memiliki tampilan, gaya komunikasi, dan pesan yang berbeda. Hal ini membuat brand terasa tidak konsisten dan sulit dikenali. Kami membantu menyelaraskan identitas digital agar brand tampil konsisten di semua platform.",
+    overlay: "dark",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1565462905102-140e712045aa?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Kurang Potensi",
+    subtext: "Website Belum Dimanfaatkan",
+    description:
+      "Banyak bisnis aktif di social media tetapi belum memaksimalkan website sebagai pusat informasi dan kredibilitas. Kami membantu membangun alur yang membuat social media dan website saling melengkapi dalam membangun kehadiran digital.",
+    overlay: "dark",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1635189540552-4289d0f0971d?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Alur Tidak Jelas",
+    subtext: "Tidak Ada Jalur Menuju Leads",
+    description:
+      "Konten social media sering menarik perhatian, tetapi tidak memiliki jalur yang jelas menuju tindakan berikutnya. Dengan integrasi website dan social media, kami membantu membangun alur digital yang lebih terarah bagi calon pelanggan.",
+    overlay: "light",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1633469924738-52101af51d87?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Tidak Terstruktur",
+    subtext: "Kehadiran Digital Tidak Terarah",
+    description:
+      "Ketika website dan social media dikelola secara terpisah tanpa strategi yang sama, kehadiran digital brand menjadi tidak terarah. Kami membantu membangun fondasi digital yang terintegrasi agar bisnis terlihat lebih profesional dan terpercaya.",
+    overlay: "dark",
+  },
+];
+
+export const whyUsGoDigital = [
+  {
+    id: 1,
+    title: "Website & Social Media Terintegrasi",
+    icon: Link,
+    description:
+      "Kami merancang website dan social media agar saling terhubung sebagai satu ekosistem digital, sehingga keduanya bekerja bersama membangun kehadiran brand.",
+  },
+  {
+    id: 2,
+    title: "Strategi Digital yang Selaras",
+    icon: Target,
+    description:
+      "Setiap konten social media dan halaman website dirancang dengan arah yang sama agar pesan brand konsisten dan mendukung tujuan bisnis.",
+  },
+  {
+    id: 3,
+    title: "Social Media Mengarah ke Website",
+    icon: ArrowRight,
+    description:
+      "Konten social media tidak hanya menarik perhatian, tetapi juga diarahkan menuju website sebagai pusat informasi dan kredibilitas brand.",
+  },
+  {
+    id: 4,
+    title: "Website Mendukung Aktivitas Konten",
+    icon: Layout,
+    description:
+      "Website dirancang untuk mendukung strategi konten social media, sehingga audiens memiliki tempat yang jelas untuk mengenal brand lebih jauh.",
+  },
+  {
+    id: 5,
+    title: "Identitas Brand yang Konsisten",
+    icon: Palette,
+    description:
+      "Kami menjaga konsistensi visual dan komunikasi brand di website maupun social media agar brand terlihat lebih profesional dan mudah dikenali.",
+  },
+  {
+    id: 6,
+    title: "Fondasi Digital yang Lebih Kuat",
+    icon: Layers,
+    description:
+      "Dengan menggabungkan website dan social media dalam satu strategi, bisnis memiliki fondasi digital yang lebih stabil untuk membangun kepercayaan dan peluang baru.",
+  },
+];
+
+export const goDigitalFaq = [
+  {
+    question: "Apa yang dimaksud dengan layanan GO Digital?",
+    answer:
+      "GO Digital adalah bundling layanan pembuatan website dan pengelolaan social media yang dirancang agar keduanya bekerja sebagai satu ekosistem digital untuk mendukung kehadiran brand secara online.",
+  },
+  {
+    question: "Mengapa website dan social media perlu diintegrasikan?",
+    answer:
+      "Social media membantu menarik perhatian audiens, sementara website menjadi pusat informasi dan kredibilitas brand. Dengan integrasi yang tepat, keduanya dapat bekerja bersama untuk memperkuat kehadiran digital bisnis.",
+  },
+  {
+    question: "Apakah website yang dibuat bisa disesuaikan dengan brand saya?",
+    answer:
+      "Ya. Website dirancang khusus mengikuti identitas brand Anda, mulai dari tampilan visual, struktur halaman, hingga cara penyampaian informasi agar tetap konsisten dengan komunikasi brand di social media.",
+  },
+  {
+    question: "Apakah social media akan diarahkan ke website?",
+    answer:
+      "Ya. Strategi konten akan dirancang agar social media dapat mengarahkan audiens menuju website sebagai pusat informasi, sehingga pengunjung memiliki tempat yang jelas untuk mengenal brand lebih jauh.",
+  },
+  {
+    question: "Berapa lama proses pembuatan website dan setup awal?",
+    answer:
+      "Proses pembuatan website biasanya memakan waktu sekitar 2–4 minggu tergantung kompleksitas halaman dan kesiapan materi seperti logo, foto, dan informasi bisnis.",
+  },
+  {
+    question: "Apakah saya perlu menyediakan materi konten sendiri?",
+    answer:
+      "Tidak wajib, namun kami sangat menyarankan penggunaan foto atau video asli dari bisnis Anda agar brand terasa lebih autentik. Jika tidak tersedia, kami dapat menggunakan aset desain atau stock visual yang relevan.",
+  },
+  {
+    question: "Apakah website akan tetap bisa digunakan jika layanan dihentikan?",
+    answer:
+      "Ya. Website tetap menjadi aset bisnis Anda. Jika layanan social media management dihentikan, website tetap dapat digunakan dan dikelola oleh bisnis Anda.",
+  },
+  {
+    question: "Apakah layanan ini cocok untuk bisnis yang baru mulai digital?",
+    answer:
+      "Sangat cocok. GO Digital dirancang untuk membantu bisnis membangun fondasi digital yang lebih terarah dengan website sebagai pusat informasi dan social media sebagai sarana komunikasi dengan audiens.",
+  },
+];
+
+export const goDigitalPackages = [
+  {
+    name: "Go Start",
+    favorite: false,
+    pricing: {
+      fixed: 5500000,
+      gimmick: 7500000,
+    },
+    deliverables: [
+      "1 Landing Page Website (brand introduction)",
+      "12 Feed Content (desain statis / carousel)",
+      "Basic social media setup & optimization",
+      "Basic caption copywriting",
+      "Reusable content design template",
+      "Social media diarahkan ke website",
+      "1x minor revision",
+      "Timeline pengerjaan 3–4 minggu",
+      "1 bulan layanan",
+    ],
+  },
+  {
+    name: "Go Growth",
+    favorite: true,
+    pricing: {
+      fixed: 9000000,
+      gimmick: 11000000,
+    },
+    deliverables: [
+      "Website hingga 5 halaman (company profile)",
+      "20 Feed Content (desain statis / carousel)",
+      "4 Reels video content",
+      "Monthly content planning",
+      "Basic funnel structure (awareness → website)",
+      "Strategic caption & CTA writing",
+      "Insight review bulanan",
+      "2x revision",
+      "Timeline pengerjaan 3–4 minggu",
+      "1 bulan layanan",
+    ],
+  },
+  {
+    name: "Go Level Up",
+    favorite: false,
+    pricing: {
+      fixed: 19000000,
+      gimmick: 20500000,
+    },
+    deliverables: [
+      "Website hingga 10 halaman (full company profile)",
+      "30 Content + Reels (mix visual & video)",
+      "Basic brand identity setup",
+      "Full funnel mapping (awareness → conversion)",
+      "Landing page campaign",
+      "Basic ads setup guidance",
+      "Monthly performance report",
+      "Strategic content direction",
+      "Timeline pengerjaan 6–8 minggu",
+      "1 bulan layanan",
+    ],
+  },
+];

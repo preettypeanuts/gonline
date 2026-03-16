@@ -1,25 +1,31 @@
 import dynamic from "next/dynamic"
-import type { Metadata } from "next"
 
-import { ReusableBanner } from "@/components/reusable-banner"
-import { socialMediaProblem, socmedFaq, socmedPackages, whyUsSocialMedia } from "@/app/data"
 import { Problem } from "@/components/problem"
+import { ReusableBanner } from "@/components/reusable-banner"
 import { WhyUsSection } from "@/components/why-us-service"
+import { introBadgesWebsite, webProblem, websiteFaq, websitePackages, whyUsWeb } from "../data"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
-import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
+import { HelpCircle, Star, Briefcase, DollarSign, CircleQuestionMark } from "lucide-react"
+import { ServiceSchema } from "@/components/seo/schema-service"
+import { IntroBadges } from "@/components/intro-badges"
+import { WebSpecialty } from "@/components/web-specialty"
+import { ctaConfigs, CtaService } from "@/components/cta-service"
 
-const SocmedWork = dynamic(
-    () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
-    { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
+const WebWork = dynamic(
+    () => import("@/components/web-work").then((mod) => mod.WebWork),
+    {
+        loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
+    }
 )
-
 const RunningClientsLogo = dynamic(
     () =>
         import("@/components/running-clients-logo").then(
             (mod) => mod.RunningClientsLogo
         ),
-    { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
+    {
+        loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" />,
+    }
 )
 
 const PricingCard = dynamic(
@@ -27,7 +33,9 @@ const PricingCard = dynamic(
         import("@/components/pricing-card").then(
             (mod) => mod.PricingCard
         ),
-    { loading: () => <div className="h-125 animate-pulse bg-muted rounded-xl" /> }
+    {
+        loading: () => <div className="h-125 animate-pulse bg-muted rounded-xl" />,
+    }
 )
 
 const FaqSection = dynamic(
@@ -35,63 +43,91 @@ const FaqSection = dynamic(
         import("@/components/faq").then(
             (mod) => mod.FaqSection
         ),
-    { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
+    {
+        loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
+    }
 )
 
-const CtaSocmed = dynamic(
+const CtaWebsite = dynamic(
     () =>
-        import("@/components/cta-socmed").then(
-            (mod) => mod.CtaSocmed
+        import("@/components/cta-service").then(
+            (mod) => mod.CtaService
         ),
-    { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
+    {
+        loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" />,
+    }
 )
 
-const SOCMED_SUBNAV = [
+const WEB_SUBNAV = [
     { label: "Problem", id: "problem", icon: <HelpCircle size={15} /> },
     { label: "Why Us", id: "why-us", icon: <Star size={15} /> },
     { label: "Our Work", id: "our-work", icon: <Briefcase size={15} /> },
     { label: "Pricing", id: "pricing", icon: <DollarSign size={15} /> },
-    { label: "FAQ", id: "faq", icon: <MessageCircle size={15} /> },
+    { label: "FAQ", id: "faq", icon: <CircleQuestionMark size={15} /> },
 ]
 
-export const metadata: Metadata = {
-    title: "Social Media Management Services | Jasa Kelola Sosial Media | GONLINE",
-
+export const metadata = {
+    title: "Website Development Services | Jasa Pembuatan Website Profesional | GONLINE",
     description:
-        "GONLINE menyediakan jasa social media management untuk membantu bisnis membangun brand, meningkatkan engagement, dan menghasilkan leads melalui strategi konten yang profesional.",
+        "GONLINE menyediakan jasa pembuatan website profesional untuk bisnis, company profile, dan landing page. Website modern, SEO friendly, cepat, dan dirancang untuk meningkatkan kredibilitas serta menghasilkan leads.",
 
     keywords: [
+        "website development",
+        "web development agency",
+        "web design agency",
+        "website design services",
+        "custom website development",
+        "business website",
+        "professional website",
+        "company profile website",
+        "landing page development",
+        "SEO website",
+        "SEO optimized website",
+        "digital services",
+        "digital agency",
+        "digital marketing services",
+
+        // social media
         "social media management",
         "social media agency",
         "socmed agency",
         "social media marketing",
-        "instagram management",
         "content creation services",
-        "digital marketing services",
 
+        // indonesian search intent
+        "jasa bikin website",
+        "jasa pembuatan website",
+        "jasa website profesional",
+        "jasa website company profile",
+        "jasa pembuatan landing page",
+        "jasa web developer",
+        "jasa web design",
+        "jasa digital agency",
         "jasa social media management",
-        "jasa kelola sosial media",
         "jasa kelola instagram bisnis",
-        "jasa admin instagram",
-        "jasa konten instagram",
-        "jasa social media marketing",
-        "jasa digital marketing",
     ],
 
     alternates: {
-        canonical: "https://gonline.id/social-media-management",
+        canonical: "https://gonline.id/website-development",
     },
 
     robots: {
         index: true,
         follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
     },
 
     openGraph: {
-        title: "Social Media Management Services | GONLINE",
+        title: "Website Development Services | GONLINE",
         description:
-            "Jasa social media management profesional untuk membantu bisnis berkembang melalui strategi konten yang efektif.",
-        url: "https://gonline.id/social-media-management",
+            "Jasa pembuatan website profesional untuk bisnis. Website cepat, modern, SEO friendly, dan dirancang untuk menghasilkan leads.",
+        url: "https://gonline.id/website-development",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",
@@ -100,70 +136,70 @@ export const metadata: Metadata = {
                 url: "https://gonline.id/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Social Media Management by GONLINE",
+                alt: "Website Development Services by GONLINE",
             },
         ],
     },
 
     twitter: {
         card: "summary_large_image",
-        title: "Social Media Management Services | GONLINE",
+        title: "Website Development Services | GONLINE",
         description:
-            "Kelola sosial media bisnis secara profesional dengan strategi konten yang efektif.",
+            "Jasa pembuatan website profesional untuk bisnis dan company profile.",
         images: ["https://gonline.id/og-image.jpg"],
     },
+
+    category: "technology",
 }
 
-export default function SocialMedia() {
+export default function WebsiteDevelopment() {
     return (
         <>
+            <ServiceSchema />
+
             <ReusableBanner
                 title="Website"
                 highlight="Development"
                 imageUrl="https://images.unsplash.com/photo-1573867607864-585b88d78729?q=80&w=2070&auto=format&fit=crop"
             />
 
-            <SubNav items={SOCMED_SUBNAV} />
+            <WebSpecialty />
+
+            <SubNav items={WEB_SUBNAV} />
+
+            <IntroBadges {...introBadgesWebsite} />
 
             <SectionAnchor id="problem">
-                <Problem title="We Fix Your Social Media" items={socialMediaProblem} />
+                <Problem items={webProblem} />
             </SectionAnchor>
 
             <SectionAnchor id="why-us">
                 <WhyUsSection
-                    items={whyUsSocialMedia}
+                    items={whyUsWeb}
                     title="Why Us?"
-                    imageUrl="https://images.unsplash.com/photo-1762227145259-99ddbe0122b9?q=80&w=2920&auto=format&fit=crop"
+                    imageUrl="https://images.unsplash.com/photo-1658998765621-2cf0f12e059f?q=80&w=3027&auto=format&fit=crop"
                 />
             </SectionAnchor>
 
             <SectionAnchor id="our-work">
-                <SocmedWork />
+                <WebWork />
             </SectionAnchor>
 
             <RunningClientsLogo />
 
             <SectionAnchor id="pricing">
                 <PricingCard
-                    packages={socmedPackages}
-                    title="Social Media Packages"
+                    packages={websitePackages}
+                    title="Website Packages"
                     showStartingFrom
                 />
             </SectionAnchor>
 
             <SectionAnchor id="faq">
-                <FaqSection
-                    faqs={socmedFaq}
-                    title={
-                        <>
-                            Pertanyaan Seputar{" "}
-                            <span className="text-thirdColor">Social Media</span>
-                        </>
-                    }
-                />
+                <FaqSection faqs={websiteFaq} />
             </SectionAnchor>
 
-            <CtaSocmed />
+            <CtaService config={ctaConfigs.website} />
         </>
     )
 }
