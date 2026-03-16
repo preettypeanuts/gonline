@@ -3,12 +3,13 @@ import Image from "next/image"
 export const CTA = () => {
     return (
         <>
-            <section className=" spacing">
+            <section className="spacing">
                 <div className="relative">
+                    <div className="w-full h-20 bg-lightColor rounded-main absolute -top-15"></div>
                     <Image
                         width={700}
                         height={700}
-                        className="w-full h-[70lvh] object-cover"
+                        className="w-full h-[70lvh] object-cover rounded-b-main"
                         src="https://images.unsplash.com/photo-1459664018906-085c36f472af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
                     />

@@ -7,13 +7,13 @@ export const OpeningStatements = () => {
             <section className="spacing space-y-10 md:space-y-15">
                 <div className="flex md:flex-row flex-col justify-between md:items-center gap-5">
                     <div className="text-3xl md:text-6xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight">
-                        <h1 className="pl-4 md:pl-10 pr-4 py-2 bg-mainColor w-fit rounded-r-3xl text-lightColor relative">
+                        <h1 className="left-padding pr-4 py-2 bg-mainColor w-fit rounded-r-3xl text-lightColor relative">
                             <div className="rounded-out-lt-3xl bg-mainColor"></div>
                             <div className="rounded-out-lb-3xl bg-mainColor"></div>
                             Online ≠ Growth
                         </h1>
                     </div>
-                    <p className="text-2xl md:text-3xl font-medium pr-4 md:pr-10 pl-4 md:pl-0">
+                    <p className="text-2xl md:text-3xl font-medium right-padding pl-4 md:pl-0">
                         Visibility means nothing without structure.
                     </p>
                 </div>

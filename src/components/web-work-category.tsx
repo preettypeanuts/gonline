@@ -1,5 +1,3 @@
-"use client"
-
 import { webWorks } from "@/app/data"
 import Image from "next/image"
 import Link from "next/link"

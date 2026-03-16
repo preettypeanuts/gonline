@@ -7,7 +7,7 @@ export const NewsCard = () => {
 
     return (
         <section className="margin">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {dataArticles.map((el, idx) => (
                     <a
                         key={idx}

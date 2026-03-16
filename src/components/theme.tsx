@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { HiMoon, HiSun } from 'react-icons/hi2';
+import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeSwitch() {
   const { theme, systemTheme, setTheme } = useTheme();
@@ -38,12 +38,12 @@ export default function ThemeSwitch() {
       >
         {/* Light Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <HiSun className="text-xl" />
+          <Sun className="fill-black dark:fill-white size-5" />
         </div>
 
         {/* Dark Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <HiMoon className="text-xl " />
+          <Moon className="fill-black dark:fill-white size-5 " />
         </div>
 
       </div>

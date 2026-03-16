@@ -1,15 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 
 interface CardProps {
-    link: string;
-    category: string;
-    image: string;
-    companyName: string;
-    brandName: string;
-    features: string[];
-    kind: string;
-    className?: string;
+    link: string
+    category: string
+    image: string
+    companyName: string
+    brandName: string
+    features: string[]
+    kind: string
+    className?: string
 }
 
 export const Card = ({
@@ -19,36 +19,47 @@ export const Card = ({
     companyName,
     brandName,
     features,
-    kind,
     className,
 }: CardProps) => {
     return (
-        <Link
-            href={link}
-            target="_blank"
-            className={`group ${className}`}
-        >
-            <div className="duration-300 px-4 py-2 bg-white dark:bg-black w-fit rounded-t-2xl text-xs font-medium uppercase tracking-wide relative text-mainColor">
-                {category}
-                <div className="bg-white dark:bg-black rounded-out-br-2xl"></div>
+        <div className={`relative group shrink-0 overflow-hidden ${className}`}>
+            {/* Hover overlay */}
+            <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:translate-y-0 group-hover:opacity-100 opacity-0 transition-all duration-300 -translate-y-5 scale-95 group-hover:scale-100">
+                <Link
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-medium text-3xl text-center p-10 w-fit h-fit rounded-main bg-darkColor dark:bg-lightColor dark:text-black hover:bg-darkColor/90 hover:dark:bg-lightColor/90 transition-colors duration-200"
+                >
+                    View
+                </Link>
             </div>
-            <div className="flex flex-col justify-between bg-white dark:bg-black rounded-main rounded-tl-none space-y-4 p-5 hover:shadow-xl duration-300">
-                <div>
-                    <h3 className="text-lg font-semibold">{brandName}</h3>
-                    <p className="text-sm text-neutral-500">{companyName}</p>
-                </div>
+            <div className="absolute inset-0 w-full h-full rounded-main bg-lightColor/70 dark:bg-darkColor/70 z-10 opacity-0 group-hover:opacity-100 duration-200" />
 
-                {/* Image */}
-                <div className="overflow-hidden rounded-xl shadow">
-                    <Image
-                        src={image}
-                        alt={brandName}
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 "
-                    />
+            {/* Card */}
+            <div className="h-full bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <Image
+                    width={500}
+                    height={300}
+                    src={image}
+                    alt={brandName}
+                    className="rounded-t-main w-full h-auto object-cover"
+                />
+                <div className="p-5 sm:p-8 space-y-2">
+                    <h2 className="font-bold text-lg sm:text-xl">{brandName}</h2>
+                    <h3 className="text-thirdColor uppercase font-semibold text-xs">{category} · {companyName}</h3>
+                    <div className="flex flex-wrap gap-1">
+                        {features.map((feature, idx) => (
+                            <h4
+                                key={idx}
+                                className="px-2 py-1 bg-darkColor w-fit rounded-full text-white dark:bg-lightColor dark:text-black text-xs font-medium"
+                            >
+                                {feature}
+                            </h4>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </Link>
-    );
-};
+        </div>
+    )
+}

@@ -21,7 +21,7 @@ export const InsightFilter = () => {
         <div className="my-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
             {/* Category Pills */}
-            <div className="bg-black dark:bg-white pl-4 mr-4 md:mr-0 md:pl-10 py-3 pr-3 rounded-r-3xl relative w-fit">
+            <div className="bg-black dark:bg-white left-padding mr-4 md:mr-0 py-3 pr-3 rounded-r-3xl relative w-fit">
                 <div className="flex items-center gap-2 overflow-x-auto no-scrollbar rounded-full">
                     {categories.slice(0, 5).map((cat) => {
                         const isActive = activeCategory === cat || (cat === "All" && activeCategory === null)
@@ -50,7 +50,7 @@ export const InsightFilter = () => {
 
             {/* Search — kanan di desktop, kanan di mobile */}
             <div className="flex justify-end order-first md:order-last">
-                <div className="bg-black dark:bg-white pr-10 py-3 pl-3 rounded-l-3xl relative">
+                <div className="bg-black dark:bg-white right-padding py-3 pl-3 rounded-l-3xl relative">
                     <div className="flex items-center gap-2">
                         <div
                             className={`

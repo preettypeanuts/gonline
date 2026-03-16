@@ -2,15 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { GrAdd } from "react-icons/gr";
 import ThemeSwitch from "./theme";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SiSemanticweb } from "react-icons/si";
-import { IconType } from "react-icons";
-import { FiGlobe, FiShare2 } from "react-icons/fi";
-import { PiCloverFill } from "react-icons/pi";
-import { FaTablets } from "react-icons/fa";
+import { Atom, Boxes, Clover, Plus } from "lucide-react";
 
 
 /* ============================= */
@@ -22,7 +17,7 @@ type MenuKey = "services" | "about";
 interface MenuItem {
     title: string;
     description: string;
-    icon: IconType;
+    icon: React.ElementType;
     href?: string;
     col?: string;
     img?: string;
@@ -120,21 +115,21 @@ export const Navbar = () => {
                 href: "/go-digital",
                 col: "row-span-2",
                 img: "https://images.unsplash.com/photo-1579543228532-77621eee55a0?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                icon: SiSemanticweb,
+                icon: Boxes,
             },
             {
                 title: "Web Development",
                 description: "Professional website development designed to increase credibility and generate more leads for your business.",
                 href: "/website-development",
                 col: "row-span-1",
-                icon: FaTablets,
+                icon: Atom,
             },
             {
                 title: "Social Media Management",
                 description: "End-to-end social media management including content strategy, design, and optimization to grow engagement.",
                 href: "/social-media",
                 col: "row-span-1",
-                icon: PiCloverFill,
+                icon: Clover,
             }
 
         ],
@@ -142,22 +137,22 @@ export const Navbar = () => {
             {
                 title: "Our Story",
                 description: "How we started & our journey",
-                icon: SiSemanticweb,
+                icon: Clover,
             },
             {
                 title: "Our Team",
                 description: "Meet the experts behind us",
-                icon: SiSemanticweb,
+                icon: Clover,
             },
             {
                 title: "Careers",
                 description: "Join our growing team",
-                icon: SiSemanticweb,
+                icon: Clover,
             },
             {
                 title: "Culture",
                 description: "What drives our company",
-                icon: SiSemanticweb,
+                icon: Clover,
             },
         ],
     };
@@ -184,9 +179,9 @@ export const Navbar = () => {
             >
                 {label}
                 {key && (
-                    <GrAdd
+                    <Plus size={15}
                         className={`ml-1 mb-1 text-xs duration-300 ${activeMenu === key
-                            ? "rotate-225 mb-0 mt-0.5"
+                            ? "rotate-225 mt-1"
                             : ""
                             }`}
                     />
@@ -244,7 +239,7 @@ export const Navbar = () => {
                     setActiveLabel(null);
                 }}
 
-                className={`relative bg-white dark:bg-black rounded-secondary px-2 py-2.5 flex flex-col items-center w-full ${isExpanded ? "border shadow-mainShadow" : ""}`}
+                className={`relative bg-white dark:bg-black rounded-secondary px-2 py-2 flex flex-col items-center w-full ${isExpanded ? "border shadow-mainShadow" : ""}`}
                 style={{
                     transition: "width 5000ms ease",
                 }}

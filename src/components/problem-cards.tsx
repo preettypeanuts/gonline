@@ -20,8 +20,8 @@ export const ProblemCards = ({ items }: ProblemCardsProps) => {
                 return (
                     <div key={idx}
                         className={`min-w-90 min-h-150 relative overflow-hidden rounded-main hover:scale-102 duration-300 ease-in-out group
-                            ${idx === 0 ? "ml-4 md:ml-10" : ""}
-                            ${idx === items.length - 1 ? "mr-4 md:mr-10" : ""}
+                            ${idx === 0 ? "left-margin" : ""}
+                            ${idx === items.length - 1 ? "right-margin" : ""}
                         `}
                     >
                         <Image

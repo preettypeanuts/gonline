@@ -76,13 +76,9 @@ export const ServicesVertical = () => {
     };
     return (
         <div
-            className="w-screen h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans -mt-20">
+            className="h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans margin">
 
-            <div className="absolute top-65 left-16 text-sm leading-relaxed">
-                Our Expertise
-            </div>
-
-            <div className="w-full max-w-3xl h-50">
+            <div className="bg-white dark:bg-black rounded-main">
                 <div
                     ref={containerRef}
                     className="w-full h-full overflow-y-scroll scrollbar-hide py-48 no-scrollbar overscroll-auto"
@@ -118,9 +114,8 @@ export const ServicesVertical = () => {
             {/* Floating Arrow Button */}
             <button
                 onClick={scrollToNext}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 
-             w-12 h-12 rounded-full 
-             bg-neutral-400 dark:bg-secondaryDark text-white 
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 cursor-pointer
+             w-12 h-12 rounded-b-full 
              flex items-center justify-center  hover:scale-110 transition-all duration-300"
             >
                 ↓

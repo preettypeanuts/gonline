@@ -21,12 +21,12 @@ export const OurSpecialty = () => {
     return (
         <section className="spacing">
             <div className="relative">
-                <div className="rounded-out-lt-3xl bg-white dark:bg-black"></div>
-                <div className="rounded-out-rt-3xl bg-white dark:bg-black"></div>
-                <div className="rounded-out-lb-3xl bg-white dark:bg-black"></div>
-                <div className="rounded-out-rb-3xl bg-white dark:bg-black"></div>
+                <div className="rounded-out-lt-main bg-white dark:bg-black"></div>
+                <div className="rounded-out-rt-main bg-white dark:bg-black"></div>
+                <div className="rounded-out-lb-main bg-white dark:bg-black"></div>
+                <div className="rounded-out-rb-main bg-white dark:bg-black"></div>
 
-                <div className="bg-white dark:bg-black p-4 md:p-10 relative grid grid-cols-1 md:grid-cols-6 gap-10">
+                <div className="bg-white dark:bg-black p-4 md:px-30 md:py-20 relative grid grid-cols-1 md:grid-cols-6 gap-10">
 
                     {/* Title */}
                     <div className="max-w-3xl flex flex-col justify-between gap-4 col-span-2">

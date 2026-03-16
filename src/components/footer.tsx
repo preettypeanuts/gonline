@@ -12,7 +12,7 @@ export const Footer = () => {
                 </h1>
             </div>
 
-            <div className="relative max-w-7xl mx-auto px-8 pb-32 md:pb-65 pt-24">
+            <div className="relative md:px-30 px-4 pb-32 md:pb-65 pt-24">
 
                 {/* Top Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-16">

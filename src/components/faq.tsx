@@ -31,7 +31,7 @@ export const FaqSection = ({
             </div>
 
             {/* FAQ GRID */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 mx-4 md:mx-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 margin">
 
                 {/* LEFT COLUMN */}
                 <Accordion type="single" collapsible>

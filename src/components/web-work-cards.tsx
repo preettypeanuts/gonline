@@ -13,8 +13,8 @@ export const WebWorkCards = ({ items }: WebWorkCardsProps) => {
                 <div
                     key={idx}
                     className={`relative group shrink-0 overflow-hidden
-                        ${idx === 0 ? "ml-4 md:ml-10" : ""}
-                        ${idx === items.length - 1 ? "mr-4 md:mr-10" : ""}
+                        ${idx === 0 ? "left-margin" : ""}
+                        ${idx === items.length - 1 ? "right-margin" : ""}
                     `}
                 >
                     <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:translate-y-0 group-hover:opacity-100 opacity-0 transition-all duration-300 -translate-y-5 scale-95 group-hover:scale-100">

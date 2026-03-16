@@ -27,7 +27,7 @@ export const PricingItems = ({
                         className={`
                             relative flex flex-col transition-all duration-300 ease-out
                             ${!useGrid
-                                ? `min-w-85 ${idx === 0 ? "ml-4 md:ml-10" : ""} ${idx === packages.length - 1 ? "mr-4 md:mr-10" : ""}`
+                                ? `min-w-85 ${idx === 0 ? "left-margin" : ""} ${idx === packages.length - 1 ? "right-margin" : ""}`
                                 : ""
                             }
                         `}

@@ -1,10 +1,10 @@
 'use client'
 import Image from "next/image"
+import { useState } from "react"
 import { Button } from "./ui/button"
-import { FaPaperPlane } from "react-icons/fa"
 import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
-import { useState } from "react"
+import { Send } from "lucide-react"
 
 export const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -134,7 +134,7 @@ export const ContactForm = () => {
                                 </>
                             ) : (
                                 <>
-                                    <FaPaperPlane className="text-sm" />
+                                    <Send className="text-sm" />
                                     <span>Send Message</span>
                                 </>
                             )}

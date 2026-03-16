@@ -17,7 +17,7 @@ export const TabsClient = ({ website, social }: TabsProps) => {
         <div className="flex items-center p-2 bg-white dark:bg-black rounded-full w-fit gap-2">
           <button
             onClick={() => setActiveTab("website")}
-            className={`px-4 py-2 rounded-full transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "website"
                 ? "bg-black dark:bg-white text-white dark:text-black"
                 : "text-black dark:text-white hover:opacity-70"
@@ -28,7 +28,7 @@ export const TabsClient = ({ website, social }: TabsProps) => {
 
           <button
             onClick={() => setActiveTab("social")}
-            className={`px-4 py-2 rounded-full transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
               activeTab === "social"
                 ? "bg-black dark:bg-white text-white dark:text-black"
                 : "text-black dark:text-white hover:opacity-70"

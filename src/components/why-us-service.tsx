@@ -20,7 +20,7 @@ export const WhyUsSection = ({
     imageAlt = "",
 }: WhyUsSectionProps) => {
     return (
-        <section className="relative bg-black dark:bg-white p-6 md:p-10">
+        <section className="relative bg-black dark:bg-white p-4 md:px-30 md:py-10">
             <div className="rounded-out-lt-main bg-black dark:bg-white" />
             <div className="rounded-out-rt-main bg-black dark:bg-white" />
             <div className="rounded-out-lb-main bg-black dark:bg-white" />

@@ -1,16 +1,14 @@
 import {
-  FaGoogle,
-  FaAmazon,
-  FaApple,
-  FaMicrosoft,
-  FaFacebook,
-  FaSpotify,
-  FaSlack,
-  FaShopify,
-  FaPaypal,
-  FaAirbnb,
-} from "react-icons/fa";
-import { IconType } from "react-icons";
+  ShoppingCart,
+  Apple,
+  Monitor,
+  Music,
+  MessageSquare,
+  Store,
+  CreditCard,
+  Home,
+  LucideIcon,
+} from "lucide-react";
 
 /* shuffle helper */
 function shuffleArray<T>(array: T[]): T[] {
@@ -25,7 +23,13 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 /* logo row */
-function LogoRow({ logos, direction = "left" }: { logos: { icon: IconType }[]; direction?: "left" | "right" }) {
+function LogoRow({
+  logos,
+  direction = "left",
+}: {
+  logos: { icon: LucideIcon; label: string }[];
+  direction?: "left" | "right";
+}) {
   const duplicated = [...logos, ...logos];
 
   return (
@@ -37,9 +41,9 @@ function LogoRow({ logos, direction = "left" }: { logos: { icon: IconType }[]; d
           return (
             <div
               key={`${direction}-${i}`}
-              className="text-5xl text-neutral-400 opacity-70 hover:opacity-100 transition"
+              className="text-neutral-400 opacity-70 hover:opacity-100 transition"
             >
-              <Icon />
+              <Icon size={48} strokeWidth={1.5} />
             </div>
           );
         })}
@@ -50,20 +54,21 @@ function LogoRow({ logos, direction = "left" }: { logos: { icon: IconType }[]; d
 
 export const RunningClientsLogo = () => {
   const clientsLogo = [
-    { icon: FaGoogle },
-    { icon: FaAmazon },
-    { icon: FaApple },
-    { icon: FaMicrosoft },
-    { icon: FaFacebook },
-    { icon: FaSpotify },
-    { icon: FaSlack },
-    { icon: FaShopify },
-    { icon: FaPaypal },
-    { icon: FaAirbnb },
+    { icon: ShoppingCart, label: "Amazon" },
+    { icon: Apple, label: "Apple" },
+    { icon: Monitor, label: "Microsoft" },
+    { icon: Music, label: "Spotify" },
+    { icon: MessageSquare, label: "Slack" },
+    { icon: Store, label: "Shopify" },
+    { icon: CreditCard, label: "PayPal" },
+    { icon: Home, label: "Airbnb" },
   ];
 
   const row1 = [...clientsLogo, ...clientsLogo];
-  const row2 = [...shuffleArray(clientsLogo), ...shuffleArray(clientsLogo)];
+  const row2 = [
+    ...shuffleArray(clientsLogo),
+    ...shuffleArray(clientsLogo),
+  ];
 
   return (
     <section className="spacing overflow-hidden relative">
@@ -100,7 +105,9 @@ export const RunningClientsLogo = () => {
 
       {/* title */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold">Our <span className="text-thirdColor">Clients</span> </h2>
+        <h2 className="text-3xl font-bold">
+          Our <span className="text-thirdColor">Clients</span>
+        </h2>
         <p className="text-muted-foreground mt-2">
           Trusted by businesses across various industries
         </p>

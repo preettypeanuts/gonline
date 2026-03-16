@@ -12,7 +12,7 @@ export const CtaWebsite = () => {
             <div className="
                 relative overflow-hidden
                 bg-black dark:bg-white
-                px-8 py-14 md:px-13 md:py-20
+                px-4 py-14 md:px-30 md:py-20
             ">
 
                 {/* BG GRID TEXTURE */}

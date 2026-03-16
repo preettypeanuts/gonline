@@ -1,0 +1,94 @@
+import { LucideIcon } from "lucide-react"
+import Image from "next/image"
+
+export interface IntroBadgeFeature {
+    icon: LucideIcon
+    title: string
+    description: string
+}
+
+export interface IntroBadgesProps {
+    image: string
+    imageAlt: string
+    heading: string
+    subtext: string
+    services: string[]
+    features: IntroBadgeFeature[]
+}
+
+export const IntroBadges = ({
+    image,
+    imageAlt,
+    heading,
+    subtext,
+    services,
+    features,
+}: IntroBadgesProps) => {
+    return (
+        <section className="margin spacing">
+            <div className="grid grid-cols-10 gap-5">
+
+                {/* LEFT */}
+                <div className="col-span-10 md:col-span-5 aspect-square relative overflow-hidden rounded-main">
+                    <Image
+                        src={image}
+                        alt={imageAlt}
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute top-0 bg-linear-to-b from-darkColor/30 to-transparent h-80 w-full" />
+
+                    <div className="relative z-10 h-full p-8 md:p-10 flex flex-col justify-between">
+                        <div className="space-y-3">
+                            <h2 className="text-2xl md:text-3xl font-bold leading-snug text-white">
+                                {heading}
+                            </h2>
+                            <p className="text-sm text-neutral-300 leading-relaxed">
+                                {subtext}
+                            </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 mt-8">
+                            {services.map((service, idx) => (
+                                <span
+                                    key={idx}
+                                    className="px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-black dark:text-white border border-white/20 hover:border-mainColor hover:text-mainColor transition-colors duration-200"
+                                >
+                                    {service}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* RIGHT */}
+                <div className="col-span-10 md:col-span-5 grid grid-cols-2 gap-5">
+                    {features.map((feature, idx) => {
+                        const Icon = feature.icon
+                        return (
+                            <div
+                                key={idx}
+                                className="relative aspect-square bg-white dark:bg-black rounded-main p-6 flex flex-col justify-end hover:-translate-y-0.5 transition-transform duration-300"
+                            >
+                                <div className="absolute top-0 left-0 pt-1 pl-1 pb-3 pr-3 bg-lightColor dark:bg-darkColor rounded-br-2xl">
+                                    <div className="rounded-out-tr-2xl bg-lightColor dark:bg-darkColor" />
+                                    <div className="rounded-out-lb-2xl bg-lightColor dark:bg-darkColor" />
+                                    <div className="size-12 rounded-xl bg-mainColor dark:bg-thirdColor flex items-center justify-center">
+                                        <Icon className="size-6 text-white" />
+                                    </div>
+                                </div>
+                                <div className="space-y-1.5">
+                                    <h3 className="font-semibold text-2xl">{feature.title}</h3>
+                                    <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
+            </div>
+        </section>
+    )
+}
