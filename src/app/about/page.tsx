@@ -2,6 +2,8 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
+import { WebPageSchema } from "@/components/seo/web-page-schema"
+import { pageSchemas } from "../data"
 
 const WhoAreWe = dynamic(
     () => import("@/components/who-are-we").then((mod) => mod.WhoAreWe),
@@ -95,6 +97,7 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <>
+            <WebPageSchema {...pageSchemas.about} />
             <ReusableBanner
                 title="Get To Know"
                 highlight="Us"

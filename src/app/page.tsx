@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic"
 import { HomeBanner } from "@/components/home-banner"
+import { OrganizationSchema } from "@/components/seo/organization-schema"
 
 const OpeningStatements = dynamic(
   () => import("@/components/opening-statements").then((mod) => mod.OpeningStatements),
@@ -97,6 +98,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <OrganizationSchema />
       <HomeBanner />
       <OpeningStatements />
       <ServicesVertical />

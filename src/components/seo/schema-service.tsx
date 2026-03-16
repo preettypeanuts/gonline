@@ -1,4 +1,8 @@
-export function ServiceSchema({ name, description, url }: {
+export function ServiceSchema({
+  name,
+  description,
+  url,
+}: {
   name: string
   description: string
   url: string

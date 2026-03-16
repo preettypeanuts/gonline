@@ -374,6 +374,22 @@ export const dataContact = [
   },
 ];
 
+export const pageSchemas = {
+  about: {
+    name: "About GONLINE",
+    description:
+      "Learn about GONLINE, a digital agency focused on website development and social media management.",
+    url: "https://gonline.id/about",
+  },
+
+  contact: {
+    name: "Contact GONLINE",
+    description:
+      "Contact GONLINE for website development, social media management, and digital services.",
+    url: "https://gonline.id/contact",
+  },
+}
+
 export const dataArticles = [
   {
     id: "art-001",
