@@ -2,17 +2,18 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { goDigitalFaq, goDigitalPackages, goDigitalProblem, socmedFaq, socmedPackages, whyUsGoDigital, } from "@/app/data"
+import { goDigitalFaq, goDigitalPackages, goDigitalProblem, introBadgesGoDigital, socmedFaq, socmedPackages, whyUsGoDigital, } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
 import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
-import { Showcase } from "@/components/showcase"
 import { ctaConfigs } from "@/components/cta-service"
+import { IntroBadges } from "@/components/intro-badges"
+import { ServiceSchema } from "@/components/seo/schema-service"
 
-const SocmedWork = dynamic(
-    () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
+const Showcase = dynamic(
+    () => import("@/components/showcase").then((mod) => mod.Showcase),
     { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
 )
 
@@ -119,13 +120,21 @@ export const metadata: Metadata = {
 export default function GoDIgitalaPge() {
     return (
         <>
+            <ServiceSchema
+                name="GO Digital"
+                description="Integrated website and social media services to build a strong digital presence."
+                url="https://gonline.id/go-digital"
+            />
+
             <ReusableBanner
                 title="GO"
                 highlight="Digital"
-                imageUrl="https://images.unsplash.com/photo-1693487048787-a19cc08ded79?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                imageUrl="https://images.unsplash.com/photo-1771226281089-771a31ff54d2?q=80&w=2914&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 
             <SubNav items={GODIG_SUBNAV} />
+
+            <IntroBadges {...introBadgesGoDigital} />
 
             <SectionAnchor id="problem">
                 <Problem title="Problem We Fix" items={goDigitalProblem} />
@@ -158,7 +167,7 @@ export default function GoDIgitalaPge() {
                     faqs={goDigitalFaq}
                     title={
                         <>
-                           Got Question?{" "}
+                            Got Question?{" "}
                             <span className="text-thirdColor">We Answer</span>
                         </>
                     }

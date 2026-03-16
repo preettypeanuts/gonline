@@ -61,7 +61,8 @@ import {
   PenTool,
   Anchor,
   Link,
-  ArrowRight
+  ArrowRight,
+  BarChart3
 } from "lucide-react";
 
 export const webWorks = [
@@ -1132,6 +1133,57 @@ export const socmedPackages = [
   },
 ];
 
+export const introBadgesSocialMedia = {
+  overlay: "light",
+  image:
+    "https://images.unsplash.com/photo-1706606999710-72658165a73d?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+  imageAlt: "social media management services",
+
+  heading: "Social Media Management untuk Brand yang Ingin Lebih Terlihat",
+
+  subtext:
+    "Kami membantu bisnis mengelola social media secara strategis melalui konten yang konsisten, visual yang profesional, dan komunikasi brand yang relevan dengan audiens.",
+
+  services: [
+    "Instagram Content Management",
+    "Feed & Carousel Design",
+    "Reels Content Creation",
+    "Content Strategy Planning",
+    "Caption Copywriting",
+    "Hashtag Research",
+    "Monthly Insight Review",
+    "Social Media Optimization",
+  ],
+
+  features: [
+    {
+      icon: Target,
+      title: "Strategic Content Planning",
+      description:
+        "Setiap konten dirancang berdasarkan strategi yang selaras dengan tujuan bisnis agar social media tidak hanya aktif, tetapi juga membangun brand secara konsisten.",
+    },
+    {
+      icon: Palette,
+      title: "Consistent Brand Visual",
+      description:
+        "Kami menjaga konsistensi visual konten agar brand terlihat lebih profesional dan mudah dikenali oleh audiens di setiap postingan.",
+    },
+    {
+      icon: MessageSquare,
+      title: "Content Relevant to Audience",
+      description:
+        "Konten dirancang agar tetap relevan dengan target market sehingga brand dapat membangun komunikasi yang lebih kuat dengan audiens.",
+    },
+    {
+      icon: BarChart3,
+      title: "Monthly Insight Review",
+      description:
+        "Setiap bulan kami melakukan evaluasi performa konten untuk melihat perkembangan akun dan memberikan insight untuk strategi berikutnya.",
+    },
+  ],
+};
+
 export const socmedFaq = [
   {
     question: "Apa yang dimaksud dengan 'Feed Content' dalam paket ini?",
@@ -1187,6 +1239,7 @@ export const socmedFaq = [
 ];
 
 export const introBadgesWebsite = {
+  overlay: "dark",
   image:
     "https://images.unsplash.com/photo-1770203544478-2b989a93af70?q=80&w=2070&auto=format&fit=crop",
 
@@ -1442,3 +1495,54 @@ export const goDigitalPackages = [
     ],
   },
 ];
+
+export const introBadgesGoDigital = {
+  overlay: "dark",
+  image:
+    "https://images.unsplash.com/photo-1771503735122-22405ba958f9?q=80&w=1064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+  imageAlt: "integrated website and social media services",
+
+  heading: "Website & Social Media dalam Satu Ekosistem",
+
+  subtext:
+    "Kami membantu bisnis membangun fondasi digital yang terintegrasi melalui website profesional dan strategi social media yang saling mendukung.",
+
+  services: [
+    "Website Development",
+    "Social Media Management",
+    "Content Strategy Planning",
+    "Landing Page Campaign",
+    "Brand Identity Setup",
+    "Basic Funnel Structure",
+    "Content & Website Integration",
+    "Digital Presence Optimization",
+  ],
+
+  features: [
+    {
+      icon: Link,
+      title: "Website & Social Media Integration",
+      description:
+        "Website dan social media dirancang sebagai satu ekosistem digital sehingga keduanya saling mendukung dalam membangun kehadiran brand.",
+    },
+    {
+      icon: Target,
+      title: "Strategic Digital Direction",
+      description:
+        "Setiap aktivitas digital dirancang dengan arah yang jelas agar brand memiliki strategi online yang lebih terstruktur.",
+    },
+    {
+      icon: Layout,
+      title: "Professional Digital Presence",
+      description:
+        "Kami membantu brand tampil lebih profesional dengan website yang kredibel dan social media yang konsisten.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Built for Long-Term Growth",
+      description:
+        "Dengan website sebagai pusat informasi dan social media sebagai sumber traffic, bisnis memiliki fondasi digital yang lebih kuat untuk berkembang.",
+    },
+  ],
+};

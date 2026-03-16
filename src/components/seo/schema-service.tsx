@@ -1,25 +1,31 @@
-export function ServiceSchema() {
-    const schema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Website Development",
-        description:
-            "Professional website development services for businesses to build credibility and generate leads.",
-        provider: {
-            "@type": "Organization",
-            name: "GONLINE",
-            url: "https://gonline.id",
-        },
-        areaServed: {
-            "@type": "Country",
-            name: "Indonesia",
-        },
-    }
+export function ServiceSchema({ name, description, url }: {
+  name: string
+  description: string
+  url: string
+}) {
 
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-    )
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    serviceType: name,
+    description,
+    url,
+    provider: {
+      "@type": "Organization",
+      name: "GONLINE",
+      url: "https://gonline.id",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
 }

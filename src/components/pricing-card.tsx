@@ -50,7 +50,7 @@ export const PricingCard = ({
             {useGrid ? (
                 <>
                     <Title>{title}</Title>
-                    <div className={`grid gap-13 md:gap-5 py-16 px-4 md:px-10 ${GRID_COLS[packages.length] ?? "grid-cols-3"}`}>
+                    <div className={`grid gap-13 md:gap-5 py-5 ${useGrid && "margin"} ${GRID_COLS[packages.length] ?? "grid-cols-3"}`}>
                         {items}
                     </div>
                 </>

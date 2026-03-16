@@ -155,12 +155,16 @@ export const metadata = {
 export default function WebsiteDevelopment() {
     return (
         <>
-            <ServiceSchema />
+            <ServiceSchema
+                name="Website Development"
+                description="Professional website development services for businesses."
+                url="https://gonline.id/website"
+            />
 
             <ReusableBanner
                 title="Website"
                 highlight="Development"
-                imageUrl="https://images.unsplash.com/photo-1573867607864-585b88d78729?q=80&w=2070&auto=format&fit=crop"
+                imageUrl="https://images.unsplash.com/photo-1730449819838-a5018d63e79e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 
             <WebSpecialty />

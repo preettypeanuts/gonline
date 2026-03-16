@@ -8,6 +8,7 @@ export interface IntroBadgeFeature {
 }
 
 export interface IntroBadgesProps {
+    overlay : string
     image: string
     imageAlt: string
     heading: string
@@ -17,6 +18,7 @@ export interface IntroBadgesProps {
 }
 
 export const IntroBadges = ({
+    overlay,
     image,
     imageAlt,
     heading,
@@ -36,14 +38,14 @@ export const IntroBadges = ({
                         fill
                         className="object-cover"
                     />
-                    <div className="absolute top-0 bg-linear-to-b from-darkColor/30 to-transparent h-80 w-full" />
+                    <div className={`absolute top-0 bg-linear-to-b to-transparent h-80 w-full ${overlay === "dark" ? "from-darkColor/30 " : "from-lightColor/30 "}`} />
 
                     <div className="relative z-10 h-full p-8 md:p-10 flex flex-col justify-between">
                         <div className="space-y-3">
-                            <h2 className="text-2xl md:text-3xl font-bold leading-snug text-white">
+                            <h2 className={`text-2xl md:text-3xl font-bold leading-snug ${overlay === "dark" ? "text-neutral-100 " : "text-neutral-700"}`}>
                                 {heading}
                             </h2>
-                            <p className="text-sm text-neutral-300 leading-relaxed">
+                            <p className={`text-sm leading-relaxed opacity-70 ${overlay === "dark" ? "text-neutral-100 " : "text-neutral-700"}`}>
                                 {subtext}
                             </p>
                         </div>

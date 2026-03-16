@@ -2,13 +2,15 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { socialMediaProblem, socmedFaq, socmedPackages, whyUsSocialMedia } from "@/app/data"
+import { introBadgesSocialMedia, socialMediaProblem, socmedFaq, socmedPackages, whyUsSocialMedia } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
 import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
 import { ctaConfigs } from "@/components/cta-service"
+import { IntroBadges } from "@/components/intro-badges"
+import { ServiceSchema } from "@/components/seo/schema-service"
 
 const SocmedWork = dynamic(
     () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
@@ -118,13 +120,22 @@ export const metadata: Metadata = {
 export default function SocialMediaPage() {
     return (
         <>
+            <ServiceSchema
+                name="Social Media Management"
+                description="Strategic social media management to help brands grow online."
+                url="https://gonline.id/social-media"
+            />
+
             <ReusableBanner
                 title="Social Media"
                 highlight="Management"
-                imageUrl="https://images.unsplash.com/photo-1504465039710-0f49c0a47eb7?q=80&w=1035&auto=format&fit=crop"
+                imageUrl="https://images.unsplash.com/photo-1729870992116-3e41a142bebb?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 
             <SubNav items={SOCMED_SUBNAV} />
+
+            <IntroBadges {...introBadgesSocialMedia} />
+
 
             <SectionAnchor id="problem">
                 <Problem title="We Fix Your Social Media" items={socialMediaProblem} />
