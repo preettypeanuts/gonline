@@ -100,7 +100,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "https://gonline.id/og-image.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Social Media Management by GONLINE",
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
         title: "Social Media Management Services | GONLINE",
         description:
             "Kelola sosial media bisnis secara profesional dengan strategi konten yang efektif.",
-        images: ["https://gonline.id/og-image.jpg"],
+        images: ["/og-image.jpg"],
     },
 }
 

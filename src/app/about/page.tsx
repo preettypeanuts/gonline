@@ -77,7 +77,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "https://gonline.id/og-image.jpg",
+                url: "og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "About GONLINE Digital Agency",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
         title: "About GONLINE | Digital Agency",
         description:
             "Kenali lebih dekat GONLINE dan bagaimana kami membantu bisnis berkembang secara digital.",
-        images: ["https://gonline.id/og-image.jpg"],
+        images: ["/og-image.jpg"],
     },
 }
 

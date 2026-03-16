@@ -133,7 +133,7 @@ export const metadata = {
         type: "website",
         images: [
             {
-                url: "https://gonline.id/og-image.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Website Development Services by GONLINE",
@@ -146,7 +146,7 @@ export const metadata = {
         title: "Website Development Services | GONLINE",
         description:
             "Jasa pembuatan website profesional untuk bisnis dan company profile.",
-        images: ["https://gonline.id/og-image.jpg"],
+        images: ["/og-image.jpg"],
     },
 
     category: "technology",
