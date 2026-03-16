@@ -38,12 +38,12 @@ export default function ThemeSwitch() {
       >
         {/* Light Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <Sun className="fill-black dark:fill-white size-5" />
+          <Sun className="fill-black dark:fill-white size-4.5" />
         </div>
 
         {/* Dark Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <Moon className="fill-black dark:fill-white size-5 " />
+          <Moon className="fill-black dark:fill-white size-4.5 " />
         </div>
 
       </div>
