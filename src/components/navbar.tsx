@@ -21,13 +21,14 @@ interface MenuItem {
 interface MegaMenuProps {
     isOpen: boolean;
     items: MenuItem[];
+    href: string;
     adImages: string[];
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
 
 
-const AdCarousel = ({ images, isOpen, href }: { images: string[]; isOpen?: boolean; href?: string }) => {
+const AdCarousel = ({ images, href }: { images: string[]; isOpen?: boolean; href?: string }) => {
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
@@ -39,14 +40,14 @@ const AdCarousel = ({ images, isOpen, href }: { images: string[]; isOpen?: boole
     }, [images.length]);
 
     const content = (
-        <div className="relative w-60 shrink-0 h-full rounded-secondary overflow-hidden border border-white/10">
+        <div className="relative w-66.5 shrink-0 h-full rounded-secondary overflow-hidden border border-white/30 hover:border-white/40 hover:brightness-85 duration-300">
             {images.map((src, i) => (
                 <Image
                     key={i}
                     src={src}
                     alt={`Ad ${i + 1}`}
                     fill
-                    className="object-cover transition-opacity duration-700"
+                    className="object-contain transition-opacity duration-700"
                     style={{ opacity: i === current ? 1 : 0 }}
                 />
             ))}
@@ -78,6 +79,7 @@ const MegaMenu = ({
     isOpen,
     items,
     adImages,
+    href,
     onMouseEnter,
     onMouseLeave,
 }: MegaMenuProps) => {
@@ -140,7 +142,9 @@ const MegaMenu = ({
                             transition: "all 400ms ease 180ms",
                         }}
                     >
-                        <AdCarousel images={adImages} />
+                        <AdCarousel
+                            href={href}
+                            images={adImages} />
                     </div>
                 )}
             </div>
@@ -150,10 +154,11 @@ const MegaMenu = ({
 
 
 const adImages: string[] = [
-    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1080&h=1350&fit=crop",
-    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1080&h=1350&fit=crop",
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&h=1350&fit=crop",
+    "https://res.cloudinary.com/dzrh2ogbn/image/upload/v1767846338/ganesha_cms_promos/mobile/031b605f070dc625fa808055af38bb62.jpg",
+    // "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1080&h=1350&fit=crop",
+    // "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&h=1350&fit=crop",
 ];
+
 
 export const Navbar = () => {
     const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
@@ -262,7 +267,7 @@ export const Navbar = () => {
                         setActiveMenu(null);
                         setActiveLabel(null);
                     }}
-                    className={`relative bg-white dark:bg-black rounded-main px-2 py-2 flex flex-col items-center w-full duration-300 ease-in-out transition-all ${isExpanded ? "border shadow-mainShadow w-200! rounded-main!" : "w-145!"}`}
+                    className={`relative bg-white dark:bg-black rounded-main px-2 py-2 overflow-hidden flex flex-col items-center w-full duration-300 ease-in-out transition-all ${isExpanded ? "border shadow-mainShadow w-200! rounded-main!" : "w-143.5!"}`}
                 >
                     {/* Top Links */}
                     <div
@@ -285,6 +290,7 @@ export const Navbar = () => {
                         isOpen={isExpanded}
                         items={activeMenu ? menuData[activeMenu] : []}
                         adImages={adImages}
+                        href="https://www.instagram.com/p/DV0cfcNAKBE/?igsh=MTA0NGpzdjYyZDI2dA=="
                         onMouseEnter={() => { if (activeMenu) setActiveMenu(activeMenu); }}
                         onMouseLeave={() => { setActiveMenu(null); setActiveLabel(null); }}
                     />
