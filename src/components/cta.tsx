@@ -5,7 +5,7 @@ export const CTA = () => {
         <>
             <section className="spacing">
                 <div className="relative">
-                    <div className="w-full h-20 bg-lightColor rounded-main absolute -top-15"></div>
+                    <div className="w-full h-20 bg-lightColor dark:bg-darkColor rounded-main absolute -top-15"></div>
                     <Image
                         width={700}
                         height={700}

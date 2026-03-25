@@ -11,7 +11,7 @@ export const Footer = () => {
     )
 
     return (
-        <footer className="relative bg-black text-white dark:bg-white dark:text-black mt-40 transition-colors duration-500 overflow-hidden">
+        <footer className="relative bg-black text-white dark:bg-white dark:text-black pt-40 transition-colors duration-500 overflow-hidden">
 
             <div className="absolute -top-10 rounded-main w-full h-20 bg-lightColor dark:bg-darkColor"></div>
 

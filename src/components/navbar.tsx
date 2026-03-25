@@ -112,20 +112,20 @@ const MegaMenu = ({
                         >
                             <Link
                                 href={item.href ?? "#"}
-                                className="overflow-hidden relative flex flex-col justify-between group p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 h-full rounded-secondary"
+                                className="overflow-hidden relative flex flex-col justify-between group p-4 bg-white/5 hover:bg-black/10 dark:bg-black/5 dark:hover:bg-white/10 border border-white/10 dark:border-black/10 hover:border-white/20 transition-all duration-300 h-full rounded-secondary"
                             >
                                 <Image
                                     width={300}
                                     height={300}
                                     src={item.img ?? "https://images.unsplash.com/photo-1694327875197-252cfe16f668?q=80&w=2232&auto=format&fit=crop"}
                                     alt={item.title}
-                                    className={`${item.img ? "group-hover:scale-110 duration-200 absolute inset-0 z-0 w-full h-full object-cover brightness-110 dark:invert dark:hue-rotate-30" : "hidden"}`}
+                                    className={`${item.img ? "group-hover:scale-110 duration-200 absolute inset-0 z-0 w-full h-full object-cover brightness-110 dark:invert-0 invert dark:hue-rotate-30" : "hidden"}`}
                                 />
-                                <div className="flex items-center gap-2 mb-2 z-50">
+                                <div className="flex items-center gap-2 mb-2 z-50 text-white dark:text-black">
                                     <item.icon className="size-4.5" />
                                     <h3 className="font-semibold text-md">{item.title}</h3>
                                 </div>
-                                <p className="opacity-60 text-xs leading-relaxed z-50">
+                                <p className="opacity-60 text-xs leading-relaxed z-50 text-white dark:text-black">
                                     {item.description}
                                 </p>
                             </Link>
@@ -207,13 +207,14 @@ export const Navbar = () => {
             <div
                 className={`
                     ${isActiveRoute || activeMenu === key
-                        ? "px-3 py-1 bg-black text-white dark:bg-white dark:text-black"
+                        ? "px-3 py-1 bg-white text-black! dark:bg-black dark:text-white!"
                         : ""}
-                    hover:px-3 hover:py-1 hover:bg-black hover:text-white
-                    dark:hover:bg-white dark:hover:text-black
+                    hover:px-3 hover:py-1 hover:bg-white hover:text-black
+                    dark:hover:bg-black dark:hover:text-white
                     rounded-full cursor-pointer duration-500 ease-in-out
                     text-sm font-semibold
                     truncate flex items-center
+                    text-lightColor dark:text-darkColor
                 `}
             >
                 {label}
@@ -248,7 +249,7 @@ export const Navbar = () => {
             <nav className="md:flex items-center gap-1">
                 <Link
                     href="/"
-                    className="self-start shrink-0 bg-white dark:bg-black rounded-full"
+                    className={`self-start shrink-0 bg-black dark:bg-white rounded-full border border-neutral-200/15 dark:border-neutral-800/10`}
                     style={{
                         transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                     }}
@@ -258,7 +259,7 @@ export const Navbar = () => {
                         height={100}
                         src="/icon.png"
                         alt="GONLINE Logo"
-                        className="w-27 h-11 object-cover px-1.5 dark:saturate-0 dark:brightness-500 dark:contrast-200"
+                        className="w-27 h-11 object-cover px-1.5 saturate-0 brightness-500 contrast-200 dark:invert"
                     />
                 </Link>
 
@@ -267,7 +268,7 @@ export const Navbar = () => {
                         setActiveMenu(null);
                         setActiveLabel(null);
                     }}
-                    className={`relative bg-white dark:bg-black rounded-main px-2 py-2 overflow-hidden flex flex-col items-center w-full duration-300 ease-in-out transition-all ${isExpanded ? "border shadow-mainShadow w-200! rounded-main!" : "w-143.5!"}`}
+                    className={`relative bg-black dark:bg-white rounded-main px-2 py-2 overflow-hidden flex flex-col items-center w-full duration-300 ease-in-out transition-all border border-neutral-200/15 dark:border-neutral-800/10 ${isExpanded ? " border-neutral-300/30! dark:border-neutral-800/30 shadow-mainShadow w-200! rounded-main!" : "w-143.5!"}`}
                 >
                     {/* Top Links */}
                     <div
@@ -297,7 +298,7 @@ export const Navbar = () => {
                 </nav>
 
                 <div
-                    className="self-start shrink-0 bg-white dark:bg-black rounded-full"
+                    className="self-start shrink-0 bg-black dark:bg-white rounded-full border border-neutral-200/15 dark:border-neutral-800/10"
                     style={{
                         transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)",
                     }}

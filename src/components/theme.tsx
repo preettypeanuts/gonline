@@ -30,7 +30,7 @@ export default function ThemeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-11 h-11 min-w-11 min-h-11 aspect-square rounded-full bg-white dark:bg-black overflow-hidden transition-colors duration-300"
+      className="relative w-11 h-11 min-w-11 min-h-11 aspect-square rounded-full bg-black dark:bg-white overflow-hidden transition-colors duration-300"
     >
       <div
         className={`cursor-pointer flex flex-col justify-center items-center transition-transform duration-300 ease-in-out
@@ -38,12 +38,12 @@ export default function ThemeSwitch() {
       >
         {/* Light Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <Sun className="fill-black dark:fill-white size-4.5" />
+          <Sun className="text-white dark:text-black fill-white dark:fill-black size-4.5" />
         </div>
 
         {/* Dark Mode */}
         <div className="w-10 h-10 flex items-center justify-center">
-          <Moon className="fill-black dark:fill-white size-4.5 " />
+          <Moon className="text-white dark:text-black fill-white dark:fill-black size-4.5 " />
         </div>
 
       </div>
