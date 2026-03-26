@@ -125,7 +125,7 @@ export const ContactForm = () => {
                         <Button
                             variant={"invert"}
                             disabled={status.loading}
-                            className="w-full grow flex items-center justify-center gap-2 py-2 sm:py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full grow flex items-center justify-center gap-2 py-2 sm:py-3 h-full disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {status.loading ? (
                                 <>

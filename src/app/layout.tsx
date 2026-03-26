@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en" className="scroll-smooth">
       <body className={`${pjs.className} antialiased`}>
-        <ThemeProvider enableSystem attribute="class">
+        <ThemeProvider defaultTheme="light" attribute="class">
           {isComingSoon ? (
             <ComingSoonPage />
           ) : (
