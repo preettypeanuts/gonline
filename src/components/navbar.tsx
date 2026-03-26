@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import ThemeSwitch from "./theme";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Atom, Boxes, Clover, Plus } from "lucide-react";
+import { Ad } from "@/types/ad";
+import Link from "next/link";
+import ThemeSwitch from "./theme";
+import Image from "next/image";
 
 type MenuKey = "services" | "about";
 
@@ -21,68 +22,57 @@ interface MenuItem {
 interface MegaMenuProps {
     isOpen: boolean;
     items: MenuItem[];
-    href: string;
-    adImages: string[];
+    ads: Ad[];
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
 
+interface NavbarProps {
+    ads: Ad[];
+}
 
-const AdCarousel = ({ images, href }: { images: string[]; isOpen?: boolean; href?: string }) => {
+const AdCarousel = ({ ads }: { ads: Ad[] }) => {
     const [current, setCurrent] = useState(0);
 
     useEffect(() => {
-        if (images.length <= 1) return;
+        if (ads.length <= 1) return;
         const interval = setInterval(() => {
-            setCurrent((prev) => (prev + 1) % images.length);
+            setCurrent((prev) => (prev + 1) % ads.length);
         }, 3000);
         return () => clearInterval(interval);
-    }, [images.length]);
+    }, [ads.length]);
 
-    const content = (
-        <div className="relative w-66.5 shrink-0 h-full rounded-secondary overflow-hidden border border-white/30 hover:border-white/40 hover:brightness-85 duration-300">
-            {images.map((src, i) => (
-                <Image
-                    key={i}
-                    src={src}
-                    alt={`Ad ${i + 1}`}
-                    fill
-                    className="object-contain transition-opacity duration-700"
-                    style={{ opacity: i === current ? 1 : 0 }}
-                />
-            ))}
-            {images.length > 1 && (
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
-                    {images.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={(e) => { e.preventDefault(); setCurrent(i); }}
-                            className={`rounded-full transition-all duration-300 ${i === current ? "w-3 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/40"
-                                }`}
-                        />
-                    ))}
-                </div>
-            )}
-        </div>
-    );
-
-    return href ? (
-        <Link href={href} className="h-full block">
-            {content}
+    return (
+        <Link href={ads[current]?.href ?? "#"} className="h-full block">
+            <div className="relative w-66.5 shrink-0 h-full rounded-secondary overflow-hidden border border-white/30 hover:border-white/40 hover:brightness-85 duration-300">
+                {ads.map((ad, i) => (
+                    <Image
+                        key={i}
+                        src={ad.image}
+                        alt={`Ad ${i + 1}`}
+                        fill
+                        className="object-cover transition-opacity duration-700"
+                        style={{ opacity: i === current ? 1 : 0 }}
+                    />
+                ))}
+                {ads.length > 1 && (
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                        {ads.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={(e) => { e.preventDefault(); setCurrent(i); }}
+                                className={`rounded-full transition-all duration-300 ${i === current ? "w-3 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/40"
+                                    }`}
+                            />
+                        ))}˚
+                    </div>
+                )}
+            </div>
         </Link>
-    ) : (
-        content
     );
 };
 
-const MegaMenu = ({
-    isOpen,
-    items,
-    adImages,
-    href,
-    onMouseEnter,
-    onMouseLeave,
-}: MegaMenuProps) => {
+const MegaMenu = ({ isOpen, items, ads, onMouseEnter, onMouseLeave }: MegaMenuProps) => {
     return (
         <div
             onMouseEnter={onMouseEnter}
@@ -95,7 +85,6 @@ const MegaMenu = ({
             }}
         >
             <div className="flex gap-3 items-stretch">
-
                 <div
                     className="grid gap-3 flex-1 h-full"
                     style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
@@ -133,8 +122,7 @@ const MegaMenu = ({
                     ))}
                 </div>
 
-                {/* Carousel sebagai anchor ukuran */}
-                {adImages.length > 0 && (
+                {ads.length > 0 && (
                     <div
                         style={{
                             opacity: isOpen ? 1 : 0,
@@ -142,9 +130,7 @@ const MegaMenu = ({
                             transition: "all 400ms ease 180ms",
                         }}
                     >
-                        <AdCarousel
-                            href={href}
-                            images={adImages} />
+                        <AdCarousel ads={ads} />
                     </div>
                 )}
             </div>
@@ -152,18 +138,11 @@ const MegaMenu = ({
     );
 };
 
-
-const adImages: string[] = [
-    "https://res.cloudinary.com/dzrh2ogbn/image/upload/v1767846338/ganesha_cms_promos/mobile/031b605f070dc625fa808055af38bb62.jpg",
-    // "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1080&h=1350&fit=crop",
-    // "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1080&h=1350&fit=crop",
-];
-
-
-export const Navbar = () => {
+export const Navbar = ({ ads }: NavbarProps) => {
     const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
     const [activeLabel, setActiveLabel] = useState<string | null>(null);
     const pathname = usePathname();
+
 
     const menuData: Record<MenuKey, MenuItem[]> = {
         services: [
@@ -249,10 +228,8 @@ export const Navbar = () => {
             <nav className="md:flex items-center gap-1">
                 <Link
                     href="/"
-                    className={`self-start shrink-0 bg-black dark:bg-white rounded-full border border-neutral-200/15 dark:border-neutral-800/10`}
-                    style={{
-                        transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)",
-                    }}
+                    className="self-start shrink-0 bg-black dark:bg-white rounded-full border border-neutral-200/15 dark:border-neutral-800/10"
+                    style={{ transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)" }}
                 >
                     <Image
                         width={100}
@@ -268,9 +245,8 @@ export const Navbar = () => {
                         setActiveMenu(null);
                         setActiveLabel(null);
                     }}
-                    className={`relative bg-black dark:bg-white rounded-main px-2 py-2 overflow-hidden flex flex-col items-center w-full duration-300 ease-in-out transition-all border border-neutral-200/15 dark:border-neutral-800/10 ${isExpanded ? " border-neutral-300/30! dark:border-neutral-800/30 shadow-mainShadow w-200! rounded-main!" : "w-143.5!"}`}
+                    className={`relative bg-black dark:bg-white rounded-main px-2 py-2 overflow-hidden flex flex-col items-center w-full duration-300 ease-in-out transition-all border border-neutral-200/15 dark:border-neutral-800/10 ${isExpanded ? "border-neutral-300/30! dark:border-neutral-800/30 shadow-mainShadow w-200! rounded-main!" : "w-143.5!"}`}
                 >
-                    {/* Top Links */}
                     <div
                         className="flex gap-10 justify-center items-center w-full!"
                         style={{
@@ -286,12 +262,10 @@ export const Navbar = () => {
                         {renderNavItem("Contact", undefined, "/contact")}
                     </div>
 
-                    {/* Mega Menu */}
                     <MegaMenu
                         isOpen={isExpanded}
                         items={activeMenu ? menuData[activeMenu] : []}
-                        adImages={adImages}
-                        href="https://www.instagram.com/p/DV0cfcNAKBE/?igsh=MTA0NGpzdjYyZDI2dA=="
+                        ads={ads}
                         onMouseEnter={() => { if (activeMenu) setActiveMenu(activeMenu); }}
                         onMouseLeave={() => { setActiveMenu(null); setActiveLabel(null); }}
                     />
@@ -299,14 +273,11 @@ export const Navbar = () => {
 
                 <div
                     className="self-start shrink-0 bg-black dark:bg-white rounded-full border border-neutral-200/15 dark:border-neutral-800/10"
-                    style={{
-                        transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)",
-                    }}
+                    style={{ transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)" }}
                 >
                     <ThemeSwitch />
                 </div>
             </nav>
-
         </div>
     );
 };

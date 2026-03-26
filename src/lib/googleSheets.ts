@@ -1,7 +1,8 @@
 import { google } from "googleapis";
-import { Article } from "@/types/article";
 import { unstable_cache } from "next/cache";
 import { slugify } from "./slugify";
+import { Article } from "@/types/article";
+import { Ad } from "@/types/ad"
 
 export function getSheetsClient() {
   const raw = process.env.GOOGLE_SHEETS_CREDENTIALS!;
@@ -81,3 +82,37 @@ export async function getArticleBySlug(
     ) ?? null
   );
 }
+
+
+export const getAds = unstable_cache(
+  async (): Promise<Ad[]> => {
+    const sheets = getSheetsClient()
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID!
+
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: "ads!A1:E100",
+    })
+
+    const rows = response.data.values
+    if (!rows || rows.length < 2) return []
+
+    const [headers, ...dataRows] = rows
+
+    return dataRows
+      .map((row) => {
+        const get = (col: string) => row[headers.indexOf(col)] ?? ""
+        return {
+          id: get("id"),
+          status: get("status") === "TRUE",
+          priority: Number(get("priority")) || 0,
+          image: get("image"),
+          href: get("href"),
+        } satisfies Ad
+      })
+      .filter((a) => a.status)
+      .sort((a, b) => a.priority - b.priority)
+  },
+  ["ads"],
+  { revalidate: 60 }
+)

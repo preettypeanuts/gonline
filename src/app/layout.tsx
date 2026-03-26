@@ -2,9 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ComingSoonPage } from "@/components/coming-soon-page";
+import { NavbarWrapper } from "@/components/navbar-wrapper";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -105,7 +105,7 @@ export default function RootLayout({
             <ComingSoonPage />
           ) : (
             <>
-              <Navbar />
+              <NavbarWrapper />
               {children}
               <Footer />
             </>
