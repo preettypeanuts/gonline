@@ -76,7 +76,7 @@ export const ServicesVertical = () => {
     };
     return (
         <div
-            className="h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans margin">
+            className="h-[70lvh] spacing flex justify-center overflow-hidden relative font-sans margin rounded-main">
 
             <div className="bg-white dark:bg-black rounded-main">
                 <div
@@ -97,7 +97,7 @@ export const ServicesVertical = () => {
                                 ref={(el) => { itemRefs.current[index] = el; }}
                                 className={`
                   text-center py-5 px-10 cursor-pointer transition-all duration-500 ease-out snap-center
-                  ${isActive ? 'text-7xl font-bold' : 'text-thirdColor/50 text-6xl font-medium'}
+                  ${isActive ? 'text-4xl md::text-7xl font-bold' : 'text-thirdColor/50 text-3xl md:text-6xl font-medium'}
                 `}
                                 style={{
                                     opacity: distance === 0 ? 1 : distance === 1 ? 0.5 : 0.2,

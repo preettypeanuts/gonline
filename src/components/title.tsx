@@ -9,7 +9,7 @@ export const Title = ({ children, side = "left", className }: TitleProps) => {
 
     return (
         <div
-            className={`bg-white text-black dark:bg-black dark:text-white py-3 relative w-fit
+            className={`${className} bg-white text-black dark:bg-black dark:text-white py-3 relative w-fit
         ${isLeft ? "rounded-r-3xl pr-6 left-padding" : "rounded-l-3xl pl-6 right-padding"}
       `}
         >
@@ -24,7 +24,7 @@ export const Title = ({ children, side = "left", className }: TitleProps) => {
                     <div className="rounded-out-rb-3xl dark:bg-black bg-white" />
                 </>
             )}
-            <h2 className={`text-2xl font-bold ${className}`}>{children}</h2>
+            <h2 className={`text-2xl font-bold`}>{children}</h2>
         </div>
     )
 }

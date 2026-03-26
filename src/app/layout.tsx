@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Footer } from "@/components/footer";
 import { ComingSoonPage } from "@/components/coming-soon-page";
 import { NavbarWrapper } from "@/components/navbar-wrapper";
+import { BottomNav } from "@/components/bottom-nav";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -106,6 +107,7 @@ export default function RootLayout({
           ) : (
             <>
               <NavbarWrapper />
+              <BottomNav />
               {children}
               <Footer />
             </>

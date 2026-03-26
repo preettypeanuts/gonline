@@ -9,11 +9,13 @@ interface ProblemScrollWrapperProps {
     children: React.ReactNode
     scrollAmount?: number
     dynamicScroll?: boolean
+    className?: string
 }
 
 export const ProblemScrollWrapper = ({
     title,
     children,
+    className,
     scrollAmount = 380,
     dynamicScroll = false,
 }: ProblemScrollWrapperProps) => {
@@ -55,7 +57,7 @@ export const ProblemScrollWrapper = ({
         <>
             <div className="flex items-center justify-between">
                 {title}
-                <div className="mr-4 md:mr-10 space-x-2">
+                <div className={`${className} mr-4 md:mr-10 space-x-2`}>
                     <Button
                         size={"icon-lg"}
                         variant={"invert"}

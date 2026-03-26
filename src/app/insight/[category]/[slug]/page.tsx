@@ -3,26 +3,46 @@ import { slugify } from "@/lib/slugify"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import { formatDate } from "@/lib/formatDateTime"
+import { Metadata } from "next"
+import { ArticleRecommendations } from "@/components/article-reccomendations"
 
 interface Props {
     params: Promise<{ category: string; slug: string }>
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { category, slug } = await params
+    const baseUrl = "https://gonline.id"
     const articles = await getArticles()
     const article = articles.find(
         (a) => slugify(a.category) === category && a.slug === slug
     )
-    if (!article) return {}
+
+    if (!article) return { title: "Artikel tidak ditemukan" }
+
     return {
-        title: article.title,
+        title: `${article.title} — GONLINE`,
         description: article.excerpt,
+        alternates: {
+            canonical: `${baseUrl}/insight/${category}/${slug}`,
+        },
         openGraph: {
+            title: article.title,
+            description: article.excerpt,
+            url: `${baseUrl}/insight/${category}/${slug}`,
+            type: "article",
+            publishedTime: article.createdAt,
+            modifiedTime: article.updatedAt,
+            tags: article.tags,
+            images: [{ url: article.coverImage, width: 1200, height: 630, alt: article.title }],
+        },
+        twitter: {
+            card: "summary_large_image",
             title: article.title,
             description: article.excerpt,
             images: [article.coverImage],
         },
+        robots: { index: true, follow: true },
     }
 }
 
@@ -33,11 +53,60 @@ export default async function ArticleDetailPage({ params }: Props) {
         (a) => slugify(a.category) === category && a.slug === slug
     )
 
+    // Guard dulu sebelum pakai article
     if (!article) notFound()
 
+    const related = articles
+        .filter((a) => a.category === article.category && a.slug !== article.slug)
+        .slice(0, 5)
+
+    const recommendations = related.length >= 5
+        ? related
+        : [
+            ...related,
+            ...articles
+                .filter((a) => a.slug !== article.slug && !related.find((r) => r.slug === a.slug))
+                .filter((a) => a.highlight)
+                .slice(0, 5 - related.length),
+        ]
+
     return (
-        <section className="">
-            <main className="margin mt-22 pb-10 max-w-4xl mx-auto bg-white dark:bg-black rounded-main p-10">
+        <section>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        headline: article.title,
+                        description: article.excerpt,
+                        image: article.coverImage,
+                        datePublished: article.createdAt,
+                        dateModified: article.updatedAt,
+                        author: {
+                            "@type": "Organization",
+                            name: "GONLINE",
+                            url: "https://gonline.id",
+                        },
+                        publisher: {
+                            "@type": "Organization",
+                            name: "GONLINE",
+                            url: "https://gonline.id",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://gonline.id/icon.png",
+                            },
+                        },
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": `https://gonline.id/insight/${slugify(article.category)}/${article.slug}`,
+                        },
+                        keywords: article.tags.join(", "),
+                    }),
+                }}
+            />
+
+            <main className="margin mt-30 pb-10 max-w-4xl mx-auto bg-white dark:bg-black rounded-main p-10">
                 <div className="space-y-4 mb-8">
                     <p className="text-thirdColor uppercase font-semibold text-xs">{article.category}</p>
                     <h1 className="font-bold text-3xl md:text-4xl leading-tight">{article.title}</h1>
@@ -70,7 +139,12 @@ export default async function ArticleDetailPage({ params }: Props) {
                         ))}
                     </div>
                 )}
+
             </main>
+            <ArticleRecommendations
+                articles={recommendations}
+                currentArticleSlug={article.slug}
+            />
         </section>
     )
 }

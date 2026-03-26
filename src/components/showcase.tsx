@@ -14,7 +14,7 @@ export const Showcase = () => {
 
             <TabsClient
                 website={
-                    <div className="flex gap-6 overflow-x-scroll py-10 no-scrollbar">
+                    <div className="flex gap-2 md:gap-6 overflow-x-scroll py-10 no-scrollbar">
                         {webWorks.slice(0, 6).map((el, idx) => (
                             <Card
                                 key={idx}
@@ -25,7 +25,7 @@ export const Showcase = () => {
                                 brandName={el.brandName}
                                 features={el.features}
                                 kind={el.kind}
-                                className={`min-w-100 w-100 grow
+                                className={`md:min-w-100 md:w-100 min-w-80 w-80 grow
                                     ${idx === 0 ? "left-margin" : ""}
                                     ${idx === 5 ? "right-margin" : ""}
                                 `}
@@ -34,7 +34,7 @@ export const Showcase = () => {
                     </div>
                 }
                 social={
-                    <div className="flex gap-6 overflow-x-scroll py-10 no-scrollbar">
+                    <div className="flex gap-2 md:gap-6 overflow-x-scroll py-10 no-scrollbar">
                         {dataClientSocmed.map((el, idx) => (
                             <Card
                                 key={idx}
@@ -45,7 +45,7 @@ export const Showcase = () => {
                                 brandName={el.brandName}
                                 features={[]}
                                 kind="social"
-                                className={`min-w-100 w-100
+                                className={`md:min-w-100 md:w-100 min-w-70 w-70 
                                     ${idx === 0 ? "left-margin" : ""}
                                     ${idx === dataClientSocmed.length - 1 ? "right-margin" : ""}
                                 `}

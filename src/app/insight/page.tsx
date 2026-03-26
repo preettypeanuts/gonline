@@ -3,6 +3,9 @@ import { slugToCategory } from "@/lib/slugify"
 import { FeaturedInsight } from "@/components/featured-insight"
 import { NewsCard } from "@/components/news-card"
 import { InsightFilter } from "@/components/insight-fliter"
+import type { Metadata } from "next"
+import { BlogSchema } from "@/components/seo/blog-schema"
+
 
 const ITEMS_PER_PAGE = 9
 
@@ -13,6 +16,39 @@ interface Props {
         highlight?: string
         page?: string
     }>
+}
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+    const { category, search, page } = await searchParams
+    const baseUrl = "https://gonline.id"
+
+    const title = category
+        ? `Insight: ${category.replace(/-/g, " ")} — GONLINE`
+        : "Insight & Artikel Digital Marketing — GONLINE"
+
+    const description = "Temukan tips, strategi, dan insight terbaru seputar digital marketing, social media, dan pengembangan bisnis online dari tim GONLINE."
+
+    const currentPage = Number(page ?? 1)
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: category
+                ? `${baseUrl}/insight?category=${category}`
+                : `${baseUrl}/insight`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `${baseUrl}/insight`,
+            type: "website",
+        },
+        // Halaman filter/search/pagination tidak perlu diindex
+        robots: search || (currentPage > 1)
+            ? { index: false, follow: true }
+            : { index: true, follow: true },
+    }
 }
 
 export default async function Insight({ searchParams }: Props) {
@@ -54,10 +90,16 @@ export default async function Insight({ searchParams }: Props) {
         currentPage * ITEMS_PER_PAGE
     )
 
+    const canonicalUrl =
+        currentPage === 1
+            ? "/insight"
+            : `/insight?page=${currentPage}`
+
     const highlightedArticles = allArticles.filter((a) => a.highlight)
 
     return (
         <>
+            <BlogSchema articles={paginated} />
             <FeaturedInsight articles={highlightedArticles} />
             <InsightFilter
                 categories={categories}
