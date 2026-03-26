@@ -32,8 +32,8 @@ export const ContactForm = () => {
 
     return (
         <section>
-            <div className="grid grid-cols-2 gap-2">
-                <div className="py-3 pl-10 pr-3 bg-black dark:bg-white rounded-r-3xl relative">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-2">
+                <div className="py-3 pl-4 md:pl-10 mr-4 md:mr-0 pr-3 bg-black dark:bg-white rounded-r-3xl relative">
                     <div className="rounded-out-lt-3xl bg-black dark:bg-white"></div>
                     <div className="rounded-out-lb-3xl bg-black dark:bg-white"></div>
 
@@ -53,7 +53,7 @@ export const ContactForm = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-black pl-3 py-3 pr-10 rounded-l-3xl relative">
+                <div className="bg-white dark:bg-black pl-3 py-3 pr-4 md:pr-10 ml-4 md:ml-0 rounded-l-3xl relative self-end">
                     <div className="rounded-out-rt-3xl bg-white dark:bg-black"></div>
                     <div className="rounded-out-rb-3xl bg-white dark:bg-black"></div>
 

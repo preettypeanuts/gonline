@@ -13,7 +13,7 @@ export const ContactItems = () => {
                             </div>
 
                             <div>
-                                <h1 className="text-2xl font-light text-mainColor dark:text-thirdColor">
+                                <h1 className="text-lg text-wrap md:text-2xl font-light text-mainColor dark:text-thirdColor">
                                     {el.data}
                                 </h1>
                             </div>

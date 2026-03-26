@@ -12,7 +12,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
     if (!first) return null
 
     return (
-        <section className="margin mt-23">
+        <section className="margin mt-4 md:mt-23">
             <div className="grid grid-cols-1 md:grid-cols-10 gap-3">
 
                 <a
@@ -51,7 +51,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                             className="flex-1"
                         >
                             <div className="bg-white dark:bg-black rounded-main h-full flex flex-row hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 overflow-hidden">
-                                <div className="relative w-32 sm:w-40 md:w-44 shrink-0">
+                                <div className="relative h-40 md:h-auto w-40 md:w-44 shrink-0">
                                     <Image
                                         width={300}
                                         height={200}

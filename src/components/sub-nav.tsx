@@ -41,7 +41,7 @@ export const SubNav = ({ items }: SubNavProps) => {
     }, [items])
 
     return (
-        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 ">
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:block">
             <div className="rounded-out-r-2xl bg-black"></div>
             <div className="absolute bg-white/20 w-15 h-full blur-md -z-10"></div>
 

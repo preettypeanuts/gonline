@@ -114,8 +114,8 @@ export const RunningClientsLogo = () => {
       </div>
 
       {/* gradient edges */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-linear-to-r from-lightColor dark:from-darkColor to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-linear-to-l from-lightColor dark:from-darkColor to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-10 md:w-32 bg-linear-to-r from-lightColor dark:from-darkColor to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-10 md:w-32 bg-linear-to-l from-lightColor dark:from-darkColor to-transparent z-10" />
 
       {/* rows */}
       <div className="space-y-10 select-none cursor-default">

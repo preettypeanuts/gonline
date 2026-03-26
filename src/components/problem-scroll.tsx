@@ -57,7 +57,7 @@ export const ProblemScrollWrapper = ({
         <>
             <div className="flex items-center justify-between">
                 {title}
-                <div className={`${className} mr-4 md:mr-10 space-x-2`}>
+                <div className={`${className} mr-4 md:mr-10 space-x-2 md:block hidden`}>
                     <Button
                         size={"icon-lg"}
                         variant={"invert"}
@@ -81,7 +81,7 @@ export const ProblemScrollWrapper = ({
                 </div>
             </div>
 
-            <div ref={scrollRef} className="flex gap-5 overflow-x-scroll no-scrollbar py-10">
+            <div ref={scrollRef} className="flex gap-3 md:gap-5 overflow-x-scroll no-scrollbar md:py-10">
                 {children}
             </div>
         </>

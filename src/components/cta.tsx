@@ -13,7 +13,7 @@ export const CTA = () => {
                     alt=""
                 />
 
-                <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-xs">
+                <div className="block md:hidden absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-xs">
                     <div className="rounded-out-bl-3xl bg-lightColor dark:bg-darkColor" />
                     <div className="rounded-out-br-3xl bg-lightColor dark:bg-darkColor" />
 

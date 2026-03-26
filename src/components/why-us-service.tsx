@@ -51,33 +51,31 @@ export const WhyUsSection = ({
                 <div className="md:col-span-8 flex flex-col gap-3 relative">
                     <div
                         id="why-us-scroll"
-                        className="flex gap-5 overflow-x-auto no-scrollbar rounded-main scroll-smooth"
+                        className="flex gap-3 md:gap-5 overflow-x-auto no-scrollbar rounded-main scroll-smooth"
                         style={{ scrollSnapType: "x mandatory" }}
                     >
                         {items.map((el, idx) => (
                             <div
                                 key={idx}
-                                className="p-8 bg-lightColor dark:bg-darkColor rounded-main min-w-80 min-h-120 flex flex-col justify-between"
+                                className="p-8 bg-lightColor dark:bg-darkColor rounded-main min-w-80 min-h-100 md:min-h-120 flex flex-col justify-between"
                                 style={{ scrollSnapAlign: "start" }}
                             >
-                                <div className="text-3xl md:text-4xl mb-6 md:mb-10">
-                                    <el.icon />
-                                </div>
-                                <div className="space-y-2 md:space-y-3">
-                                    <h2 className="text-xl md:text-2xl font-bold">
-                                        {el.title}
-                                    </h2>
-                                    <h3 className="text-sm font-medium opacity-80">
-                                        {el.description}
-                                    </h3>
-                                </div>
+                                <el.icon className="size-10 mb-6 md:mb-10"/>
+                                    <div className="space-y-2 md:space-y-3">
+                                        <h2 className="text-xl md:text-2xl font-bold">
+                                            {el.title}
+                                        </h2>
+                                        <h3 className="text-sm font-medium opacity-80">
+                                            {el.description}
+                                        </h3>
+                                    </div>
                             </div>
                         ))}
                     </div>
 
                     {/* SSR-safe scroll indicator using scroll-driven animation */}
                     <div className="md:flex justify-end text-white dark:text-black absolute hidden md:-bottom-7 right-0 opacity-60">
-                        <MoveRight/>
+                        <MoveRight />
                     </div>
                 </div>
 
