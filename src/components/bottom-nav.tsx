@@ -77,7 +77,7 @@ export const BottomNav = () => {
 
             <div className="fixed left-4 right-4 bottom-4 z-50 md:hidden">
                 <nav className={`
-                flex flex-col items-center px-1.5 py-2 rounded-main overflow-hidden border border-neutral-300/20 shadow-mainShadow
+                flex flex-col items-center px-1.5 py-2 rounded-main overflow-hidden border border-neutral-300/20
                 ${serviceOpen ? "bg-black/90 backdrop-blur-xs backdrop-brightness-90" : "bg-neutral-700/40 backdrop-blur-min backdrop-brightness-90"}
                 `}>
 
