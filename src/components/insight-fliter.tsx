@@ -80,7 +80,7 @@ export const InsightFilter = ({ categories, activeCategory, activeSearch, active
 
     return (
         <div className="my-10 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-p
+
             {/* Category Pills */}
             <div className="bg-white dark:bg-black left-padding mr-4 md:mr-0 py-3 pr-3 rounded-r-3xl relative w-fit max-w-fit">
                 <div className="relative flex items-center">
@@ -105,7 +105,7 @@ p
                         ref={scrollRef}
                         className={`
                             flex items-center gap-2 overflow-x-auto no-scrollbar
-                            ${categories.length > 3 ? "max-w-83.5! md:max-w-150" : ""}
+                            ${categories.length > 3 ? "max-w-83.5 md:max-w-200" : ""}
                         `}
                     >
                         {categories.map((cat) => {
