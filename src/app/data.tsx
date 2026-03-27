@@ -326,13 +326,13 @@ export const dataContact = [
     label: "Phone",
     icon: <Phone />,
     data: "0851 7388 8880",
-    link: "tel:085173888880",
+    link: "tel:085117388880",
   },
   {
     label: "WhatsApp",
     icon: <MessageCircle />,
     data: "+62 851 7388 8880",
-    link: "https://api.whatsapp.com/send?phone=6285173888880",
+    link: "https://api.whatsapp.com/send?phone=6285117388880",
   },
   {
     label: "Instagram",

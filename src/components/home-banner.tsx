@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { HomeBannerCarousel } from "./home-banner-carousel";
+import { dataContact } from "@/app/data";
 
 export const HomeBanner = () => {
     return (
@@ -9,16 +10,18 @@ export const HomeBanner = () => {
             <HomeBannerCarousel />
 
             {/* Get Started Button */}
-            <Button
-                size="lg"
-                variant="default"
-                className="absolute left-4 top-1/2 md:left-6 lg:left-10 text-sm md:text-base md:w-60"
-            >
-                <div className="flex items-center justify-between! gap-2 text-mainColor dark:text-white w-full">
-                    <div>Start Project</div>
-                    <ArrowRight className="inline-block" />
-                </div>
-            </Button>
+            <a href={dataContact[2].link}>
+                <Button
+                    size="lg"
+                    variant="default"
+                    className="absolute left-4 top-1/2 md:left-6 lg:left-10 text-sm md:text-base md:w-60"
+                >
+                    <div className="flex items-center justify-between! gap-2 text-mainColor dark:text-white w-full">
+                        <div>Start Project</div>
+                        <ArrowRight className="inline-block" />
+                    </div>
+                </Button>
+            </a>
 
             {/* Bottom Left Content */}
             <div className="absolute bottom-0 left-0">
