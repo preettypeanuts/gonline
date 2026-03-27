@@ -5,7 +5,7 @@ import { SocmedItems } from "./socmed-items"
 
 export const SocmedWork = () => {
     return (
-        <section className="spacing">
+        <section className="spacing space-y-8">
             <ProblemScrollWrapper
                 title={
                     <Title>
