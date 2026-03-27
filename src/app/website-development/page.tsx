@@ -11,6 +11,8 @@ import { ServiceSchema } from "@/components/seo/schema-service"
 import { IntroBadges } from "@/components/intro-badges"
 import { WebSpecialty } from "@/components/web-specialty"
 import { ctaConfigs, CtaService } from "@/components/cta-service"
+import { Suspense } from "react"
+import { WebWorkSkeleton } from "@/components/skeleton/web-work-skeleton"
 
 const WebWork = dynamic(
     () => import("@/components/web-work").then((mod) => mod.WebWork),
@@ -162,8 +164,8 @@ export default function WebsiteDevelopment() {
             />
 
             <ReusableBanner
-                title="Website"
-                highlight="Development"
+                title="GO"
+                highlight="Website"
                 imageUrl="https://images.unsplash.com/photo-1730449819838-a5018d63e79e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 
@@ -186,7 +188,9 @@ export default function WebsiteDevelopment() {
             </SectionAnchor>
 
             <SectionAnchor id="our-work">
-                <WebWork />
+                <Suspense fallback={<WebWorkSkeleton />}>
+                    <WebWork />
+                </Suspense>
             </SectionAnchor>
 
             <RunningClientsLogo />

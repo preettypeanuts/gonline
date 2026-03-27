@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 
@@ -16,7 +16,6 @@ import {
     Boxes,
     Atom,
     Clover,
-    BarChart3,
     HouseHeart,
     LucideMessageCircleHeart,
 } from "lucide-react";
@@ -25,7 +24,7 @@ import MobileThemeSwitch from "./mobile-theme-switch"
 const navItems = [
     { label: "Home", icon: IconHome, href: "/" },
     { label: "Insight", icon: IconInsight, href: "/insight" },
-    { label: "Menu", icon: IconService },
+    { label: "Menu", icon: IconService, href: "menu" },
     { label: "Work", icon: IconWork, href: "/our-work" },
     { label: "Contact", icon: IconContact, href: "/contact" },
 ]
@@ -67,6 +66,17 @@ const serviceItems: ServiceItem[] = [
 export const BottomNav = () => {
     const pathname = usePathname()
     const [serviceOpen, setServiceOpen] = useState(false)
+
+    useEffect(() => {
+        setServiceOpen(false)
+    }, [pathname])
+
+    const isActive = (link: string) => {
+        if (link === "/") {
+            return pathname === link;
+        }
+        return pathname.startsWith(link);
+    };
 
     return (
         <>
@@ -159,38 +169,40 @@ export const BottomNav = () => {
                     {/* Bottom Nav Bar */}
                     <div className="flex items-center justify-around w-full">
                         {navItems.map((item, idx) => {
-                            const isActive = item.href ? pathname === item.href : serviceOpen
+
                             const Icon = item.icon
 
                             const content = (
                                 <div className={`relative flex items-center justify-center duration-300
-                                ${idx === 0 && isActive && !serviceOpen && "-ml-4"}
-                                ${idx === navItems.length - 1 && isActive && !serviceOpen && "-mr-4"}
-                                ${isActive && !serviceOpen ? "px-3 py-2 bg-black/30 dark:bg-white/30 rounded-full  flex-row" : "flex-col"}`}>
+                                    ${!isActive(item.href ? item.href : "") && "py-1.5"}
+                                    ${idx === 0 && isActive(item.href ? item.href : "") && !serviceOpen && "-ml-4"}
+                                    ${idx === navItems.length - 1 && isActive(item.href ? item.href : "") && !serviceOpen && "-mr-4"}
+                                    ${isActive(item.href ? item.href : "") && !serviceOpen ? "px-3 py-2 bg-black/30 dark:bg-white/30 rounded-full  flex-row" : "flex-col"}`}>
+
 
                                     <Icon
                                         filled={true}
                                         className={`
                                         ${serviceOpen ? "-translate-y-5" : ""} ${item.label === "Menu" && serviceOpen && "rotate-45"}
-                                        size-6 relative z-10 transition-all duration-200 ${isActive ? "text-white" : "text-neutral-300"}`}
+                                        size-6 relative z-10 transition-all duration-200 ${isActive(item.href ? item.href : "") ? "text-white" : "text-neutral-300"}`}
                                     />
-                                    {isActive && !serviceOpen && (
+                                    {isActive(item.href ? item.href : "") && !serviceOpen && (
                                         <div className={`text-xs ml-1.5 duration-300
-                                            ${isActive ? "text-white font-bold" : "text-neutral-300"}`}>
+                                            ${isActive(item.href ? item.href : "") ? "text-white font-bold" : "text-neutral-300"}`}>
                                             {item.label}
                                         </div>
                                     )}
                                     <span className={`
                                             duration-300 absolute
                                             ${serviceOpen ? "" : "translate-y-1 scale-90 opacity-0"} 
-                                            ${isActive ? "text-white" : "text-neutral-300"} text-[9px]`}>
+                                            ${isActive(item.href ? item.href : "") ? "text-white" : "text-neutral-300"} text-[9px]`}>
                                         {item.label}
                                     </span>
 
                                 </div>
                             )
 
-                            if (!item.href) {
+                            if (item.href === "menu") {
                                 return (
                                     <button
                                         key={idx}

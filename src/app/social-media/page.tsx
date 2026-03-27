@@ -127,8 +127,8 @@ export default function SocialMediaPage() {
             />
 
             <ReusableBanner
-                title="Social Media"
-                highlight="Management"
+                title="GO"
+                highlight="Social"
                 imageUrl="https://images.unsplash.com/photo-1729870992116-3e41a142bebb?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
 

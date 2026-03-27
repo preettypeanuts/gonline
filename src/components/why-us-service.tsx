@@ -1,5 +1,6 @@
 import { MoveRight } from "lucide-react"
 import Image from "next/image"
+import SmartImage from "./smart-image"
 
 type WhyUsItem = {
     icon: React.ElementType
@@ -32,7 +33,7 @@ export const WhyUsSection = ({
                 {/* Label / Image */}
                 <div className="md:col-span-2 relative rounded-main overflow-hidden aspect-square md:aspect-auto min-h-40">
                     {imageUrl && (
-                        <Image
+                        <SmartImage
                             width={500}
                             height={500}
                             className="w-full h-full object-cover rounded-main"

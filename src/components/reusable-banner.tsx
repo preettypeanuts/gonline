@@ -1,4 +1,4 @@
-import Image from "next/image"
+import SmartImage from "./smart-image"
 
 interface ReusableBannerProps {
   title: string
@@ -15,7 +15,7 @@ export const ReusableBanner = ({
     <section className="flex justify-center">
       <div className="w-full h-[45vh] sm:h-[55vh] md:h-[65vh] relative">
 
-        <Image
+        <SmartImage
           src={imageUrl}
           alt={title}
           fill
@@ -30,7 +30,7 @@ export const ReusableBanner = ({
           <div className="rounded-out-br-3xl bg-lightColor dark:bg-darkColor"></div>
 
           <div className="px-4 py-2 md:px-6 md:py-3 bg-linear-to-t from-white dark:from-black rounded-b-3xl text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-semibold leading-tight truncate">
+            <h1 className="text-xl md:text-5xl lg:text-7xl font-bold leading-tight truncate">
               {title}{" "}
               {highlight && (
                 <span className="text-mainColor">

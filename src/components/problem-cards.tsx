@@ -1,4 +1,5 @@
 import Image from "next/image"
+import SmartImage from "./smart-image"
 
 interface ProblemItem {
     image: string
@@ -40,7 +41,7 @@ export const ProblemCards = ({ items }: ProblemCardsProps) => {
                             aria-label={el.title}
                         />
 
-                        <Image
+                        <SmartImage
                             width={500}
                             height={500}
                             src={el.image}

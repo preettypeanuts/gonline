@@ -7,6 +7,7 @@ import { Ad } from "@/types/ad";
 import Link from "next/link";
 import ThemeSwitch from "./theme";
 import Image from "next/image";
+import SmartImage from "./smart-image";
 
 type MenuKey = "services" | "about";
 
@@ -103,7 +104,7 @@ const MegaMenu = ({ isOpen, items, ads, onMouseEnter, onMouseLeave }: MegaMenuPr
                                 href={item.href ?? "#"}
                                 className="overflow-hidden relative flex flex-col justify-between group p-4 bg-white/5 hover:bg-black/10 dark:bg-black/5 dark:hover:bg-white/10 border border-white/10 dark:border-black/10 hover:border-white/20 transition-all duration-300 h-full rounded-secondary"
                             >
-                                <Image
+                                <SmartImage
                                     width={300}
                                     height={300}
                                     src={item.img ?? "https://images.unsplash.com/photo-1694327875197-252cfe16f668?q=80&w=2232&auto=format&fit=crop"}

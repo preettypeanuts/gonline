@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Button } from "./ui/button"
+import SmartImage from "./smart-image"
 
 export const OpeningStatements = () => {
     return (
@@ -36,7 +37,7 @@ export const OpeningStatements = () => {
                 </div>
 
                 <div className="md:mt-10 h-70 w-auto relative margin">
-                    <Image
+                    <SmartImage
                         width={500}
                         height={500}
                         className="h-70 object-cover rounded-main w-full"

@@ -1,10 +1,10 @@
 import { getArticles } from "@/lib/googleSheets"
 import { slugify } from "@/lib/slugify"
 import { notFound } from "next/navigation"
-import Image from "next/image"
 import { formatDate } from "@/lib/formatDateTime"
 import { Metadata } from "next"
 import { ArticleRecommendations } from "@/components/article-reccomendations"
+import SmartImage from "@/components/smart-image"
 
 interface Props {
     params: Promise<{ category: string; slug: string }>
@@ -106,7 +106,7 @@ export default async function ArticleDetailPage({ params }: Props) {
                 }}
             />
 
-            <main className="margin mt-30 pb-10 max-w-4xl mx-auto bg-white dark:bg-black rounded-main p-10">
+            <main className="margin mt-4 md:mt-30 pb-10 max-w-4xl mx-4  md:mx-auto bg-white dark:bg-black rounded-main md:p-10 p-5">
                 <div className="space-y-4 mb-8">
                     <p className="text-thirdColor uppercase font-semibold text-xs">{article.category}</p>
                     <h1 className="font-bold text-3xl md:text-4xl leading-tight">{article.title}</h1>
@@ -114,7 +114,7 @@ export default async function ArticleDetailPage({ params }: Props) {
                     <p className="font-semibold text-xs uppercase text-neutral-400">{formatDate(article.updatedAt)}</p>
                 </div>
 
-                <Image
+                <SmartImage
                     width={800}
                     height={450}
                     src={article.coverImage}

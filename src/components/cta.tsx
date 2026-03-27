@@ -1,11 +1,12 @@
 import Image from "next/image"
+import SmartImage from "./smart-image"
 
 export const CTA = () => {
     return (
         <section className="spacing">
             <div className="relative">
                 <div className="w-full h-20 bg-lightColor dark:bg-darkColor rounded-main absolute -top-15" />
-                <Image
+                <SmartImage
                     width={700}
                     height={700}
                     className="w-full h-[50lvh] md:h-[70lvh] object-cover rounded-b-main"

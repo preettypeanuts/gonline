@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import SmartImage from "./smart-image"
 
 interface CardProps {
     link: string
@@ -38,7 +39,7 @@ export const Card = ({
 
             {/* Card */}
             <div className="h-full bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <Image
+                <SmartImage
                     width={500}
                     height={300}
                     src={image}

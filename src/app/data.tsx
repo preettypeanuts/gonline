@@ -140,16 +140,6 @@ export const webWorks = [
     kind: "Company Profile",
   },
   {
-    link: "https://tbn-web.vercel.app/",
-    category: "Company Profile",
-    imagePreview:
-      "https://res.cloudinary.com/dr5dlofvv/image/upload/v1764747149/Porto/tbn_23_11zon_kjeain.webp",
-    companyName: "TBN",
-    brandName: "TBN Group",
-    features: ["Company Overview"],
-    kind: "Company Profile",
-  },
-  {
     link: "https://www.blorainovasisejahtera.com/",
     category: "Company Profile",
     imagePreview:
@@ -177,16 +167,6 @@ export const webWorks = [
     companyName: "Budevi",
     brandName: "Budevi",
     features: ["Products", "CTA", "Print Products"],
-    kind: "Company Profile",
-  },
-  {
-    link: "https://pt-wahyu-web.vercel.app/",
-    category: "Company Profile",
-    imagePreview:
-      "https://res.cloudinary.com/dr5dlofvv/image/upload/v1764747149/Porto/wahyu_24_11zon_hebrmf.webp",
-    companyName: "PT Wahyu",
-    brandName: "Wahyu",
-    features: ["Company Profile", "Articles"],
     kind: "Company Profile",
   },
 
@@ -1562,3 +1542,5 @@ export const introBadgesGoDigital = {
     },
   ],
 };
+
+

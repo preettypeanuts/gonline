@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import SmartImage from "./smart-image";
 
 const images = [
     "https://images.unsplash.com/photo-1519397652863-aad621636ac7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -25,7 +26,7 @@ export const HomeBannerCarousel = () => {
             {/* Images */}
             <div className="relative w-full h-screen">
                 {images.map((image, index) => (
-                    <Image
+                    <SmartImage
                         width={1000}
                         height={1000}
                         key={index}

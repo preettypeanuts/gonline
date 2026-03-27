@@ -1,7 +1,7 @@
 import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
-import Image from "next/image"
 import { slugify } from "@/lib/slugify"
+import SmartImage from "./smart-image"
 
 interface Props {
     articles: Article[]
@@ -19,7 +19,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                     href={`/insight/${slugify(first.category)}/${first.slug}`}
                     className="col-span-1 md:col-span-6">
                     <div className="bg-white dark:bg-black rounded-main w-full h-full hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 relative">
-                        <Image
+                        <SmartImage
                             width={800}
                             height={450}
                             src={first.coverImage}
@@ -52,7 +52,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                         >
                             <div className="bg-white dark:bg-black rounded-main h-full flex flex-row hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 overflow-hidden">
                                 <div className="relative h-40 md:h-auto w-40 md:w-44 shrink-0">
-                                    <Image
+                                    <SmartImage
                                         width={300}
                                         height={200}
                                         src={el.coverImage}

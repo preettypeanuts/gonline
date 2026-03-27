@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ProblemScrollWrapper } from "./problem-scroll"
 import { Title } from "./title"
+import SmartImage from "./smart-image"
 
 interface Props {
     articles: Article[]
@@ -21,14 +22,14 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
     return (
         <section className="spacing">
             <ProblemScrollWrapper
-            className="pr-60"
+                className="pr-4 md:pr-60"
                 scrollAmount={280}
                 dynamicScroll
-                title={<Title className="pl-73">Artikel Terkait</Title>}
+                title={<Title className="pl-4 md:pl-73">Artikel Terkait</Title>}
 
 
             >
-                <div className="flex gap-3 ">
+                <div className="flex gap-3 mt-5 md:mt-0">
                     {recommendations.map((el, idx) => (
                         <Link
                             key={idx}
@@ -36,7 +37,7 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
                             className={`shrink-0 w-56 min-w-85 ${idx === 0 ? "ml-4 md:ml-73" : ""} ${idx === recommendations.length - 1 ? "mr-4 md:mr-73" : ""}`}
                         >
                             <div className="relative bg-white dark:bg-black rounded-2xl h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
-                                <Image
+                                <SmartImage
                                     width={300}
                                     height={300}
                                     src={el.coverImage}

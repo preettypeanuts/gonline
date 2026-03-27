@@ -2,6 +2,8 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
+import { Suspense } from "react"
+import { WebWorkSkeleton } from "@/components/skeleton/web-work-skeleton"
 
 const WebWork = dynamic(
     () => import("@/components/web-work").then((mod) => mod.WebWork),
@@ -78,7 +80,9 @@ export default function OurWork() {
                 imageUrl="https://images.unsplash.com/photo-1518791024316-d0e1bb1ee03a?q=80&w=2163&auto=format&fit=crop"
             />
 
-            <WebWork />
+            <Suspense fallback={<WebWorkSkeleton />}>
+                <WebWork />
+            </Suspense>
 
             <SocmedWork />
         </>

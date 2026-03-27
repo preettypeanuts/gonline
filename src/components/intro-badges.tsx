@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react"
 import Image from "next/image"
+import SmartImage from "./smart-image"
 
 export interface IntroBadgeFeature {
     icon: LucideIcon
@@ -32,7 +33,7 @@ export const IntroBadges = ({
 
                 {/* LEFT */}
                 <div className="col-span-10 md:col-span-5 md:aspect-square relative overflow-hidden rounded-main md:h-auto h-150">
-                    <Image
+                    <SmartImage
                         src={image}
                         alt={imageAlt}
                         fill

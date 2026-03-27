@@ -1,6 +1,7 @@
 import { dataClientSocmed } from "@/app/data"
 import Image from "next/image"
 import Link from "next/link"
+import SmartImage from "./smart-image"
 
 interface SocmedItem {
     preview: string
@@ -40,7 +41,7 @@ export const SocmedItems = ({ items }: SocmedItemsProps) => {
                     <div className="bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden">
                         <div className="w-64 md:w-80">
                             <div className="relative w-full aspect-4/5">
-                                <Image
+                                <SmartImage
                                     fill
                                     src={el.preview}
                                     alt={`${el.brandName} preview`}

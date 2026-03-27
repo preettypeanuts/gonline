@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/formatDateTime"
 import { slugify } from "@/lib/slugify"
 import Image from "next/image"
 import Link from "next/link"
+import SmartImage from "./smart-image"
 
 interface Props {
     articles: Article[]
@@ -21,7 +22,7 @@ export const NewsCard = ({ articles, currentPage, totalPages, searchParams }: Pr
                         href={`/insight/${slugify(el.category)}/${el.slug}`}
                     >
                         <div className="relative bg-white dark:bg-black rounded-main h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
-                            <Image
+                            <SmartImage
                                 width={500}
                                 height={300}
                                 src={el.coverImage}

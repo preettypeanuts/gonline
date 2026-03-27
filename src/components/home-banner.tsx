@@ -4,7 +4,7 @@ import { HomeBannerCarousel } from "./home-banner-carousel";
 
 export const HomeBanner = () => {
     return (
-        <section className="w-full h-screen relative overflow-hidden">
+        <section className="w-full h-[75lvh] md:h-screen relative overflow-hidden rounded-br-main">
             {/* Carousel — isolated client boundary */}
             <HomeBannerCarousel />
 
