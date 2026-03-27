@@ -123,7 +123,7 @@ export const ContactForm = () => {
                                 </p>
                             </div>
 
-                            <div className="relative flex-[2]">
+                            <div className="relative flex-2">
                                 <Textarea
                                     rows={5}
                                     name="message"
