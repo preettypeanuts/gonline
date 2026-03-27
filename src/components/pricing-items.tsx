@@ -25,7 +25,7 @@ export const PricingItems = ({
                     <div
                         key={idx}
                         className={`
-                            relative flex flex-col transition-all duration-300 ease-out
+                            relative flex flex-col transition-all duration-300 ease-out ${!useGrid && "mt-10"}
                             ${!useGrid
                                 ? `min-w-85 ${idx === 0 ? "left-margin" : ""} ${idx === packages.length - 1 ? "right-margin" : ""}`
                                 : ""
