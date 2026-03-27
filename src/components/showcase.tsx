@@ -1,9 +1,12 @@
-import { webWorks, dataClientSocmed } from "@/app/data"
+import { getWorks } from "@/lib/googleSheets"
+import { dataClientSocmed } from "@/app/data"
 import { TabsClient } from "./tabs-client"
 import { Card } from "./card"
 import { Button } from "./ui/button"
 
-export const Showcase = () => {
+export const Showcase = async () => {
+    const webWorks = await getWorks()
+
     return (
         <section className="spacing">
             <h1 className="margin text-4xl font-medium text-center mb-10">
@@ -45,7 +48,7 @@ export const Showcase = () => {
                                 brandName={el.brandName}
                                 features={[]}
                                 kind="social"
-                                className={`md:min-w-100 md:w-100 min-w-70 w-70 
+                                className={`md:min-w-100 md:w-100 min-w-70 w-70
                                     ${idx === 0 ? "left-margin" : ""}
                                     ${idx === dataClientSocmed.length - 1 ? "right-margin" : ""}
                                 `}

@@ -39,12 +39,12 @@ export const Card = ({
 
             {/* Card */}
             <div className="h-full bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <SmartImage
+                <Image
                     width={500}
                     height={300}
                     src={image}
                     alt={brandName}
-                    className="rounded-t-main w-full h-auto object-cover"
+                    className="rounded-t-main w-full h-auto object-cover bg-neutral-300 dark:bg-neutral-700"
                 />
                 <div className="p-5 sm:p-8 space-y-2">
                     <h2 className="font-bold text-lg sm:text-xl">{brandName}</h2>
