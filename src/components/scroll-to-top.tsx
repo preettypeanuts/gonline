@@ -30,7 +30,7 @@ export const ScrollToTop = () => {
             onClick={scrollToTop}
             className={` bg-black dark:bg-white hover:bg-secondaryDark dark:hover:bg-secondaryLight active:scale-90 cursor-pointer text-thirdColor rounded-full flex items-center justify-center duration-500 border border-neutral-200/15 dark:border-neutral-800/10 transition-all ease-in-out
   ${isScrolled
-                    ? "scale-100 opacity-100 translate-x-0 pointer-events-auto w-11.5 h-11.5 blur-none"
+                    ? "scale-100 opacity-100 translate-x-0 pointer-events-auto md:w-11.5 md:h-11.5 w-11 h-11 blur-none"
                     : "scale-50 -translate-x-10 opacity-0 pointer-events-none w-0 h-0 blur-sm"
                 }
 `}
