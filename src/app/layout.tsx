@@ -6,8 +6,9 @@ import { Footer } from "@/components/footer";
 import { ComingSoonPage } from "@/components/coming-soon-page";
 import { NavbarWrapper } from "@/components/navbar-wrapper";
 import { BottomNav } from "@/components/bottom-nav";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import Script from "next/script";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -118,7 +119,7 @@ export default function RootLayout({
       `}
         </Script>
       </head>
-      
+
       <body className={`${pjs.className} antialiased`}>
         <ThemeProvider defaultTheme="light" attribute="class">
           {isComingSoon ? (
@@ -134,7 +135,8 @@ export default function RootLayout({
         </ThemeProvider>
 
         <Analytics />
-        
+        <SpeedInsights />
+
       </body>
     </html>
   );
