@@ -8,6 +8,8 @@ import Link from "next/link";
 import ThemeSwitch from "./theme";
 import Image from "next/image";
 import SmartImage from "./smart-image";
+import { ScrollToTop } from "./scroll-to-top";
+import { FloatingButtonWhatsapp } from "./floating-button-whatsapp";
 
 type MenuKey = "services" | "about";
 
@@ -144,7 +146,6 @@ export const Navbar = ({ ads }: NavbarProps) => {
     const [activeLabel, setActiveLabel] = useState<string | null>(null);
     const pathname = usePathname();
 
-
     const menuData: Record<MenuKey, MenuItem[]> = {
         services: [
             {
@@ -278,6 +279,23 @@ export const Navbar = ({ ads }: NavbarProps) => {
                 >
                     <ThemeSwitch />
                 </div>
+
+                <div
+                    className="self-start shrink-0 hidden md:block"
+                    style={{ transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+                >
+                    <FloatingButtonWhatsapp />
+                </div>
+
+                <div
+                    className="self-start shrink-0"
+                    style={{ transition: "transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+                >
+                    <ScrollToTop />
+                </div>
+
+
+
             </nav>
         </div>
     );
