@@ -175,6 +175,8 @@ export default function SocialMediaPage() {
                 />
             </SectionAnchor>
 
+            <RunningClientsLogo/>
+
             <CtaService config={ctaConfigs.sosmed} />
         </>
     )

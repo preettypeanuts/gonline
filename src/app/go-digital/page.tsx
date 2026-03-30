@@ -174,6 +174,8 @@ export default function GoDIgitalaPge() {
                 />
             </SectionAnchor>
 
+            <RunningClientsLogo/>
+
             <CtaService config={ctaConfigs.godigital} />
 
         </>

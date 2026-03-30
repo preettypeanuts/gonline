@@ -99,7 +99,7 @@ export default function About() {
         <>
             <WebPageSchema {...pageSchemas.about} />
             <ReusableBanner
-                title="Get To Know"
+                title="Get To Know" 
                 highlight="Us"
                 imageUrl="https://images.unsplash.com/photo-1628702110466-aa2107a82d8e?q=80&w=2920&auto=format&fit=crop"
             />

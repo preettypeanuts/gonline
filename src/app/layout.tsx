@@ -6,6 +6,8 @@ import { Footer } from "@/components/footer";
 import { ComingSoonPage } from "@/components/coming-soon-page";
 import { NavbarWrapper } from "@/components/navbar-wrapper";
 import { BottomNav } from "@/components/bottom-nav";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next"
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -100,6 +102,23 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en" className="scroll-smooth">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PMC1F40BX7"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-PMC1F40BX7');
+      `}
+        </Script>
+      </head>
+      
       <body className={`${pjs.className} antialiased`}>
         <ThemeProvider defaultTheme="light" attribute="class">
           {isComingSoon ? (
@@ -113,6 +132,9 @@ export default function RootLayout({
             </>
           )}
         </ThemeProvider>
+
+        <Analytics />
+        
       </body>
     </html>
   );

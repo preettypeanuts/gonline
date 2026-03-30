@@ -1,33 +1,13 @@
-import {
-  ShoppingCart,
-  Apple,
-  Monitor,
-  Music,
-  MessageSquare,
-  Store,
-  CreditCard,
-  Home,
-  LucideIcon,
-} from "lucide-react";
+"use client";
 
-/* shuffle helper */
-function shuffleArray<T>(array: T[]): T[] {
-  const arr = [...array];
-
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = (i * 7 + 3) % arr.length;
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-
-  return arr;
-}
+import { useEffect, useState } from "react";
 
 /* logo row */
 function LogoRow({
   logos,
   direction = "left",
 }: {
-  logos: { icon: LucideIcon; label: string }[];
+  logos: { companyLogo: string; companyName: string }[];
   direction?: "left" | "right";
 }) {
   const duplicated = [...logos, ...logos];
@@ -35,40 +15,86 @@ function LogoRow({
   return (
     <div className="overflow-hidden relative">
       <div className={`scroll-track-logo scroll-${direction}`}>
-        {duplicated.map((item, i) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={`${direction}-${i}`}
-              className="text-neutral-400 opacity-70 hover:opacity-100 transition"
-            >
-              <Icon size={48} strokeWidth={1.5} />
-            </div>
-          );
-        })}
+        {duplicated.map((item, i) => (
+          <div
+            key={`${direction}-${i}`}
+            className="transition flex items-center justify-center p-5 bg-white rounded-main"
+          >
+            <img
+              src={item.companyLogo}
+              alt={item.companyName}
+              className="h-20 w-auto object-contain rounded-lg"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export const RunningClientsLogo = () => {
-  const clientsLogo = [
-    { icon: ShoppingCart, label: "Amazon" },
-    { icon: Apple, label: "Apple" },
-    { icon: Monitor, label: "Microsoft" },
-    { icon: Music, label: "Spotify" },
-    { icon: MessageSquare, label: "Slack" },
-    { icon: Store, label: "Shopify" },
-    { icon: CreditCard, label: "PayPal" },
-    { icon: Home, label: "Airbnb" },
-  ];
+/* shuffle helper */
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = (i * 7 + 3) % arr.length;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
-  const row1 = [...clientsLogo, ...clientsLogo];
-  const row2 = [
-    ...shuffleArray(clientsLogo),
-    ...shuffleArray(clientsLogo),
-  ];
+type Client = {
+  id: number;
+  companyLogo: string | null;
+  companyName: string;
+};
+
+export const RunningClientsLogo = () => {
+  const [clients, setClients] = useState<Client[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_APIURL}/business/clients?limit=100`
+        );
+        const json = await res.json();
+
+        // filter yang companyLogo-nya tidak null
+        const filtered: Client[] = (json?.data ?? json)
+          .filter((c: Client) => c.companyLogo !== null)
+          .map((c: Client) => ({
+            id: c.id,
+            companyLogo: c.companyLogo as string,
+            companyName: c.companyName,
+          }));
+
+        setClients(filtered);
+      } catch (err) {
+        console.error("Failed to fetch clients:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClients();
+  }, []);
+
+  const validClients = clients.filter((c): c is Client & { companyLogo: string } => c.companyLogo !== null);
+  const row1 = [...validClients, ...validClients];
+  const row2 = [...shuffleArray(validClients), ...shuffleArray(validClients)];
+
+  if (loading) {
+    return (
+      <section className="spacing flex items-center justify-center min-h-40">
+        <p className="text-muted-foreground text-sm animate-pulse">
+          Loading clients...
+        </p>
+      </section>
+    );
+  }
+
+  if (clients.length === 0) return null;
 
   return (
     <section className="spacing overflow-hidden relative">
@@ -76,28 +102,23 @@ export const RunningClientsLogo = () => {
         :root {
           --scroll-speed: 120s;
         }
-
         .scroll-track-logo {
           display: flex;
           width: max-content;
-          gap: 4rem;
+          gap: 2rem;
           will-change: transform;
         }
-
         @keyframes scroll-left {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
-
         @keyframes scroll-right {
           from { transform: translateX(-50%); }
           to { transform: translateX(0); }
         }
-
         .scroll-left {
           animation: scroll-left var(--scroll-speed) linear infinite;
         }
-
         .scroll-right {
           animation: scroll-right var(--scroll-speed) linear infinite;
         }
