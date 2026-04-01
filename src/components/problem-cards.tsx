@@ -1,4 +1,3 @@
-import Image from "next/image"
 import SmartImage from "./smart-image"
 
 interface ProblemItem {

@@ -1,6 +1,7 @@
 import { formatToRupiah } from "@/lib/formatRupiah"
 import { Star, Check } from "lucide-react"
 import { PricingPackage } from "./pricing-card"
+import { PricingCtaButton } from "./pricing-cta-button"
 
 interface PricingItemsProps {
     packages: PricingPackage[]
@@ -25,7 +26,7 @@ export const PricingItems = ({
                     <div
                         key={idx}
                         className={`
-                            relative flex flex-col transition-all duration-300 ease-out ${!useGrid && "mt-10"}
+                            relative flex flex-col transition-all duration-300 ease-out hover:-translate-y-5 hover:shadow-mainShadow rounded-main ${!useGrid && "mt-10"}
                             ${!useGrid
                                 ? `min-w-85 ${idx === 0 ? "left-margin" : ""} ${idx === packages.length - 1 ? "right-margin" : ""}`
                                 : ""
@@ -78,9 +79,12 @@ export const PricingItems = ({
                                     </div>
                                 ))}
                                 <div className="mt-5">
-                                    <button className={`w-full py-3 rounded-full font-semibold text-sm transition-all duration-200 ${isFavorite ? "bg-darkColor text-white dark:bg-lightColor dark:text-black hover:invert active:scale-[0.98]" : "bg-black/5 dark:bg-white/10 text-black dark:text-white border border-black/10 dark:border-white/10 hover:bg-white hover:text-black active:scale-[0.98]"}`}>
-                                        {isFavorite ? favoriteCta : ctaLabel}
-                                    </button>
+                                    <PricingCtaButton
+                                        packageName={el.name}
+                                        isFavorite={isFavorite}
+                                        ctaLabel={ctaLabel}
+                                        favoriteCta={favoriteCta}
+                                    />
                                 </div>
                             </div>
                         </div>
