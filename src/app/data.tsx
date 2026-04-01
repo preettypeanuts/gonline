@@ -781,7 +781,7 @@ export const websitePackages = [
     favorite: true,
     priceRange: "Start From 1JT",
     pricing: {
-      fixed: 1500000,
+      fixed: 3000000,
       gimmick: 7000000,
       discount: 29,
     },
@@ -799,7 +799,7 @@ export const websitePackages = [
     favorite: false,
     priceRange: "Start From 3JT",
     pricing: {
-      fixed: 3000000,
+      fixed: 8000000,
       gimmick: 19000000,
       discount: 32,
     },
@@ -818,7 +818,7 @@ export const websitePackages = [
     favorite: false,
     priceRange: "Start From 7JT",
     pricing: {
-      fixed: 8000000,
+      fixed: 13000000,
       gimmick: 24000000,
       discount: 25,
     },
@@ -838,7 +838,7 @@ export const websitePackages = [
     favorite: false,
     priceRange: "Start From 15JT",
     pricing: {
-      fixed: 15000000,
+      fixed: 19000000,
       gimmick: 31000000,
       discount: 19,
     },
