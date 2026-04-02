@@ -4,15 +4,17 @@ interface ReusableBannerProps {
   title: string
   highlight?: string
   imageUrl: string
+  className?: string
 }
 
 export const ReusableBanner = ({
   title,
   highlight,
   imageUrl,
+  className = "",
 }: ReusableBannerProps) => {
   return (
-    <section className="flex justify-center">
+    <section className={`flex justify-center ${className}`}>
       <div className="w-full h-[45vh] sm:h-[55vh] md:h-[65vh] relative">
 
         <SmartImage

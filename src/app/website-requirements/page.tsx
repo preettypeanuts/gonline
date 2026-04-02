@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckIcon, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { ReusableBanner } from "@/components/reusable-banner";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -239,10 +240,16 @@ export default function WebsiteRequirementsPage() {
 
     return (
         <>
-            <div className="max-w-4xl mx-auto py-10 space-y-8 mt-25 bg-white dark:bg-black rounded-main p-8 shadow-mainShadow">
+            <ReusableBanner
+                title="Project"
+                highlight="Brief"
+                imageUrl="https://images.unsplash.com/photo-1734784547175-e02d14fff45c?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <div className="max-w-4xl mx-auto py-10 space-y-8 mt-10 bg-white dark:bg-black rounded-main p-8 shadow-mainShadow">
+
                 {/* Header */}
                 <div className="space-y-2">
-                    <h1 className="text-2xl font-bold">Project Brief - Website Development</h1>
+                    <h1 className="text-2xl font-bold">Website Development Requirements</h1>
                     <p className="text-sm text-muted-foreground">
                         Silakan isi form berikut dengan informasi yang tersedia untuk membantu kami memahami
                         kebutuhan website Anda. Pada bagian opsional, kosongkan saja jika dirasa tidak
@@ -299,19 +306,19 @@ export default function WebsiteRequirementsPage() {
                                     {!field.key.includes("product_services") && (
 
                                         <Button
-                                        type="button"
-                                        size="xs"
-                                        variant={isGenerate ? "invert" : "outline"}
-                                        onClick={() => toggleGenerate(field.label)}
+                                            type="button"
+                                            size="xs"
+                                            variant={isGenerate ? "invert" : "outline"}
+                                            onClick={() => toggleGenerate(field.label)}
                                         >
-                                        {isGenerate ? (
-                                            <span className="flex items-center gap-1">
-                                                <CheckIcon className="w-4 h-4" /> Bantu Generate
-                                            </span>
-                                        ) : (
-                                            "Bantu Generate"
-                                        )}
-                                    </Button>
+                                            {isGenerate ? (
+                                                <span className="flex items-center gap-1">
+                                                    <CheckIcon className="w-4 h-4" /> Bantu Generate
+                                                </span>
+                                            ) : (
+                                                "Bantu Generate"
+                                            )}
+                                        </Button>
                                     )}
                                 </div>
                                 <Textarea
