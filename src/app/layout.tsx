@@ -8,8 +8,8 @@ import { NavbarWrapper } from "@/components/navbar-wrapper";
 import { BottomNav } from "@/components/bottom-nav";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
-import { FloatingButtonWhatsapp } from "@/components/floating-button-whatsapp";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -122,7 +122,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${pjs.className} antialiased`}>
-        
+
         <ThemeProvider defaultTheme="light" attribute="class">
           {isComingSoon ? (
             <ComingSoonPage />
@@ -132,6 +132,7 @@ export default function RootLayout({
               <BottomNav />
               {children}
               <Footer />
+              <Toaster position="top-right" richColors />
             </>
           )}
         </ThemeProvider>
