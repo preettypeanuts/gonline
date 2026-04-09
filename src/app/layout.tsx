@@ -105,6 +105,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en" className="scroll-smooth">
       <head>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PMC1F40BX7"
@@ -119,9 +120,19 @@ export default function RootLayout({
         gtag('config', 'G-PMC1F40BX7');
       `}
         </Script>
+
       </head>
 
       <body className={`${pjs.className} antialiased`}>
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1365206612320219&ev=PageView&noscript=1"
+          />
+        </noscript>
 
         <ThemeProvider defaultTheme="light" attribute="class">
           {isComingSoon ? (
@@ -138,6 +149,7 @@ export default function RootLayout({
         </ThemeProvider>
 
         <Analytics />
+
         <SpeedInsights />
 
       </body>
