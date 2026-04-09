@@ -59,7 +59,7 @@ const AdCarousel = ({ ads }: { ads: Ad[] }) => {
                     />
                 ))}
                 {ads.length > 1 && (
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10 p-1 bg-darkColor/10 rounded-full backdrop-blur-xs">
                         {ads.map((_, i) => (
                             <button
                                 key={i}
@@ -67,7 +67,7 @@ const AdCarousel = ({ ads }: { ads: Ad[] }) => {
                                 className={`rounded-full transition-all duration-300 ${i === current ? "w-3 h-1.5 bg-white" : "w-1.5 h-1.5 bg-white/40"
                                     }`}
                             />
-                        ))}˚
+                        ))}
                     </div>
                 )}
             </div>
@@ -131,6 +131,7 @@ const MegaMenu = ({ isOpen, items, ads, onMouseEnter, onMouseLeave }: MegaMenuPr
                             opacity: isOpen ? 1 : 0,
                             transform: isOpen ? "translateY(0px)" : "translateY(15px)",
                             transition: "all 400ms ease 180ms",
+                            pointerEvents: isOpen ? "auto" : "none", // 🔥 ini kuncinya
                         }}
                     >
                         <AdCarousel ads={ads} />
