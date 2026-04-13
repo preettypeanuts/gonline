@@ -61,7 +61,11 @@ export const getArticles = unstable_cache(
             : [],
         } satisfies Article;
       })
-      .filter((a) => a.status);
+      .filter((a) => a.status)
+      .sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      );
   },
   ["articles"],
   { revalidate: 60 },
