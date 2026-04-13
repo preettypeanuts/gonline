@@ -7,10 +7,11 @@ import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
-import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle } from "lucide-react"
+import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle, Book } from "lucide-react"
 import { ctaConfigs } from "@/components/cta-service"
 import { IntroBadges } from "@/components/intro-badges"
 import { ServiceSchema } from "@/components/seo/schema-service"
+import { InsightRecommendations } from "@/components/insight-reccomendations"
 
 const SocmedWork = dynamic(
     () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
@@ -55,6 +56,8 @@ const SOCMED_SUBNAV = [
     { label: "Our Work", id: "our-work", icon: <Briefcase size={15} /> },
     { label: "Pricing", id: "pricing", icon: <DollarSign size={15} /> },
     { label: "FAQ", id: "faq", icon: <MessageCircle size={15} /> },
+    { label: "Insight", id: "insight", icon: <Book size={15} /> },
+
 ]
 
 export const metadata: Metadata = {
@@ -175,9 +178,17 @@ export default function SocialMediaPage() {
                 />
             </SectionAnchor>
 
-            <RunningClientsLogo/>
+            <RunningClientsLogo />
 
             <CtaService config={ctaConfigs.sosmed} />
+
+            <SectionAnchor id="insight">
+                <InsightRecommendations
+                    topics={["Website Development", "UI/UX Design"]}
+                    heading="Insight Seputar Website"
+                    limit={6}
+                />
+            </SectionAnchor>
         </>
     )
 }

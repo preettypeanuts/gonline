@@ -20,7 +20,17 @@ export const NewsCard = ({ articles, currentPage, totalPages, searchParams }: Pr
                     <Link
                         key={idx}
                         href={`/insight/${slugify(el.category)}/${el.slug}`}
+                        className="group relative rounded-main overflow-hidden"
                     >
+                        <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:translate-y-0 group-hover:opacity-100 opacity-0 transition-all duration-300 -translate-y-5 scale-95 group-hover:scale-100">
+                            <button
+                                rel="noopener noreferrer"
+                                className="cursor-pointer text-white font-medium text-3xl text-center p-10 w-fit h-fit rounded-main bg-darkColor dark:bg-lightColor dark:text-black hover:bg-darkColor/90 hover:dark:bg-lightColor/90 transition-colors duration-200"
+                            >
+                                View
+                            </button>
+                        </div>
+                        <div className="absolute inset-0 w-full h-full rounded-main bg-lightColor/70 dark:bg-darkColor/70 z-10 opacity-0 group-hover:opacity-100 duration-200" />
                         <div className="relative bg-white dark:bg-black rounded-main h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
                             <SmartImage
                                 width={500}

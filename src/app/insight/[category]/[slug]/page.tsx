@@ -5,14 +5,16 @@ import { formatDate } from "@/lib/formatDateTime"
 import { Metadata } from "next"
 import { ArticleRecommendations } from "@/components/article-reccomendations"
 import SmartImage from "@/components/smart-image"
+import { ShareButtons } from "@/components/share-buttons"
 
 interface Props {
     params: Promise<{ category: string; slug: string }>
 }
 
+const BASE_URL = "https://gonline.id"
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { category, slug } = await params
-    const baseUrl = "https://gonline.id"
     const articles = await getArticles()
     const article = articles.find(
         (a) => slugify(a.category) === category && a.slug === slug
@@ -24,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${article.title} — GONLINE`,
         description: article.excerpt,
         alternates: {
-            canonical: `${baseUrl}/insight/${category}/${slug}`,
+            canonical: `${BASE_URL}/insight/${category}/${slug}`,
         },
         openGraph: {
             title: article.title,
             description: article.excerpt,
-            url: `${baseUrl}/insight/${category}/${slug}`,
+            url: `${BASE_URL}/insight/${category}/${slug}`,
             type: "article",
             publishedTime: article.createdAt,
             modifiedTime: article.updatedAt,
@@ -53,8 +55,9 @@ export default async function ArticleDetailPage({ params }: Props) {
         (a) => slugify(a.category) === category && a.slug === slug
     )
 
-    // Guard dulu sebelum pakai article
     if (!article) notFound()
+
+    const articleUrl = `${BASE_URL}/insight/${category}/${slug}`
 
     const related = articles
         .filter((a) => a.category === article.category && a.slug !== article.slug)
@@ -86,27 +89,27 @@ export default async function ArticleDetailPage({ params }: Props) {
                         author: {
                             "@type": "Organization",
                             name: "GONLINE",
-                            url: "https://gonline.id",
+                            url: BASE_URL,
                         },
                         publisher: {
                             "@type": "Organization",
                             name: "GONLINE",
-                            url: "https://gonline.id",
+                            url: BASE_URL,
                             logo: {
                                 "@type": "ImageObject",
-                                url: "https://gonline.id/icon.png",
+                                url: `${BASE_URL}/icon.png`,
                             },
                         },
                         mainEntityOfPage: {
                             "@type": "WebPage",
-                            "@id": `https://gonline.id/insight/${slugify(article.category)}/${article.slug}`,
+                            "@id": articleUrl,
                         },
                         keywords: article.tags.join(", "),
                     }),
                 }}
             />
 
-            <main className="margin mt-4 md:mt-30 pb-10 max-w-4xl mx-4  md:mx-auto bg-white dark:bg-black rounded-main md:p-10 p-5">
+            <main className="margin mt-4 md:mt-30 pb-10 max-w-4xl mx-4 md:mx-auto bg-white dark:bg-black rounded-main md:p-10 p-5">
                 <div className="space-y-4 mb-8">
                     <p className="text-thirdColor uppercase font-semibold text-xs">{article.category}</p>
                     <h1 className="font-bold text-3xl md:text-4xl leading-tight">{article.title}</h1>
@@ -140,7 +143,14 @@ export default async function ArticleDetailPage({ params }: Props) {
                     </div>
                 )}
 
+                <ShareButtons
+                    title={article.title}
+                    excerpt={article.excerpt}
+                    coverImage={article.coverImage}
+                    url={articleUrl}
+                />
             </main>
+
             <ArticleRecommendations
                 articles={recommendations}
                 currentArticleSlug={article.slug}

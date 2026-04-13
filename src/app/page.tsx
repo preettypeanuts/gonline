@@ -3,6 +3,7 @@ import { HomeBanner } from "@/components/home-banner"
 import { OrganizationSchema } from "@/components/seo/organization-schema"
 import { RunningClientsLogo } from "@/components/running-clients-logo"
 import { HomeBannerTwo } from "@/components/home-banner-two"
+import { InsightRecommendations } from "@/components/insight-reccomendations"
 
 const OpeningStatements = dynamic(
   () => import("@/components/opening-statements").then((mod) => mod.OpeningStatements),
@@ -106,6 +107,10 @@ export default function Home() {
       <ServicesVertical />
       <HowWeWork />
       <Showcase />
+      <InsightRecommendations
+        heading="Insight Pilihan"
+        limit={6}
+      />
       <RunningClientsLogo />
       <CTA />
     </>

@@ -6,13 +6,14 @@ import { WhyUsSection } from "@/components/why-us-service"
 import { introBadgesWebsite, webProblem, websiteFaq, websitePackages, whyUsWeb } from "../data"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
-import { HelpCircle, Star, Briefcase, DollarSign, CircleQuestionMark } from "lucide-react"
+import { HelpCircle, Star, Briefcase, DollarSign, CircleQuestionMark, Book } from "lucide-react"
 import { ServiceSchema } from "@/components/seo/schema-service"
 import { IntroBadges } from "@/components/intro-badges"
 import { WebSpecialty } from "@/components/web-specialty"
 import { ctaConfigs, CtaService } from "@/components/cta-service"
 import { Suspense } from "react"
 import { WebWorkSkeleton } from "@/components/skeleton/web-work-skeleton"
+import { InsightRecommendations } from "@/components/insight-reccomendations"
 
 const WebWork = dynamic(
     () => import("@/components/web-work").then((mod) => mod.WebWork),
@@ -66,6 +67,7 @@ const WEB_SUBNAV = [
     { label: "Our Work", id: "our-work", icon: <Briefcase size={15} /> },
     { label: "Pricing", id: "pricing", icon: <DollarSign size={15} /> },
     { label: "FAQ", id: "faq", icon: <CircleQuestionMark size={15} /> },
+    { label: "Insight", id: "insight", icon: <Book size={15} /> },
 ]
 
 export const metadata = {
@@ -207,9 +209,19 @@ export default function WebsiteDevelopment() {
                 <FaqSection faqs={websiteFaq} />
             </SectionAnchor>
 
+
             <RunningClientsLogo />
 
             <CtaService config={ctaConfigs.website} />
+
+
+            <SectionAnchor id="insight">
+                <InsightRecommendations
+                    topics={["Website Development", "UI/UX Design"]}
+                    heading="Insight Seputar Website"
+                    limit={6}
+                />
+            </SectionAnchor>
         </>
     )
 }
