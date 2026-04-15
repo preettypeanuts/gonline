@@ -29,11 +29,11 @@ export const ScrollToTop = () => {
         <button
             onClick={scrollToTop}
             className={` bg-black dark:bg-white hover:bg-secondaryDark dark:hover:bg-secondaryLight active:scale-90 cursor-pointer text-thirdColor rounded-full flex items-center justify-center duration-500 border border-neutral-200/15 dark:border-neutral-800/10 transition-all ease-in-out
-  ${isScrolled
+                    ${isScrolled
                     ? "scale-100 opacity-100 translate-x-0 pointer-events-auto md:w-11.5 md:h-11.5 w-11 h-11 blur-none"
-                    : "scale-50 -translate-x-10 opacity-0 pointer-events-none w-0 h-0 blur-sm"
+                    : "scale-50 -translate-x-10 opacity-0 pointer-events-none w-0 h-0 blur-sm -mr-2 md:mr-0"
                 }
-`}
+            `}
         >
             <svg
                 className={`${isScrolled ? "w-5.5 h-5.5" : "w-0 h-0"} duration-300 ease-in-out`}

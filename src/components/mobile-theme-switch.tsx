@@ -30,13 +30,12 @@ export default function MobileThemeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex flex-row items-center gap-2 p-3 w-full rounded-secondary text-neutral-300 bg-white/5 overflow-hidden"
+      className="flex flex-row items-center gap-2 p-3 w-full rounded-secondary text-white dark:text-black bg-lightColor/10 dark:bg-darkColor/10 overflow-hidden"
     >
       <div className="relative h-5 overflow-hidden">
         <div
-          className={`flex flex-col transition-transform duration-300 ease-in-out ${
-            isDark ? '-translate-y-5' : 'translate-y-0'
-          }`}
+          className={`flex flex-col transition-transform duration-300 ease-in-out ${isDark ? '-translate-y-5' : 'translate-y-0'
+            }`}
         >
           <Sun className="size-5 shrink-0" />
           <Moon className="size-5 shrink-0" />
@@ -45,9 +44,8 @@ export default function MobileThemeSwitch() {
 
       <div className="relative h-5 overflow-hidden">
         <div
-          className={`flex flex-col transition-transform duration-300 ease-in-out ${
-            isDark ? '-translate-y-5' : 'translate-y-0'
-          }`}
+          className={`flex flex-col transition-transform duration-300 ease-in-out ${isDark ? '-translate-y-5' : 'translate-y-0'
+            }`}
         >
           <span className="text-sm font-medium h-5 flex items-center">Light</span>
           <span className="text-sm font-medium h-5 flex items-center">Dark</span>
