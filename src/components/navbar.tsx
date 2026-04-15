@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { Atom, Boxes, Clover, Plus } from "lucide-react";
-import { Ad } from "@/types/ad";
 import Link from "next/link";
 import ThemeSwitch from "./theme";
 import Image from "next/image";
 import SmartImage from "./smart-image";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { Atom, Boxes, Clover, Plus } from "lucide-react";
+import { Ad } from "@/types/ad";
 import { ScrollToTop } from "./scroll-to-top";
 import { FloatingButtonWhatsapp } from "./floating-button-whatsapp";
 

@@ -5,7 +5,7 @@ import { dataContact } from "@/app/data";
 
 export const HomeBanner = () => {
     return (
-        <section className="w-full h-[75lvh] md:h-screen relative overflow-hidden rounded-br-main">
+        <section className="hidden md:block w-full h-[75lvh] md:h-screen relative overflow-hidden rounded-br-main">
             {/* Carousel — isolated client boundary */}
             <HomeBannerCarousel />
 

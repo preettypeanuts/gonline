@@ -224,3 +224,16 @@ p
 .animate-scroll-right {
   animation: scroll-right 25s linear infinite;
 }
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progress 3s linear forwards;
+}
