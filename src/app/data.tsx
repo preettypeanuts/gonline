@@ -1071,16 +1071,17 @@ export const socmedPackages = [
     name: "Basic",
     favorite: false,
     pricing: {
-      fixed: 4000000,
+      fixed: 1200000,
       gimmick: 6500000,
     },
     deliverables: [
       "12 Feed Content (static/carousel)",
+      "6 Instagram Story",
       "1 bulan (ongoing)",
       "Basic caption writing",
       "1x monthly content planning",
       "Basic hashtag research",
-      "1x revision per konten",
+      "5x revision total",
       "Scheduling & posting",
       "Simple monthly report",
     ],
@@ -1089,28 +1090,30 @@ export const socmedPackages = [
     name: "Growth",
     favorite: true,
     pricing: {
-      fixed: 8900000,
+      fixed: 2800000,
       gimmick: 13000000,
     },
     deliverables: [
       "20 Feed Content",
       "4 Reels",
+      "12 Instagram Story",
       "1 bulan (ongoing)",
       "Strategic content pillar mapping",
       "CTA-based caption writing",
       "Monthly content calendar",
-      "2x revision per konten",
+      "15x revision total",
       "Scheduling & optimization timing",
       "Basic competitor snapshot",
       "1x strategy call",
       "Insight report + recommendation",
+      "Meta ADS Setup",
     ],
   },
   {
     name: "High Scale",
     favorite: false,
     pricing: {
-      fixed: 15000000,
+      fixed: 7000000,
       gimmick: 21000000,
     },
     deliverables: [
@@ -1120,11 +1123,12 @@ export const socmedPackages = [
       "Full funnel content mapping (Awareness–Conversion)",
       "Advanced sales-driven copywriting",
       "Visual direction alignment",
-      "3x revision per konten",
+      "1x revision per konten",
       "Weekly monitoring & adjustment",
       "2x strategy meeting",
       "Detailed performance report",
       "Basic ads setup guidance (tanpa budget)",
+      "Meta ADS Setup",
     ],
   },
 ];
@@ -1542,5 +1546,3 @@ export const introBadgesGoDigital = {
     },
   ],
 };
-
-

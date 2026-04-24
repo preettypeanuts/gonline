@@ -185,7 +185,7 @@ export default function SocialMediaPage() {
             <SectionAnchor id="insight">
                 <InsightRecommendations
                     topics={["Website Development", "UI/UX Design"]}
-                    heading="Insight Seputar Website"
+                    heading="Insight Seputar Socmed"
                     limit={6}
                 />
             </SectionAnchor>

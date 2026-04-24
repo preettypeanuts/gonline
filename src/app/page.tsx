@@ -5,6 +5,7 @@ import { RunningClientsLogo } from "@/components/running-clients-logo"
 import { HomeBannerTwo } from "@/components/home-banner-two"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 import { MobileBanner } from "@/components/mobile-banner"
+import { HomeService } from "@/components/home-service"
 
 const OpeningStatements = dynamic(
   () => import("@/components/opening-statements").then((mod) => mod.OpeningStatements),
@@ -105,7 +106,8 @@ export default function Home() {
       <OrganizationSchema />
       <MobileBanner />
       <HomeBanner />
-      <OpeningStatements />
+      <HomeService/>
+      {/* <OpeningStatements /> */}
       <ServicesVertical />
       <HowWeWork />
       <Showcase />

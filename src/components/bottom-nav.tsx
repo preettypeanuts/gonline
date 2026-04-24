@@ -101,10 +101,8 @@ export const BottomNav = () => {
                 <nav className={`
                 flex flex-col items-center rounded-main overflow-hidden duration-200 ease-in-out
                 ${serviceOpen ? "bg-black dark:bg-white" : ""}
-             ${visible ? 'transform translate-y-0' : 'translate-y-[120%]'}
+                ${visible ? 'transform translate-y-0' : 'translate-y-[150%]'}
                 `}>
-
-
                     {/* Mega Menu — expands upward smoothly */}
                     <div
                         style={{
