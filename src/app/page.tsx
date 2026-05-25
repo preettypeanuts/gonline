@@ -1,36 +1,39 @@
-import dynamic from "next/dynamic"
-import { HomeBanner } from "@/components/home-banner"
-import { OrganizationSchema } from "@/components/seo/organization-schema"
-import { RunningClientsLogo } from "@/components/running-clients-logo"
-import { HomeBannerTwo } from "@/components/home-banner-two"
-import { InsightRecommendations } from "@/components/insight-reccomendations"
-import { MobileBanner } from "@/components/mobile-banner"
-import { HomeService } from "@/components/home-service"
-
-const OpeningStatements = dynamic(
-  () => import("@/components/opening-statements").then((mod) => mod.OpeningStatements),
-  { loading: () => <div className="h-62.5 animate-pulse bg-muted rounded-xl" /> }
-)
+import dynamic from "next/dynamic";
+import { HomeBanner } from "@/components/home-banner";
+import { HomeService } from "@/components/home-service";
+import { InsightRecommendations } from "@/components/insight-reccomendations";
+import { MobileBanner } from "@/components/mobile-banner";
+import { RunningClientsLogo } from "@/components/running-clients-logo";
+import { OrganizationSchema } from "@/components/seo/organization-schema";
+import { ViewportReveal } from "@/components/viewport-reveal";
 
 const ServicesVertical = dynamic(
-  () => import("@/components/services-vertical").then((mod) => mod.ServicesVertical),
-  { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
+  () =>
+    import("@/components/services-vertical").then(
+      (mod) => mod.ServicesVertical,
+    ),
+  {
+    loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
+  },
+);
 
 const HowWeWork = dynamic(
   () => import("@/components/how-we-work").then((mod) => mod.HowWeWork),
-  { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
+  {
+    loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
+  },
+);
 
 const Showcase = dynamic(
   () => import("@/components/showcase").then((mod) => mod.Showcase),
-  { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
+  {
+    loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
+  },
+);
 
-const CTA = dynamic(
-  () => import("@/components/cta").then((mod) => mod.CTA),
-  { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
-)
+const CTA = dynamic(() => import("@/components/cta").then((mod) => mod.CTA), {
+  loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" />,
+});
 
 export const metadata = {
   title: "GONLINE | Website Development & Digital Services",
@@ -70,7 +73,7 @@ export const metadata = {
     "jasa social media management",
     "jasa kelola instagram bisnis",
     "jasa konten sosial media",
-    "jasa digital marketing"
+    "jasa digital marketing",
   ],
   alternates: {
     canonical: "https://gonline.id",
@@ -98,25 +101,39 @@ export const metadata = {
       "Build professional websites that increase credibility and generate leads for your business.",
     images: ["/og-image.jpg"],
   },
-}
+};
 
 export default function Home() {
   return (
     <>
       <OrganizationSchema />
-      <MobileBanner />
-      <HomeBanner />
-      <HomeService/>
-      {/* <OpeningStatements /> */}
-      <ServicesVertical />
-      <HowWeWork />
-      <Showcase />
-      <InsightRecommendations
-        heading="Insight Pilihan"
-        limit={6}
-      />
-      <RunningClientsLogo />
-      <CTA />
+      <ViewportReveal>
+        <MobileBanner />
+      </ViewportReveal>
+      <ViewportReveal>
+        <HomeBanner />
+      </ViewportReveal>
+      <ViewportReveal>
+        <HomeService />
+      </ViewportReveal>
+      <ViewportReveal>
+        <ServicesVertical />
+      </ViewportReveal>
+      <ViewportReveal>
+        <HowWeWork />
+      </ViewportReveal>
+      <ViewportReveal>
+        <Showcase />
+      </ViewportReveal>
+      <ViewportReveal>
+        <InsightRecommendations heading="Insight Pilihan" limit={6} />
+      </ViewportReveal>
+      <ViewportReveal>
+        <RunningClientsLogo />
+      </ViewportReveal>
+      <ViewportReveal>
+        <CTA />
+      </ViewportReveal>
     </>
-  )
+  );
 }
