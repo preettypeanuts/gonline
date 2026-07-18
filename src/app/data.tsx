@@ -1439,7 +1439,7 @@ export const goDigitalPackages = [
     name: "Go Start",
     favorite: false,
     pricing: {
-      fixed: 3000000,
+      fixed: 5300000,
       gimmick: 7500000,
     },
     deliverables: [
@@ -1458,7 +1458,7 @@ export const goDigitalPackages = [
     name: "Go Growth",
     favorite: true,
     pricing: {
-      fixed: 8000000,
+      fixed: 9000000,
       gimmick: 11000000,
     },
     deliverables: [
@@ -1478,7 +1478,7 @@ export const goDigitalPackages = [
     name: "Go Level Up",
     favorite: false,
     pricing: {
-      fixed: 13000000,
+      fixed: 16500000,
       gimmick: 20500000,
     },
     deliverables: [
