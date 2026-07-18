@@ -1071,7 +1071,7 @@ export const socmedPackages = [
     name: "Basic",
     favorite: false,
     pricing: {
-      fixed: 1200000,
+      fixed: 4500000,
       gimmick: 6500000,
     },
     deliverables: [
@@ -1090,7 +1090,7 @@ export const socmedPackages = [
     name: "Growth",
     favorite: true,
     pricing: {
-      fixed: 2800000,
+      fixed: 8900000,
       gimmick: 13000000,
     },
     deliverables: [
@@ -1113,7 +1113,7 @@ export const socmedPackages = [
     name: "High Scale",
     favorite: false,
     pricing: {
-      fixed: 7000000,
+      fixed: 15000000,
       gimmick: 21000000,
     },
     deliverables: [
