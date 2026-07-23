@@ -11,7 +11,7 @@ export const SITE_TAGLINE =
   "Digital agency Indonesia — website, social media, dan strategi digital untuk pertumbuhan bisnis.";
 
 export const DEFAULT_DESCRIPTION =
-  "GONLINE membantu bisnis membangun kredibilitas dan pertumbuhan online melalui pembuatan website profesional, pengelolaan social media, serta strategi digital yang terintegrasi.";
+  "GONLINE adalah digital agency Indonesia yang membantu bisnis membangun kredibilitas dan pertumbuhan melalui website profesional, social media management, serta strategi digital terintegrasi.";
 
 export const OG_IMAGE = {
   url: "/og-image.jpg",
@@ -23,6 +23,7 @@ export const OG_IMAGE = {
 export const ORGANIZATION = {
   name: SITE_NAME,
   legalName: "GONLINE",
+  alternateName: ["gonline", "gonline.id"] as const,
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   email: "gonlinecreative@gmail.com",
@@ -34,6 +35,7 @@ export const ORGANIZATION = {
   ],
   areaServed: "ID",
   description: DEFAULT_DESCRIPTION,
+  slogan: "Build credibility. Grow with GONLINE.",
 } as const;
 
 /** Absolute URL helper — path must start with `/` or be empty. */

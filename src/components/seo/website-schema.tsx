@@ -13,9 +13,9 @@ export function WebsiteSchema() {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: SITE_NAME,
-        alternateName: ["G Online", "GO Online"],
+        alternateName: ["gonline", "gonline.id"],
         description:
-          "Digital agency Indonesia untuk website development, social media management, dan strategi digital.",
+          "GONLINE adalah digital agency Indonesia untuk website development, social media management, dan strategi digital.",
         inLanguage: "id-ID",
         publisher: { "@id": ORGANIZATION_ID },
         potentialAction: {

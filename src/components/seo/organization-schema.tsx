@@ -10,6 +10,7 @@ export function organizationNode() {
     "@id": ORGANIZATION_ID,
     name: ORGANIZATION.name,
     legalName: ORGANIZATION.legalName,
+    alternateName: [...ORGANIZATION.alternateName],
     url: ORGANIZATION.url,
     logo: {
       "@type": "ImageObject",
@@ -19,9 +20,16 @@ export function organizationNode() {
     },
     image: ORGANIZATION.logo,
     description: ORGANIZATION.description,
+    slogan: ORGANIZATION.slogan,
     email: ORGANIZATION.email,
     telephone: ORGANIZATION.telephone,
     sameAs: [...ORGANIZATION.sameAs],
+    brand: {
+      "@type": "Brand",
+      name: "GONLINE",
+      url: SITE_URL,
+      logo: ORGANIZATION.logo,
+    },
     contactPoint: {
       "@type": "ContactPoint",
       telephone: ORGANIZATION.telephone,
