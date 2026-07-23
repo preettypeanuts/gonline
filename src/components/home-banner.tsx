@@ -42,7 +42,7 @@ export const HomeBanner = () => {
               variant="invert"
               className="bg-mainColor px-7 text-white hover:bg-secondaryColor dark:bg-mainColor dark:text-white dark:hover:bg-secondaryColor"
             >
-              Start Project
+              Mulai Proyek
               <ArrowRight />
             </Button>
           </a>
@@ -52,7 +52,7 @@ export const HomeBanner = () => {
               variant="default"
               className="bg-white px-7 text-secondaryColor shadow-secondaryShadow hover:bg-otherColor/40 dark:bg-secondaryDark dark:text-lightColor dark:hover:bg-mainColor/30"
             >
-              Explore Works
+              Lihat Karya
             </Button>
           </a>
         </div>

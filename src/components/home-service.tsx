@@ -8,9 +8,9 @@ import { revealClassName, useViewportStaging } from "./viewport-reveal";
 const services = [
   {
     title: "GO Digital",
-    label: "Integrated Growth System",
+    label: "Solusi Terintegrasi",
     description:
-      "Website, social media, and digital strategy aligned into one clear system for business growth.",
+      "Website, social media, dan strategi digital dalam satu sistem pertumbuhan bisnis.",
     href: "/go-digital",
     icon: Boxes,
     className:
@@ -22,7 +22,7 @@ const services = [
     title: "GO Website",
     label: "Website Development",
     description:
-      "Professional websites built for credibility, performance, SEO, and conversion.",
+      "Website profesional untuk kredibilitas, performa, SEO, dan konversi.",
     href: "/website-development",
     icon: Atom,
     className:
@@ -34,7 +34,7 @@ const services = [
     title: "GO Social",
     label: "Social Media Management",
     description:
-      "Structured content strategy, design, and optimization to grow brand awareness and engagement.",
+      "Strategi konten, desain, dan optimasi untuk awareness serta engagement brand.",
     href: "/social-media",
     icon: Clover,
     className: "bg-mainColor text-white",
@@ -60,14 +60,14 @@ export const HomeService = () => {
               style={{ transitionDelay: "0ms" }}
             >
               <Sparkles className="size-4 text-thirdColor" />
-              What We Do
+              Layanan Kami
             </div>
             <h2
               data-stage
               className={`${revealClassName} text-4xl font-semibold leading-tight tracking-[-0.04em] text-secondaryColor md:text-6xl dark:text-lightColor`}
               style={{ transitionDelay: "90ms" }}
             >
-              Digital services built to make your business go online.
+              Solusi digital agar bisnis Anda siap tumbuh online.
             </h2>
           </div>
 
@@ -76,9 +76,9 @@ export const HomeService = () => {
             className={`${revealClassName} text-base leading-relaxed text-secondaryColor/75 md:col-span-4 md:text-lg dark:text-neutral-300`}
             style={{ transitionDelay: "160ms" }}
           >
-            GONLINE helps brands build credibility, visibility, and growth
-            through websites, social media systems, and integrated digital
-            execution.
+            GONLINE membantu brand membangun kredibilitas, visibilitas, dan
+            pertumbuhan lewat website, social media, dan eksekusi digital yang
+            terintegrasi.
           </p>
         </div>
 
@@ -120,7 +120,7 @@ export const HomeService = () => {
                   </div>
 
                   <div className="flex items-center gap-2 text-sm font-semibold">
-                    Learn more
+                    Selengkapnya
                     <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
@@ -136,11 +136,11 @@ export const HomeService = () => {
         >
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-thirdColor">
-              Not sure where to start?
+              Belum yakin mulai dari mana?
             </p>
             <p className="mt-2 text-xl font-semibold text-secondaryColor dark:text-lightColor">
-              Start with GO Digital for a complete website and social media
-              foundation.
+              Mulai dengan GO Digital — fondasi website + social media dalam
+              satu paket.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ export const HomeService = () => {
             className="bg-mainColor text-white hover:bg-secondaryColor"
           >
             <Link href="/go-digital">
-              Explore GO Digital
+              Lihat GO Digital
               <ArrowRight />
             </Link>
           </Button>

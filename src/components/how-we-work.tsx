@@ -30,7 +30,7 @@ export const HowWeWork = () => {
         <>
             <section className="margin spacing">
                 <h2 className="text-4xl font-medium px-6 py-4 bg-white dark:bg-black w-fit rounded-t-3xl relative">
-                    How We <span className="text-thirdColor">Work</span>
+                    Cara Kami <span className="text-thirdColor">Bekerja</span>
                     <div className="rounded-out-br-3xl bg-white dark:bg-black"></div>
                 </h2>
                 <div className="flex md:flex-row flex-col ">

@@ -53,9 +53,9 @@ export const WebWorkByCategory = ({ works }: Props) => {
                                             className="rounded-t-3xl w-full h-48 object-cover"
                                         />
                                         <div className="p-5 sm:p-6 space-y-2">
-                                            <h1 className="font-bold text-lg sm:text-xl">
+                                            <h3 className="font-bold text-lg sm:text-xl">
                                                 {el.brandName}
-                                            </h1>
+                                            </h3>
                                             <p className="text-thirdColor uppercase font-semibold text-xs">
                                                 {el.kind}
                                             </p>

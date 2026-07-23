@@ -332,12 +332,12 @@ export const dataContact = [
     label: "WhatsApp",
     icon: <MessageCircle />,
     data: "+62 851 7388 8880",
-    link: "https://api.whatsapp.com/send?phone=6285117388880",
+    link: "https://wa.me/6285117388880",
   },
   {
     label: "Instagram",
     icon: <Instagram />,
-    data: "@ganeshaec.co.id",
+    data: "@gonline_id",
     link: "https://www.instagram.com/gonline_id",
   },
   {

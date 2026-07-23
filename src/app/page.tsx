@@ -5,6 +5,7 @@ import { HomeService } from "@/components/home-service";
 import { InsightRecommendations } from "@/components/insight-reccomendations";
 import { MobileBanner } from "@/components/mobile-banner";
 import { RunningClientsLogo } from "@/components/running-clients-logo";
+import { CaseHighlights } from "@/components/case-highlights";
 import { WebsiteSchema } from "@/components/seo/website-schema";
 import { ViewportReveal } from "@/components/viewport-reveal";
 import {
@@ -97,6 +98,9 @@ export default function Home() {
       </ViewportReveal>
       <ViewportReveal>
         <Showcase />
+      </ViewportReveal>
+      <ViewportReveal>
+        <CaseHighlights />
       </ViewportReveal>
       <ViewportReveal>
         <InsightRecommendations heading="Insight Pilihan" limit={6} />

@@ -35,7 +35,7 @@ export const ComingSoonPage = () => {
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
-            href="https://wa.me/6281292749915"
+            href="https://wa.me/6285117388880"
             target="_blank"
             className="px-8 py-4 rounded-2xl bg-mainColor dark:bg-thirdColor text-white font-medium shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
           >
@@ -54,7 +54,7 @@ export const ComingSoonPage = () => {
         {/* Social Links */}
         <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-500 dark:text-neutral-400">
           <Link
-            href="https://wa.me/6281292749915"
+            href="https://wa.me/6285117388880"
             target="_blank"
             className="hover:text-mainColor transition"
           >

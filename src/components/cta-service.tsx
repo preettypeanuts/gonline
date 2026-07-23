@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, MessageCircle } from "lucide-react"
-
-// ─── Types ───────────────────────────────────────────────────────────────────
+import { WHATSAPP_NUMBER, whatsappUrl } from "@/config/contact"
 
 type CtaConfig = {
     eyebrow: string
@@ -9,10 +8,8 @@ type CtaConfig = {
     subtext: string
     primaryLabel: string
     primaryHref: string
-    whatsappNumber: string
+    whatsappMessage?: string
 }
-
-// ─── Data ────────────────────────────────────────────────────────────────────
 
 export const ctaConfigs: Record<string, CtaConfig> = {
     website: {
@@ -21,78 +18,67 @@ export const ctaConfigs: Record<string, CtaConfig> = {
             <>
                 Wujudkan website<br />
                 impian Anda{" "}
-                <span className="
-                    relative inline-block
-                    after:content-[''] after:absolute after:left-0 after:bottom-1
-                    after:w-full after:h-0.75
-                    after:bg-white dark:after:bg-neutral-900
-                    after:rounded-full
-                ">
+                <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-0.75 after:bg-white dark:after:bg-neutral-900 after:rounded-full">
                     bersama kami.
                 </span>
             </>
         ),
-        subtext: "Dari landing page sederhana hingga platform kompleks — kami bantu dari konsep hingga launching.",
+        subtext:
+            "Dari landing page sederhana hingga platform kompleks — kami bantu dari konsep hingga launching.",
         primaryLabel: "Mulai Sekarang",
         primaryHref: "/contact",
-        whatsappNumber: "628XXXXXXXXXX",
+        whatsappMessage: "Halo GONLINE, saya ingin konsultasi pembuatan website.",
     },
-
     sosmed: {
         eyebrow: "Tingkatkan Eksistensi?",
         headline: (
             <>
                 Kelola sosial media<br />
                 Anda secara{" "}
-                <span className="
-                    relative inline-block
-                    after:content-[''] after:absolute after:left-0 after:bottom-1
-                    after:w-full after:h-0.75
-                    after:bg-white dark:after:bg-neutral-900
-                    after:rounded-full
-                ">
+                <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-0.75 after:bg-white dark:after:bg-neutral-900 after:rounded-full">
                     profesional.
                 </span>
             </>
         ),
-        subtext: "Konten kreatif, jadwal konsisten, dan strategi yang terbukti meningkatkan engagement brand Anda.",
+        subtext:
+            "Konten kreatif, jadwal konsisten, dan strategi yang terbukti meningkatkan engagement brand Anda.",
         primaryLabel: "Konsultasi Gratis",
         primaryHref: "/contact",
-        whatsappNumber: "628XXXXXXXXXX",
+        whatsappMessage:
+            "Halo GONLINE, saya ingin konsultasi social media management.",
     },
-
     godigital: {
         eyebrow: "Paket Bundling Terbaik",
         headline: (
             <>
                 Website + Sosmed,<br />
                 satu solusi{" "}
-                <span className="
-                    relative inline-block
-                    after:content-[''] after:absolute after:left-0 after:bottom-1
-                    after:w-full after:h-0.75
-                    after:bg-white dark:after:bg-neutral-900
-                    after:rounded-full
-                ">
+                <span className="relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-1 after:w-full after:h-0.75 after:bg-white dark:after:bg-neutral-900 after:rounded-full">
                     lengkap.
                 </span>
             </>
         ),
-        subtext: "Hemat lebih banyak dengan paket Go Digital — web profesional dan manajemen sosial media dalam satu harga.",
+        subtext:
+            "Hemat lebih banyak dengan paket Go Digital — web profesional dan manajemen sosial media dalam satu harga.",
         primaryLabel: "Lihat Paket",
-        primaryHref: "/pricing",
-        whatsappNumber: "628XXXXXXXXXX",
+        primaryHref: "/go-digital#pricing",
+        whatsappMessage: "Halo GONLINE, saya tertarik paket GO Digital.",
     },
 }
-
-// ─── Component ───────────────────────────────────────────────────────────────
 
 type CtaProps = {
     config: CtaConfig
 }
 
 export const CtaService = ({ config }: CtaProps) => {
-    const { eyebrow, headline, subtext, primaryLabel, primaryHref, whatsappNumber } = config
+    const {
+        eyebrow,
+        headline,
+        subtext,
+        primaryLabel,
+        primaryHref,
+        whatsappMessage,
+    } = config
 
     return (
         <section className="my-10 relative">
@@ -102,8 +88,6 @@ export const CtaService = ({ config }: CtaProps) => {
             <div className="rounded-out-rb-main bg-black dark:bg-white" />
 
             <div className="relative overflow-hidden bg-black dark:bg-white px-4 py-14 md:px-30 md:py-20">
-
-                {/* BG GRID TEXTURE */}
                 <div
                     className="pointer-events-none absolute inset-0 opacity-[0.09] dark:opacity-[0.06] dark:invert"
                     style={{
@@ -115,10 +99,7 @@ export const CtaService = ({ config }: CtaProps) => {
                     }}
                 />
 
-                {/* CONTENT */}
                 <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-10">
-
-                    {/* LEFT */}
                     <div className="space-y-4 max-w-xl">
                         <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-neutral-400 dark:text-neutral-500">
                             <span className="size-1.5 rounded-full bg-neutral-400 dark:bg-neutral-500" />
@@ -134,7 +115,6 @@ export const CtaService = ({ config }: CtaProps) => {
                         </p>
                     </div>
 
-                    {/* RIGHT */}
                     <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:items-end shrink-0">
                         <Link
                             href={primaryHref}
@@ -145,7 +125,7 @@ export const CtaService = ({ config }: CtaProps) => {
                         </Link>
 
                         <Link
-                            href={`https://wa.me/${whatsappNumber}`}
+                            href={whatsappUrl(whatsappMessage)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-transparent border border-neutral-700 dark:border-neutral-300 text-neutral-300 dark:text-neutral-600 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-500 hover:text-white dark:hover:text-neutral-900 transition-colors duration-150 whitespace-nowrap"
@@ -154,9 +134,10 @@ export const CtaService = ({ config }: CtaProps) => {
                             Hubungi via WhatsApp
                         </Link>
                     </div>
-
                 </div>
             </div>
         </section>
     )
 }
+
+export const CTA_WHATSAPP_NUMBER = WHATSAPP_NUMBER
