@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://gonline.id/contact",
+        canonical: "https://www.gonline.id/contact",
     },
 
     robots: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         title: "Contact GONLINE | Digital Agency",
         description:
             "Hubungi tim GONLINE untuk konsultasi website development dan social media management.",
-        url: "https://gonline.id/contact",
+        url: "https://www.gonline.id/contact",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",

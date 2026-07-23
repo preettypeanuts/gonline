@@ -1,11 +1,21 @@
 import dynamic from "next/dynamic";
+import type { Metadata } from "next";
 import { HomeBanner } from "@/components/home-banner";
 import { HomeService } from "@/components/home-service";
 import { InsightRecommendations } from "@/components/insight-reccomendations";
 import { MobileBanner } from "@/components/mobile-banner";
 import { RunningClientsLogo } from "@/components/running-clients-logo";
-import { OrganizationSchema } from "@/components/seo/organization-schema";
+import { WebsiteSchema } from "@/components/seo/website-schema";
 import { ViewportReveal } from "@/components/viewport-reveal";
+import {
+  DEFAULT_DESCRIPTION,
+  INDEXABLE_ROBOTS,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+  defaultOpenGraph,
+  defaultTwitter,
+} from "@/config/seo";
 
 const ServicesVertical = dynamic(
   () =>
@@ -35,78 +45,41 @@ const CTA = dynamic(() => import("@/components/cta").then((mod) => mod.CTA), {
   loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" />,
 });
 
-export const metadata = {
-  title: "GONLINE | Website Development & Digital Services",
-  description:
-    "GONLINE helps businesses build professional websites and strong digital presence with modern design, SEO optimization, and scalable technology.",
+export const metadata: Metadata = {
+  title: {
+    absolute: `${SITE_NAME} — Digital Agency | Website & Social Media Indonesia`,
+  },
+  description: DEFAULT_DESCRIPTION,
   keywords: [
+    "GONLINE",
+    "gonline",
+    "digital agency indonesia",
     "website development",
-    "web development agency",
-    "web design agency",
-    "website design services",
-    "custom website development",
-    "business website",
-    "professional website",
-    "company profile website",
-    "landing page development",
-    "SEO website",
-    "SEO optimized website",
-    "digital services",
-    "digital agency",
-    "digital marketing services",
-    "social media management",
-    "social media agency",
-    "socmed agency",
-    "social media marketing",
-    "content creation services",
-    "branding services",
-
-    // Indonesian keywords
-    "jasa bikin website",
     "jasa pembuatan website",
-    "jasa website profesional",
-    "jasa website company profile",
-    "jasa pembuatan landing page",
-    "jasa web developer",
-    "jasa web design",
-    "jasa digital agency",
+    "social media management",
     "jasa social media management",
-    "jasa kelola instagram bisnis",
-    "jasa konten sosial media",
     "jasa digital marketing",
+    "agency website company profile",
   ],
   alternates: {
-    canonical: "https://gonline.id",
+    canonical: absoluteUrl("/"),
   },
-  openGraph: {
-    title: "GONLINE | Website Development & Digital Services",
-    description:
-      "Build professional websites that increase credibility and generate leads for your business.",
-    url: "https://gonline.id",
-    siteName: "GONLINE",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "GONLINE Website Development Services",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GONLINE | Website Development & Digital Services",
-    description:
-      "Build professional websites that increase credibility and generate leads for your business.",
-    images: ["/og-image.jpg"],
-  },
+  robots: INDEXABLE_ROBOTS,
+  openGraph: defaultOpenGraph({
+    title: `${SITE_NAME} — Digital Agency Indonesia`,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+  }),
+  twitter: defaultTwitter({
+    title: `${SITE_NAME} — Digital Agency Indonesia`,
+    description: DEFAULT_DESCRIPTION,
+  }),
 };
 
 export default function Home() {
   return (
     <>
-      <OrganizationSchema />
+      <WebsiteSchema />
       <ViewportReveal>
         <MobileBanner />
       </ViewportReveal>

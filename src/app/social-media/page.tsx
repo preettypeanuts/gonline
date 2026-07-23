@@ -11,6 +11,7 @@ import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle, Book } from "lu
 import { ctaConfigs } from "@/components/cta-service"
 import { IntroBadges } from "@/components/intro-badges"
 import { ServiceSchema } from "@/components/seo/schema-service"
+import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 
 const SocmedWork = dynamic(
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://gonline.id/social-media-management",
+        canonical: "https://www.gonline.id/social-media",
     },
 
     robots: {
@@ -97,7 +98,7 @@ export const metadata: Metadata = {
         title: "Social Media Management Services | GONLINE",
         description:
             "Jasa social media management profesional untuk membantu bisnis berkembang melalui strategi konten yang efektif.",
-        url: "https://gonline.id/social-media-management",
+        url: "https://www.gonline.id/social-media",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",
@@ -125,9 +126,10 @@ export default function SocialMediaPage() {
         <>
             <ServiceSchema
                 name="Social Media Management"
-                description="Strategic social media management to help brands grow online."
-                url="https://gonline.id/social-media"
+                description="Jasa social media management profesional untuk membangun brand dan menghasilkan leads."
+                url="https://www.gonline.id/social-media"
             />
+            <FaqSchema items={socmedFaq} />
 
             <ReusableBanner
                 title="GO"

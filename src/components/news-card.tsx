@@ -45,7 +45,7 @@ export const NewsCard = ({ articles, currentPage, totalPages, searchParams }: Pr
                                 </div>
                             )}
                             <div className="m-8 space-y-5 flex flex-col justify-between grow">
-                                <h1 className="font-bold text-xl">{el.title}</h1>
+                                <h3 className="font-bold text-xl">{el.title}</h3>
                                 <div className="flex items-center justify-between">
                                     <p className="text-thirdColor uppercase font-semibold text-xs">{el.category}</p>
                                     <p className="font-semibold text-xs uppercase text-neutral-500">{formatDate(el.updatedAt)}</p>

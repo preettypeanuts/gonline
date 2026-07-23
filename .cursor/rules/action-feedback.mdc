@@ -1,0 +1,38 @@
+---
+description: Public form mutations must show success or error feedback
+alwaysApply: true
+---
+
+# Action Feedback — Mandatory
+
+Every user-triggered submit (contact, website requirements, file upload rejection, etc.) **must** show feedback after it finishes — success **or** failure. Silent success/failure is not allowed.
+
+## How (this repo)
+
+Prefer patterns already used on the site:
+
+```ts
+import { toast } from "sonner";
+
+// Inline status (ContactForm) — success / error panels are OK
+setStatus("success"); // or "error"
+
+// Toast (Website Requirements uploads / validation)
+toast.error("File ditolak", { description: "…" });
+toast.success("Form terkirim.");
+```
+
+Sonner is already wired via `src/components/ui/sonner.tsx` in the root layout.
+
+## Rules
+
+- After every form `fetch` / submit: set a visible status **or** call `toast.success` / `toast.error`
+- Keep messages short and specific (match existing Indonesian copy on the page)
+- Loading state while the request is in flight (`status === "loading"` / disabled submit)
+- Do **not** add a second toast library
+
+## Do not
+
+- Swallow `!res.ok` without UI feedback
+- Fire-and-forget `await fetch(...)` with no success/error path
+- Rely only on `console.error` for user-facing failures

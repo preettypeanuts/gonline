@@ -1,0 +1,51 @@
+---
+description: Public site copy language — Indonesian marketing, consistent nav
+alwaysApply: true
+---
+
+# UI Language — Company Profile
+
+GONLINE is an Indonesian digital agency site. **Marketing copy and forms default to Indonesian.** Keep tone clear and professional.
+
+## Applies to
+
+- Page titles, subtitles, descriptions, SEO `title` / `description`
+- Form labels, placeholders, validation & success/error messages
+- Empty states, CTAs, FAQ, section headlines
+- `aria-label` / `title` when user-facing
+- Insight list blurbs and share UI chrome (not article body from Sheets)
+
+## Follow existing surfaces
+
+- **Nav** already uses short English labels (`Services`, `About`, `Insight`) — don't rename unless asked
+- **Body / forms** lean Indonesian (`Pesan Terkirim!`, Insight metadata, dll.)
+- When editing a page, match that page's established language — don't mix randomly in one section
+
+## Does NOT apply to
+
+- **Article content** from Google Sheets (title, excerpt, body) — content-owned
+- **Git commits, PRs, code comments** — team preference
+- **User chat** with the agent — respond in the user's language
+
+## Locale
+
+- Dates: prefer readable local format helpers already in `src/lib/formatDateTime.ts`
+- No invented metrics, fake client counts, or fabricated testimonials
+
+## Examples
+
+```tsx
+// ❌ BAD — English form copy on an Indonesian contact flow
+<h3>Message sent!</h3>
+
+// ✅ GOOD — match ContactForm
+<h3>Pesan Terkirim!</h3>
+```
+
+```ts
+// ❌ BAD — inventing proof
+description: "Trusted by 10,000+ brands worldwide"
+
+// ✅ GOOD — honest positioning
+description: "Solusi website, aplikasi, dan strategi digital untuk pertumbuhan bisnis."
+```

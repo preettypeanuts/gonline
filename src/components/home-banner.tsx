@@ -20,6 +20,7 @@ export const HomeBanner = () => {
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 mt-15">
 
         <h1 className="max-w-5xl text-6xl font-semibold leading-[0.92] tracking-[-0.06em] text-darkColor md:text-7xl lg:text-[82px] dark:text-lightColor">
+          <span className="sr-only">GONLINE — </span>
           Build{" "}
           <span className="text-secondaryColor dark:text-mainColor">
             credibility.

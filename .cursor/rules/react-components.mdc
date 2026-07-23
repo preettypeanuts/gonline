@@ -1,0 +1,44 @@
+---
+description: React & Next.js patterns for GONLINE marketing + Insight
+globs: **/*.tsx
+alwaysApply: false
+---
+
+# React Component Rules
+
+## Server vs Client
+
+```tsx
+// ✅ Server — Insight list, article detail, static marketing sections
+export default async function InsightPage({ searchParams }: Props) {
+  const articles = await getArticles()
+  return <NewsCard … />
+}
+
+// ✅ Client — forms, navbar menus, carousels, theme, filters
+"use client"
+export function ContactForm() { … }
+```
+
+**`"use client"` hanya jika:** useState, event handlers, browser APIs, carousel, theme, interactive filters.
+
+**Jangan di:** layout data fetch, SEO schema wrappers, pure presentational cards fed by props.
+
+## shadcn/ui — Wajib
+Install via CLI first. Wrap, jangan edit `src/components/ui/` kecuali override styling lewat Tailwind `className`. Pakai `cn()` untuk conditional classes.
+
+Umum di situs ini: `button`, `input`, `textarea`, `dialog`, `accordion`, `tabs`, `checkbox`, `sonner`.
+
+Custom **hanya** jika tidak ada di shadcn/ui.
+
+## Marketing + Insight UI
+- Satu file = satu komponen (`NewsCard`, `FeaturedInsight`, `ContactForm`, …)
+- Server fetch di page / lib; client handle interaksi
+- Images: prefer `SmartImage` / `next/image` dengan alt yang bermakna
+- Loading: existing skeleton components — jangan spinner custom sembarangan
+
+## Performance
+- `next/font` dengan `display: "swap"`
+- Dynamic import hanya untuk komponen berat
+- Insight list: pagination / filter via `searchParams` — jangan dump seluruh artikel ke client tanpa perlu
+- Keep portfolio/static catalogs in `src/app/data.tsx` structured; don't duplicate huge datasets in components

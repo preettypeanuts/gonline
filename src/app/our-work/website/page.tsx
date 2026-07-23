@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     "web development portfolio",
   ],
   alternates: {
-    canonical: "https://gonline.id/our-work/website",
+    canonical: "https://www.gonline.id/our-work/website",
   },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Website Portfolio | GONLINE",
     description: "Portfolio website yang telah dikembangkan oleh tim GONLINE untuk berbagai bisnis.",
-    url: "https://gonline.id/our-work/website",
+    url: "https://www.gonline.id/our-work/website",
     siteName: "GONLINE",
     locale: "id_ID",
     type: "website",

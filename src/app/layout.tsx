@@ -6,96 +6,88 @@ import { Footer } from "@/components/footer";
 import { ComingSoonPage } from "@/components/coming-soon-page";
 import { NavbarWrapper } from "@/components/navbar-wrapper";
 import { BottomNav } from "@/components/bottom-nav";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import {
+  DEFAULT_DESCRIPTION,
+  INDEXABLE_ROBOTS,
+  OG_IMAGE,
+  SITE_LANG,
+  SITE_NAME,
+  SITE_URL,
+  defaultOpenGraph,
+  defaultTwitter,
+} from "@/config/seo";
 
 const pjs = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
+const isComingSoon = process.env.NEXT_PUBLIC_SITE_MODE === "coming";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gonline.id"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "GONLINE — Website & Social Media Agency",
-    template: "%s | GONLINE",
+    default: `${SITE_NAME} — Digital Agency | Website & Social Media Indonesia`,
+    template: `%s | ${SITE_NAME}`,
   },
 
-  description:
-    "GONLINE helps businesses build credibility and grow online through professional website development and strategic social media management.",
+  description: DEFAULT_DESCRIPTION,
 
   keywords: [
-    "website development",
-    "jasa pembuatan website",
-    "social media management",
+    "GONLINE",
+    "gonline",
     "digital agency indonesia",
-    "website bisnis",
+    "jasa pembuatan website",
+    "website development",
+    "social media management",
+    "jasa social media management",
     "agency digital",
-    "go digital"
+    "go digital",
+    "website bisnis",
   ],
 
-  authors: [{ name: "GONLINE", url: "https://gonline.id" }],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "business",
+  applicationName: SITE_NAME,
 
   alternates: {
     canonical: "/",
   },
 
-  robots:
-    process.env.NEXT_PUBLIC_SITE_MODE === "coming"
-      ? {
-        index: false,
-        follow: false,
-      }
-      : {
-        index: true,
-        follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-image-preview": "large",
-          "max-video-preview": -1,
-          "max-snippet": -1,
-        },
-      },
+  robots: isComingSoon
+    ? { index: false, follow: false }
+    : INDEXABLE_ROBOTS,
 
-  openGraph: {
-    title: "GONLINE — Website & Social Media Agency",
-    description:
-      "Professional website development and social media management services to help businesses grow online.",
-    url: "https://gonline.id",
-    siteName: "GONLINE",
-    locale: "id_ID",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "GONLINE Digital Agency",
-      },
-    ],
-  },
+  openGraph: defaultOpenGraph({
+    title: `${SITE_NAME} — Digital Agency | Website & Social Media Indonesia`,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+  }),
 
-  twitter: {
-    card: "summary_large_image",
-    title: "GONLINE — Website & Social Media Agency",
-    description:
-      "Professional website development and social media management services.",
-    images: ["/og-image.png"],
-  },
+  twitter: defaultTwitter({
+    title: `${SITE_NAME} — Digital Agency | Website & Social Media`,
+    description: DEFAULT_DESCRIPTION,
+    images: [OG_IMAGE.url],
+  }),
 
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-};
 
-const isComingSoon =
-  process.env.NEXT_PUBLIC_SITE_MODE === "coming";
+  other: {
+    "geo.region": "ID",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -103,10 +95,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="scroll-smooth">
+    <html suppressHydrationWarning lang={SITE_LANG} className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PMC1F40BX7"
           strategy="afterInteractive"
@@ -120,17 +113,16 @@ export default function RootLayout({
         gtag('config', 'G-PMC1F40BX7');
       `}
         </Script>
-
       </head>
 
       <body className={`${pjs.className} antialiased`}>
-
         <noscript>
           <img
             height="1"
             width="1"
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1365206612320219&ev=PageView&noscript=1"
+            alt=""
           />
         </noscript>
 
@@ -149,9 +141,7 @@ export default function RootLayout({
         </ThemeProvider>
 
         <Analytics />
-
         <SpeedInsights />
-
       </body>
     </html>
   );

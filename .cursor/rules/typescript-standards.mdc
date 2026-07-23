@@ -1,0 +1,38 @@
+---
+description: TypeScript standards for GONLINE company profile
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# TypeScript Rules
+
+Strict TypeScript — prefer explicit domain types in `src/types/`.
+
+## Domain Types
+
+```ts
+// Insight / blog
+import type { Article } from "@/types/article"
+
+// Portfolio & ads
+import type { WebWork } from "@/types/web-work"
+import type { Ad } from "@/types/ad"
+
+// ✅ Props eksplisit
+interface NewsCardProps {
+  article: Article
+}
+
+// ✅ unknown + validate, bukan any — terutama API / Sheets rows
+function mapSheetRow(raw: unknown): Article { ... }
+```
+
+## Naming
+- Components → PascalCase file · Hooks → `useXxx.ts` · Utils → camelCase
+- Constants → `SCREAMING_SNAKE` · Types → PascalCase
+- Data helpers → verb + noun: `getArticles`, `getArticleBySlug`
+
+## Data & forms
+- Sheets / mail / slug / date helpers live in `src/lib/`
+- Public mutations go through `src/app/api/**` route handlers when that's the existing pattern
+- Don't introduce Zustand / TanStack Query for static or server-fetched marketing data unless needed

@@ -17,9 +17,9 @@ export const Footer = () => {
 
             {/* Huge Background Typography */}
             <div className="absolute -bottom-10 md:-bottom-26 left-1/2 -translate-x-1/2 pointer-events-none select-none">
-                <h1 className="text-[18vw] font-semibold tracking-wide text-secondaryLight dark:text-secondaryDark">
+                <p className="text-[18vw] font-semibold tracking-wide text-secondaryLight dark:text-secondaryDark select-none" aria-hidden="true">
                     GONLINE
-                </h1>
+                </p>
             </div>
 
             <div className="relative md:px-30 px-4 pb-32 md:pb-65 pt-24">

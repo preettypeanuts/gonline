@@ -1,0 +1,38 @@
+---
+description: Incremental UI polish with Hallmark — marketing site, not redesigns
+alwaysApply: true
+---
+
+# Design Polish — Incremental Only
+
+Use the **Hallmark** skill (`hallmark`) for visual/UX quality when building or refining marketing UI. Prefer small, targeted improvements over greenfield redesigns.
+
+If `design.md` exists at the project root, it overrides Hallmark's default theme rotation for this repo.
+
+## Brand visual anchors (existing)
+
+- Tokens in `src/app/globals.css`: `mainColor`, `secondaryColor`, `thirdColor`, `otherColor`, light/dark surfaces
+- Layout utilities: `margin`, `spacing`, `left-padding` / `right-padding`
+- Established section rhythm on home, services, Insight, portfolio — preserve unless redesign is requested
+
+## Default mode for this repo
+
+- **Polish in place** — hierarchy, spacing, contrast, motion restraint, empty states
+- **Keep the shell** — navbar, footer, bottom nav, existing section components, shadcn/ui
+- **Do not** swap the whole marketing look (new theme catalog, global font/color overhaul) unless the user asks for a redesign or `hallmark redesign`
+
+## When Hallmark is appropriate
+
+- New marketing sections that must match GONLINE's current language
+- `hallmark audit <target>` — ranked punch list only, no edits
+- Scoped polish (cards, CTAs, Insight list, forms) called out by the user
+
+## Hard stops
+
+- Do not delete route trees or rewrite `src/components/ui/`
+- Do not replace established patterns (SmartImage, section spacing, Insight cards) with a new design system
+- If a “redesign” would touch many unrelated files, stop and confirm scope first
+
+## Stack constraints
+
+Next.js App Router · shadcn/ui · Tailwind v4 · Tailwind-first styling · honest brand copy

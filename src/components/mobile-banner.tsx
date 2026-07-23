@@ -12,6 +12,9 @@ export const MobileBanner = async () => {
         <section className="block md:hidden space-y-5">
             <div className="space-y-3 margin pt-10">
                 <h1 className="text-6xl font-bold">
+                    <span className="block text-base font-semibold tracking-[0.2em] uppercase text-mainColor mb-2">
+                        GONLINE
+                    </span>
                     Not Just a
                     <span className="text-thirdColor"> Website</span>
                 </h1>

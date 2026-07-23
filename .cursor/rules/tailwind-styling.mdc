@@ -1,0 +1,45 @@
+---
+description: Tailwind-first styling — prefer classNames over custom CSS
+alwaysApply: true
+---
+
+# Tailwind-First Styling — Mandatory
+
+Style UI with **Tailwind utility classes** first. Custom CSS in `globals.css` or standalone stylesheets is **not allowed** for component-level layout, spacing, color, typography, or shadows unless an exception below applies.
+
+## Default approach
+
+1. **Component markup** — `className={cn("...", className)}` with Tailwind + project tokens (`mainColor`, `thirdColor`, `darkColor`, `lightColor`, `rounded-main`, `rounded-secondary`, …).
+2. **Layout helpers** — reuse `@utility` classes from `globals.css`: `margin`, `spacing`, `left-padding`, `right-padding`, `bg-root`.
+3. **shadcn/ui** — override via `className` / `classNames`, **not** `unstyled: true` + bespoke CSS blocks.
+4. **`cn()`** — merge conditional classes; extract repeated strings to `const` in the same file when reused.
+
+## Allowed custom CSS (exceptions only)
+
+- **Global design tokens** — `@theme` / `@theme inline` in `globals.css`
+- **Cross-cutting utilities** already defined (`margin`, `spacing`, rounded-out helpers) when Tailwind alone is awkward
+- **`@keyframes`** only when no Tailwind / `tw-animate` equivalent exists
+
+## Do not
+
+- Add new `.feature-name { … }` blocks in `globals.css` for a single component
+- Inline `<style>` tags or CSS modules for page UI unless explicitly requested
+- Invent a parallel token system — extend existing `@theme` colors/radii if needed
+
+## Examples
+
+```tsx
+// ❌ BAD — one-off globals.css class for a section
+// .home-cta { padding: 4rem; background: #6b5ab1; }
+
+// ✅ GOOD
+<section className="spacing margin rounded-main bg-mainColor text-white">…</section>
+```
+
+```tsx
+// ❌ BAD — hardcode hex that already exists as a token
+<div className="bg-[#6b5ab1]" />
+
+// ✅ GOOD
+<div className="bg-mainColor" />
+```

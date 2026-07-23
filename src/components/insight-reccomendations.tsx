@@ -6,7 +6,6 @@ import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
 import { Button } from "./ui/button"
 import { ArrowRight } from "lucide-react"
-import { link } from "fs/promises"
 import { Title } from "./title"
 
 interface InsightRecommendationsProps {
@@ -68,7 +67,7 @@ function ArticleCard({ article }: { article: Article }) {
                     </div>
                 )}
                 <div className="m-8 space-y-5 flex flex-col justify-between grow">
-                    <h1 className="font-bold text-xl">{article.title}</h1>
+                    <h3 className="font-bold text-xl">{article.title}</h3>
                     <div className="flex items-center justify-between">
                         <p className="text-thirdColor uppercase font-semibold text-xs">{article.category}</p>
                         <p className="font-semibold text-xs uppercase text-neutral-500">{formatDate(article.updatedAt)}</p>

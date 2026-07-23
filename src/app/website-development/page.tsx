@@ -8,6 +8,7 @@ import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
 import { HelpCircle, Star, Briefcase, DollarSign, CircleQuestionMark, Book } from "lucide-react"
 import { ServiceSchema } from "@/components/seo/schema-service"
+import { FaqSchema } from "@/components/seo/faq-schema"
 import { IntroBadges } from "@/components/intro-badges"
 import { WebSpecialty } from "@/components/web-specialty"
 import { ctaConfigs, CtaService } from "@/components/cta-service"
@@ -112,7 +113,7 @@ export const metadata = {
     ],
 
     alternates: {
-        canonical: "https://gonline.id/website-development",
+        canonical: "https://www.gonline.id/website-development",
     },
 
     robots: {
@@ -131,7 +132,7 @@ export const metadata = {
         title: "Website Development Services | GONLINE",
         description:
             "Jasa pembuatan website profesional untuk bisnis. Website cepat, modern, SEO friendly, dan dirancang untuk menghasilkan leads.",
-        url: "https://gonline.id/website-development",
+        url: "https://www.gonline.id/website-development",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",
@@ -161,9 +162,10 @@ export default function WebsiteDevelopment() {
         <>
             <ServiceSchema
                 name="Website Development"
-                description="Professional website development services for businesses."
-                url="https://gonline.id/website"
+                description="Jasa pembuatan website profesional untuk bisnis, company profile, dan landing page."
+                url="https://www.gonline.id/website-development"
             />
+            <FaqSchema items={websiteFaq} />
 
             <ReusableBanner
                 title="GO"

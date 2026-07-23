@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://gonline.id/about",
+        canonical: "https://www.gonline.id/about",
     },
 
     robots: {
@@ -71,13 +71,13 @@ export const metadata: Metadata = {
         title: "About GONLINE | Digital Agency",
         description:
             "Pelajari visi, misi, dan spesialisasi GONLINE dalam membantu bisnis membangun kehadiran digital yang kuat.",
-        url: "https://gonline.id/about",
+        url: "https://www.gonline.id/about",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",
         images: [
             {
-                url: "og-image.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "About GONLINE Digital Agency",

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://gonline.id/our-work",
+        canonical: "https://www.gonline.id/our-work",
     },
 
     robots: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         title: "Our Work | GONLINE Portfolio",
         description:
             "Portfolio proyek GONLINE dalam website development dan social media management.",
-        url: "https://gonline.id/our-work",
+        url: "https://www.gonline.id/our-work",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",

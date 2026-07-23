@@ -1,0 +1,64 @@
+---
+description: Core standards — GONLINE company profile website
+alwaysApply: true
+---
+
+# GONLINE — Core Rules
+
+Public **company profile** site for **GONLINE**, a digital agency. Keep the codebase **simple & lightweight** — no complexity without a real need.
+
+Senior full-stack mindset: readable code, minimal dependencies, easy to maintain.
+
+## Brand
+
+GONLINE membantu bisnis membangun kehadiran digital lewat solusi teknologi dan pemasaran terintegrasi: website, aplikasi, branding, dan strategi digital yang modern, scalable, berorientasi performa, serta berdampak pada kredibilitas, leads, dan pertumbuhan.
+
+Segmen: UMKM, startup, hingga perusahaan menengah/korporasi. Solusi disesuaikan kebutuhan klien.
+
+Tone: profesional, jelas, percaya diri — tanpa jargon kosong atau klaim metrik yang tidak punya data.
+
+## Scope
+
+### Current product surface
+- **Marketing pages** — home, about, services (`/go-digital`, `/website-development`, `/social-media`), contact, portfolio (`/our-work`)
+- **Insight (blog/posts)** — list + detail di `/insight`, data artikel dari Google Sheets
+- **Lead forms** — contact, website requirements
+- **SEO** — metadata, sitemap, JSON-LD schemas
+
+### Out of scope (jangan bangun kecuali diminta)
+- CMS admin / CRUD dashboard
+- Auth, user accounts, ecommerce checkout
+- Modul baru di luar company profile + Insight
+
+Struktur boleh mudah di-extend, tapi **YAGNI**.
+
+## Stack
+Next.js App Router · shadcn/ui · Tailwind v4 · TypeScript · Biome · Sonner
+
+## shadcn/ui — Wajib
+- Cek & install via CLI dulu sebelum buat komponen custom
+- Custom **hanya** jika tidak ada di shadcn/ui
+- Jangan edit `src/components/ui/` — wrap / override lewat `className`
+
+```bash
+npx shadcn@latest add [component]
+```
+
+## Non-negotiables
+- **Satu file = satu komponen** — jangan gabung banyak komponen dalam satu file panjang
+- **Server Component default** — `"use client"` hanya untuk interaktivitas (form, carousel, theme, filter, motion)
+- **Data & side effects di `lib/`** — Sheets, mailer, slugify, formatters; bukan di component
+- **Props eksplisit** — pisah presentasi vs logic
+- **YAGNI** — no abstraksi premature
+
+## Larangan
+- lodash untuk satu fungsi · useEffect untuk fetch data yang bisa Server Component
+- `@ts-ignore` · `console.log` di commit · anonymous default export
+- Dependency tanpa alasan kuat
+- Custom UI padahal ada di shadcn/ui
+- Invent metrik/testimonial palsu di copy marketing
+
+## Struktur
+`src/app/` · `src/components/{ui,seo,skeleton}/` · `src/lib/` · `src/types/`
+
+Contoh Insight: `src/app/insight/` · `src/types/article.ts` · `src/lib/googleSheets.ts` · `src/components/news-card.tsx`

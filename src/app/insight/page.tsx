@@ -5,7 +5,8 @@ import { NewsCard } from "@/components/news-card"
 import { InsightFilter } from "@/components/insight-fliter"
 import type { Metadata } from "next"
 import { BlogSchema } from "@/components/seo/blog-schema"
-
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema"
+import { absoluteUrl, defaultOpenGraph, INDEXABLE_ROBOTS } from "@/config/seo"
 
 const ITEMS_PER_PAGE = 9
 
@@ -19,35 +20,36 @@ interface Props {
 }
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-    const { category, search, page } = await searchParams
-    const baseUrl = "https://gonline.id"
+    const { category, search, page, highlight } = await searchParams
 
     const title = category
-        ? `Insight: ${category.replace(/-/g, " ")} — GONLINE`
-        : "Insight & Artikel Digital Marketing — GONLINE"
+        ? `Insight: ${category.replace(/-/g, " ")}`
+        : "Insight & Artikel Digital Marketing"
 
-    const description = "Temukan tips, strategi, dan insight terbaru seputar digital marketing, social media, dan pengembangan bisnis online dari tim GONLINE."
+    const description =
+        "Temukan tips, strategi, dan insight terbaru seputar digital marketing, social media, dan pengembangan bisnis online dari tim GONLINE."
 
-    const currentPage = Number(page ?? 1)
+    const currentPage = Math.max(1, Number(page ?? 1))
+    const hasNoIndexParams = Boolean(search || highlight === "true" || currentPage > 1)
+
+    const canonicalPath = category
+        ? `/insight?category=${encodeURIComponent(category)}`
+        : "/insight"
 
     return {
         title,
         description,
         alternates: {
-            canonical: category
-                ? `${baseUrl}/insight?category=${category}`
-                : `${baseUrl}/insight`,
+            canonical: absoluteUrl(canonicalPath),
         },
-        openGraph: {
-            title,
+        openGraph: defaultOpenGraph({
+            title: `${title} | GONLINE`,
             description,
-            url: `${baseUrl}/insight`,
-            type: "website",
-        },
-        // Halaman filter/search/pagination tidak perlu diindex
-        robots: search || (currentPage > 1)
+            url: absoluteUrl(canonicalPath),
+        }),
+        robots: hasNoIndexParams
             ? { index: false, follow: true }
-            : { index: true, follow: true },
+            : INDEXABLE_ROBOTS,
     }
 }
 
@@ -61,7 +63,6 @@ export default async function Insight({ searchParams }: Props) {
         ? slugToCategory(category, categories)
         : null
 
-    // Filter
     let filtered = [...allArticles]
 
     if (highlight === "true") {
@@ -82,7 +83,6 @@ export default async function Insight({ searchParams }: Props) {
         )
     }
 
-    // Pagination
     const currentPage = Math.max(1, Number(page ?? 1))
     const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE)
     const paginated = filtered.slice(
@@ -90,16 +90,20 @@ export default async function Insight({ searchParams }: Props) {
         currentPage * ITEMS_PER_PAGE
     )
 
-    const canonicalUrl =
-        currentPage === 1
-            ? "/insight"
-            : `/insight?page=${currentPage}`
-
     const highlightedArticles = allArticles.filter((a) => a.highlight)
 
     return (
         <>
             <BlogSchema articles={paginated} />
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", path: "/" },
+                    { name: "Insight", path: "/insight" },
+                    ...(activeCategoryLabel && activeCategoryLabel !== "All"
+                        ? [{ name: activeCategoryLabel, path: `/insight?category=${category}` }]
+                        : []),
+                ]}
+            />
             <FeaturedInsight articles={highlightedArticles} />
             <InsightFilter
                 categories={categories}

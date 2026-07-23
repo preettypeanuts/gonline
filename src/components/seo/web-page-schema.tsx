@@ -1,29 +1,32 @@
-export function WebPageSchema({
-    name,
-    description,
-    url,
-}: {
-    name: string
-    description: string
-    url: string
-}) {
+import { absoluteUrl } from "@/config/seo";
+import { ORGANIZATION_ID } from "./organization-schema";
+import { JsonLd } from "./json-ld";
 
-    const schema = {
+export function WebPageSchema({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  const pageUrl = absoluteUrl(
+    url.replace(/^https?:\/\/(www\.)?gonline\.id/, "") || "/",
+  );
+
+  return (
+    <JsonLd
+      data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
         name,
         description,
-        url,
-        publisher: {
-            "@type": "Organization",
-            name: "GONLINE",
-        },
-    }
-
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-    )
+        url: pageUrl,
+        isPartOf: { "@id": `${absoluteUrl()}/#website` },
+        publisher: { "@id": ORGANIZATION_ID },
+        inLanguage: "id-ID",
+      }}
+    />
+  );
 }

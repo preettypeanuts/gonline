@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
             <hr />
             <p style="color: #aaa; font-size: 12px; margin-top: 24px;">
               GONLINE — Digital Marketing & Website Development<br/>
-              <a href="https://gonline.id" style="color: #aaa;">gonline.id</a>
+              <a href="https://www.gonline.id" style="color: #aaa;">gonline.id</a>
             </p>
           </div>
         `,

@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/website",
+      "destination": "/website-development",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-management",
+      "destination": "/social-media",
+      "permanent": true
+    }
+  ]
+}

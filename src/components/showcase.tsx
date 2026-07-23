@@ -9,11 +9,11 @@ export const Showcase = async () => {
 
     return (
         <section className="spacing">
-            <h1 className="margin text-4xl font-medium text-center mb-10">
+            <h2 className="margin text-4xl font-medium text-center mb-10">
                 Our{" "}
                 <span className="text-mainColor">Beloved{" "}</span>
                 <span className="text-thirdColor">Projects</span>
-            </h1>
+            </h2>
 
             <TabsClient
                 website={

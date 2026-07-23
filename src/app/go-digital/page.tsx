@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { goDigitalFaq, goDigitalPackages, goDigitalProblem, introBadgesGoDigital, socmedFaq, socmedPackages, whyUsGoDigital, } from "@/app/data"
+import { goDigitalFaq, goDigitalPackages, goDigitalProblem, introBadgesGoDigital, whyUsGoDigital, } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
@@ -11,6 +11,7 @@ import { HelpCircle, Star, Briefcase, DollarSign, MessageCircle, Book } from "lu
 import { ctaConfigs } from "@/components/cta-service"
 import { IntroBadges } from "@/components/intro-badges"
 import { ServiceSchema } from "@/components/seo/schema-service"
+import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 
 const Showcase = dynamic(
@@ -61,31 +62,24 @@ const GODIG_SUBNAV = [
 ]
 
 export const metadata: Metadata = {
-    title: "Social Media Management Services | Jasa Kelola Sosial Media | GONLINE",
+    title: "GO Digital | Paket Website + Social Media Terintegrasi",
 
     description:
-        "GONLINE menyediakan jasa social media management untuk membantu bisnis membangun brand, meningkatkan engagement, dan menghasilkan leads melalui strategi konten yang profesional.",
+        "GO Digital dari GONLINE menggabungkan website development dan social media management dalam satu sistem pertumbuhan digital untuk bisnis Anda.",
 
     keywords: [
-        "social media management",
-        "social media agency",
-        "socmed agency",
-        "social media marketing",
-        "instagram management",
-        "content creation services",
-        "digital marketing services",
-
-        "jasa social media management",
-        "jasa kelola sosial media",
-        "jasa kelola instagram bisnis",
-        "jasa admin instagram",
-        "jasa konten instagram",
-        "jasa social media marketing",
-        "jasa digital marketing",
+        "go digital",
+        "paket digital agency",
+        "website dan social media",
+        "digital transformation umkm",
+        "jasa go digital",
+        "paket website social media",
+        "digital agency indonesia",
+        "GONLINE",
     ],
 
     alternates: {
-        canonical: "https://gonline.id/social-media-management",
+        canonical: "https://www.gonline.id/go-digital",
     },
 
     robots: {
@@ -94,10 +88,10 @@ export const metadata: Metadata = {
     },
 
     openGraph: {
-        title: "Social Media Management Services | GONLINE",
+        title: "GO Digital | Website + Social Media | GONLINE",
         description:
-            "Jasa social media management profesional untuk membantu bisnis berkembang melalui strategi konten yang efektif.",
-        url: "https://gonline.id/social-media-management",
+            "Paket digital terintegrasi: website profesional dan pengelolaan social media untuk pertumbuhan bisnis.",
+        url: "https://www.gonline.id/go-digital",
         siteName: "GONLINE",
         locale: "id_ID",
         type: "website",
@@ -106,16 +100,16 @@ export const metadata: Metadata = {
                 url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Social Media Management by GONLINE",
+                alt: "GO Digital by GONLINE",
             },
         ],
     },
 
     twitter: {
         card: "summary_large_image",
-        title: "Social Media Management Services | GONLINE",
+        title: "GO Digital | GONLINE",
         description:
-            "Kelola sosial media bisnis secara profesional dengan strategi konten yang efektif.",
+            "Website dan social media dalam satu sistem pertumbuhan digital untuk bisnis Anda.",
         images: ["/og-image.jpg"],
     },
 }
@@ -125,9 +119,10 @@ export default function GoDIgitalaPge() {
         <>
             <ServiceSchema
                 name="GO Digital"
-                description="Integrated website and social media services to build a strong digital presence."
-                url="https://gonline.id/go-digital"
+                description="Paket terintegrasi website development dan social media management untuk pertumbuhan bisnis."
+                url="https://www.gonline.id/go-digital"
             />
+            <FaqSchema items={goDigitalFaq} />
 
             <ReusableBanner
                 title="GO"
