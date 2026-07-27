@@ -11,6 +11,7 @@ export type CmsClient = {
   name: string;
   /** Company logo only — never portfolio cover/preview. Empty string when unset. */
   logo: string | null;
+  /** Redirect target from CMS (e.g. WhatsApp chat URL). Used as-is. */
   website: string | null;
   featured: boolean;
   createdAt: string;
@@ -21,6 +22,7 @@ export type ClientLogo = {
   id: string;
   companyName: string;
   companyLogo: string;
+  /** CMS `website` URL as-is (expected: WA chat link). */
   href?: string;
   featured: boolean;
 };
@@ -119,6 +121,6 @@ export const getClientLogos = unstable_cache(
     });
   },
   // bump key after API logo cleanup so stale porto URLs are not served
-  ["cms-client-logos-v2", CMS_BRAND_ID],
+  ["cms-client-logos-v3", CMS_BRAND_ID],
   { revalidate: CMS_ARTICLES_REVALIDATE },
 );
