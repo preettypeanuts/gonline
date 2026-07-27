@@ -1,16 +1,9 @@
 import { Title } from "./title"
 import { PricingItems } from "./pricing-items"
 import { ProblemScrollWrapper } from "./problem-scroll"
+import type { PricingPackage } from "@/types/pricing-package"
 
-export type PricingPackage = {
-    name: string
-    favorite?: boolean
-    pricing: {
-        gimmick: number
-        fixed: number
-    }
-    deliverables?: string[]
-}
+export type { PricingPackage }
 
 const GRID_COLS: Record<number, string> = {
     1: "grid-cols-1",

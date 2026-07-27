@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { introBadgesSocialMedia, socialMediaProblem, socmedFaq, socmedPackages, whyUsSocialMedia } from "@/app/data"
+import { introBadgesSocialMedia, socialMediaProblem, socmedFaq, whyUsSocialMedia } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
@@ -15,18 +15,12 @@ import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 import { Suspense } from "react"
 import { RunningClientsLogo } from "@/components/running-clients-logo"
+import { ServicePricing } from "@/components/service-pricing"
+import { PRICE_SERVICE_SLUG } from "@/types/price"
 
 const SocmedWork = dynamic(
     () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
     { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
-
-const PricingCard = dynamic(
-    () =>
-        import("@/components/pricing-card").then(
-            (mod) => mod.PricingCard
-        ),
-    { loading: () => <div className="h-125mate-pulse bg-muted rounded-xl" /> }
 )
 
 const FaqSection = dynamic(
@@ -157,11 +151,17 @@ export default function SocialMediaPage() {
             </Suspense>
 
             <SectionAnchor id="pricing">
-                <PricingCard
-                    packages={socmedPackages}
-                    title="Social Media Packages"
-                    showStartingFrom
-                />
+                <Suspense
+                    fallback={
+                        <div className="h-125 animate-pulse bg-muted rounded-xl" />
+                    }
+                >
+                    <ServicePricing
+                        serviceSlug={PRICE_SERVICE_SLUG.social}
+                        title="Social Media Packages"
+                        showStartingFrom
+                    />
+                </Suspense>
             </SectionAnchor>
 
             <SectionAnchor id="faq">

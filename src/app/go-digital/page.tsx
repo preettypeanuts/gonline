@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import type { Metadata } from "next"
 
 import { ReusableBanner } from "@/components/reusable-banner"
-import { goDigitalFaq, goDigitalPackages, goDigitalProblem, introBadgesGoDigital, whyUsGoDigital, } from "@/app/data"
+import { goDigitalFaq, goDigitalProblem, introBadgesGoDigital, whyUsGoDigital, } from "@/app/data"
 import { Problem } from "@/components/problem"
 import { WhyUsSection } from "@/components/why-us-service"
 import { SubNav } from "@/components/sub-nav"
@@ -15,18 +15,12 @@ import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 import { Suspense } from "react"
 import { RunningClientsLogo } from "@/components/running-clients-logo"
+import { ServicePricing } from "@/components/service-pricing"
+import { PRICE_SERVICE_SLUG } from "@/types/price"
 
 const Showcase = dynamic(
     () => import("@/components/showcase").then((mod) => mod.Showcase),
     { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
-
-const PricingCard = dynamic(
-    () =>
-        import("@/components/pricing-card").then(
-            (mod) => mod.PricingCard
-        ),
-    { loading: () => <div className="h-125 animate-pulse bg-muted rounded-xl" /> }
 )
 
 const FaqSection = dynamic(
@@ -149,11 +143,17 @@ export default function GoDIgitalaPge() {
             </Suspense>
 
             <SectionAnchor id="pricing">
-                <PricingCard
-                    packages={goDigitalPackages}
-                    title="GO Digital Packages"
-                    showStartingFrom
-                />
+                <Suspense
+                    fallback={
+                        <div className="h-125 animate-pulse bg-muted rounded-xl" />
+                    }
+                >
+                    <ServicePricing
+                        serviceSlug={PRICE_SERVICE_SLUG.goDigital}
+                        title="GO Digital Packages"
+                        showStartingFrom
+                    />
+                </Suspense>
             </SectionAnchor>
 
             <SectionAnchor id="faq">

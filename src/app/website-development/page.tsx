@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 import { Problem } from "@/components/problem"
 import { ReusableBanner } from "@/components/reusable-banner"
 import { WhyUsSection } from "@/components/why-us-service"
-import { introBadgesWebsite, webProblem, websiteFaq, websitePackages, whyUsWeb } from "../data"
+import { introBadgesWebsite, webProblem, websiteFaq, whyUsWeb } from "../data"
 import { SubNav } from "@/components/sub-nav"
 import { SectionAnchor } from "@/components/section-anchor"
 import { HelpCircle, Star, Briefcase, DollarSign, CircleQuestionMark, Book } from "lucide-react"
@@ -16,6 +16,8 @@ import { Suspense } from "react"
 import { RunningClientsLogo } from "@/components/running-clients-logo"
 import { WebWorkSkeleton } from "@/components/skeleton/web-work-skeleton"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
+import { ServicePricing } from "@/components/service-pricing"
+import { PRICE_SERVICE_SLUG } from "@/types/price"
 
 const WebWork = dynamic(
     () => import("@/components/web-work").then((mod) => mod.WebWork),
@@ -23,16 +25,6 @@ const WebWork = dynamic(
         loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
     }
 )
-const PricingCard = dynamic(
-    () =>
-        import("@/components/pricing-card").then(
-            (mod) => mod.PricingCard
-        ),
-    {
-        loading: () => <div className="h-125 animate-pulse bg-muted rounded-xl" />,
-    }
-)
-
 const FaqSection = dynamic(
     () =>
         import("@/components/faq").then(
@@ -193,11 +185,17 @@ export default function WebsiteDevelopment() {
             </Suspense>
 
             <SectionAnchor id="pricing">
-                <PricingCard
-                    packages={websitePackages}
-                    title="Website Packages"
-                    showStartingFrom
-                />
+                <Suspense
+                    fallback={
+                        <div className="h-125 animate-pulse bg-muted rounded-xl" />
+                    }
+                >
+                    <ServicePricing
+                        serviceSlug={PRICE_SERVICE_SLUG.website}
+                        title="Website Packages"
+                        showStartingFrom
+                    />
+                </Suspense>
             </SectionAnchor>
 
             <SectionAnchor id="faq">

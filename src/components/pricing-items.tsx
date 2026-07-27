@@ -1,6 +1,6 @@
 import { formatToRupiah } from "@/lib/formatRupiah"
 import { Star, Check } from "lucide-react"
-import { PricingPackage } from "./pricing-card"
+import type { PricingPackage } from "@/types/pricing-package"
 import { PricingCtaButton } from "./pricing-cta-button"
 
 interface PricingItemsProps {
@@ -84,6 +84,8 @@ export const PricingItems = ({
                                         isFavorite={isFavorite}
                                         ctaLabel={ctaLabel}
                                         favoriteCta={favoriteCta}
+                                        whatsappPhone={el.whatsappPhone}
+                                        whatsappMessage={el.whatsappMessage}
                                     />
                                 </div>
                             </div>
