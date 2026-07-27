@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { TrackedPortfolioLink } from "./tracked-portfolio-link"
 import SmartImage from "./smart-image"
 import { WebWork } from "@/types/web-work"
 
@@ -11,16 +11,22 @@ export const WebWorkCards = ({ items }: WebWorkCardsProps) => {
         <>
             {items.map((el, idx) => (
                 <div
-                    key={idx}
+                    key={el.id || idx}
                     className={`relative group shrink-0 overflow-hidden
                         ${idx === 0 ? "left-margin" : ""}
                         ${idx === items.length - 1 ? "right-margin" : ""}
                     `}
                 >
                     <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:translate-y-0 group-hover:opacity-100 opacity-0 transition-all duration-300 -translate-y-5 scale-95 group-hover:scale-100">
-                        <Link href={el.link} target="_blank" rel="noopener noreferrer" className="text-white font-medium text-3xl text-center p-10 w-fit h-fit rounded-main bg-darkColor dark:bg-lightColor dark:text-black hover:bg-darkColor/90 hover:dark:bg-lightColor/90 transition-colors duration-200">
+                        <TrackedPortfolioLink
+                            portfolioId={el.id}
+                            href={el.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white font-medium text-3xl text-center p-10 w-fit h-fit rounded-main bg-darkColor dark:bg-lightColor dark:text-black hover:bg-darkColor/90 hover:dark:bg-lightColor/90 transition-colors duration-200"
+                        >
                             View
-                        </Link>
+                        </TrackedPortfolioLink>
                     </div>
                     <div className="absolute inset-0 w-full h-full rounded-main bg-lightColor/70 dark:bg-darkColor/70 z-10 opacity-0 group-hover:opacity-100 duration-200" />
                     <div className="min-w-90 max-w-90 md:max-w-120 h-full md:min-w-120 bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">

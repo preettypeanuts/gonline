@@ -2,6 +2,7 @@ import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
 import { articlePath } from "@/types/article"
 import SmartImage from "./smart-image"
+import { TrackedArticleLink } from "./tracked-article-link"
 
 interface Props {
     articles: Article[]
@@ -15,7 +16,8 @@ export const FeaturedInsight = ({ articles }: Props) => {
         <section className="margin mt-4 md:mt-23">
             <div className="grid grid-cols-1 md:grid-cols-10 gap-3">
 
-                <a
+                <TrackedArticleLink
+                    slug={first.slug}
                     href={articlePath(first)}
                     className="col-span-1 md:col-span-6">
                     <div className="bg-white dark:bg-black rounded-main w-full h-full hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 relative">
@@ -41,11 +43,12 @@ export const FeaturedInsight = ({ articles }: Props) => {
                             </div>
                         </div>
                     </div>
-                </a>
+                </TrackedArticleLink>
 
                 <div className="col-span-1 md:col-span-4 flex flex-col gap-3">
                     {articles.slice(1, 4).map((el, idx) => (
-                        <a
+                        <TrackedArticleLink
+                            slug={el.slug}
                             href={articlePath(el)}
                             key={idx}
                             className="flex-1"
@@ -75,7 +78,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </TrackedArticleLink>
                     ))}
                 </div>
 

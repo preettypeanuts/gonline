@@ -12,6 +12,7 @@ import { formatDate } from "@/lib/formatDateTime"
 import { Button } from "./ui/button"
 import { ArrowRight } from "lucide-react"
 import { Title } from "./title"
+import { TrackedArticleLink } from "./tracked-article-link"
 
 interface InsightRecommendationsProps {
   /**
@@ -26,7 +27,8 @@ interface InsightRecommendationsProps {
 
 function ArticleCard({ article }: { article: Article }) {
   return (
-    <Link
+    <TrackedArticleLink
+      slug={article.slug}
       href={articlePath(article)}
       className="group relative rounded-main overflow-hidden"
     >
@@ -63,7 +65,7 @@ function ArticleCard({ article }: { article: Article }) {
           </div>
         </div>
       </div>
-    </Link>
+    </TrackedArticleLink>
   )
 }
 

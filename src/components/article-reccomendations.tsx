@@ -1,11 +1,10 @@
 import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
 import { articlePath } from "@/types/article"
-import Image from "next/image"
-import Link from "next/link"
 import { ProblemScrollWrapper } from "./problem-scroll"
 import { Title } from "./title"
 import SmartImage from "./smart-image"
+import { TrackedArticleLink } from "./tracked-article-link"
 
 interface Props {
     articles: Article[]
@@ -31,8 +30,9 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
             >
                 <div className="flex gap-3 mt-5 md:mt-0">
                     {recommendations.map((el, idx) => (
-                        <Link
+                        <TrackedArticleLink
                             key={idx}
+                            slug={el.slug}
                             href={articlePath(el)}
                             className={`shrink-0 w-56 min-w-85 ${idx === 0 ? "ml-4 md:ml-73" : ""} ${idx === recommendations.length - 1 ? "mr-4 md:mr-73" : ""}`}
                         >
@@ -57,7 +57,7 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </TrackedArticleLink>
                     ))}
                 </div>
             </ProblemScrollWrapper>

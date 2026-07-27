@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { TrackedPortfolioLink } from "./tracked-portfolio-link"
 import SmartImage from "./smart-image"
 import { WebWork } from "@/types/web-work"
 import { ReusableBanner } from "./reusable-banner"
@@ -42,8 +42,14 @@ export const WebWorkByCategory = ({ works }: Props) => {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-10">
-                            {items.map((el, idx) => (
-                                <Link href={el.link} key={idx} target="_blank" rel="noopener noreferrer">
+                            {items.map((el) => (
+                                <TrackedPortfolioLink
+                                    key={el.id}
+                                    portfolioId={el.id}
+                                    href={el.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <div className="bg-white dark:bg-black rounded-main transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl h-full">
                                         <SmartImage
                                             width={500}
@@ -71,7 +77,7 @@ export const WebWorkByCategory = ({ works }: Props) => {
                                             </div>
                                         </div>
                                     </div>
-                                </Link>
+                                </TrackedPortfolioLink>
                             ))}
                         </div>
                     </div>

@@ -1,29 +1,12 @@
-import { getWorks } from "@/lib/googleSheets"
-import { webWorks as staticWebWorks } from "@/app/data"
-import type { WebWork as WebWorkItem } from "@/types/web-work"
+import { getPortfolioWorksByType } from "@/lib/cms/portfolio"
 import { Title } from "./title"
 import { Button } from "./ui/button"
 import { ProblemScrollWrapper } from "./problem-scroll"
 import { WebWorkCards } from "./web-work-cards"
 import Link from "next/link"
 
-function toWebWorks(items: typeof staticWebWorks): WebWorkItem[] {
-  return items.map((w, index) => ({
-    id: `static-${index}`,
-    status: true,
-    link: w.link,
-    category: w.category,
-    imagePreview: w.imagePreview,
-    companyName: w.companyName,
-    brandName: w.brandName,
-    features: w.features,
-    kind: w.kind,
-  }))
-}
-
 export const WebWork = async () => {
-  const sheetWorks = await getWorks().catch(() => [])
-  const works = sheetWorks.length > 0 ? sheetWorks : toWebWorks(staticWebWorks)
+  const works = await getPortfolioWorksByType("website")
 
   const seen = new Set<string>()
   const unique = works.filter((w) => {
@@ -32,6 +15,8 @@ export const WebWork = async () => {
     seen.add(key)
     return true
   })
+
+  if (unique.length === 0) return null
 
   return (
     <section className="spacing space-y-8">

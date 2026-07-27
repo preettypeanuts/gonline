@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { getWorks } from "@/lib/googleSheets"
+import { getPortfolioWorksByType } from "@/lib/cms/portfolio"
 import { WebWorkByCategory } from "@/components/web-work-category"
 
 export const metadata: Metadata = {
@@ -37,6 +37,6 @@ export const metadata: Metadata = {
 }
 
 export default async function WebWorkPage() {
-  const works = await getWorks()
+  const works = await getPortfolioWorksByType("website")
   return <WebWorkByCategory works={works} />
 }

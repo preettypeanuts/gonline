@@ -19,6 +19,7 @@ import {
   SITE_URL,
 } from "@/config/seo"
 import { articleDate, articlePath } from "@/types/article"
+import { CmsTrackArticleView } from "@/components/cms-track-article-view"
 
 interface Props {
   params: Promise<{ category: string; slug: string }>
@@ -102,6 +103,10 @@ export default async function ArticleDetailPage({
 
   return (
     <section>
+      <CmsTrackArticleView
+        slug={slug}
+        enabled={article.status === "published" && !preview}
+      />
       <JsonLd
         data={{
           "@context": "https://schema.org",

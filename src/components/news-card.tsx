@@ -1,9 +1,9 @@
+import Link from "next/link"
 import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
 import { articlePath } from "@/types/article"
-import Image from "next/image"
-import Link from "next/link"
 import SmartImage from "./smart-image"
+import { TrackedArticleLink } from "./tracked-article-link"
 
 interface Props {
     articles: Article[]
@@ -17,8 +17,9 @@ export const NewsCard = ({ articles, currentPage, totalPages, searchParams }: Pr
         <section className="margin">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {articles.map((el, idx) => (
-                    <Link
+                    <TrackedArticleLink
                         key={idx}
+                        slug={el.slug}
                         href={articlePath(el)}
                         className="group relative rounded-main overflow-hidden"
                     >
@@ -52,7 +53,7 @@ export const NewsCard = ({ articles, currentPage, totalPages, searchParams }: Pr
                                 </div>
                             </div>
                         </div>
-                    </Link>
+                    </TrackedArticleLink>
                 ))}
             </div>
 
