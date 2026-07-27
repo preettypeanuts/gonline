@@ -139,18 +139,6 @@ export function mapPriceToPackage(price: Price): PricingPackage {
   };
 }
 
-function sortPackages(packages: PricingPackage[]): PricingPackage[] {
-  return [...packages].sort((a, b) => {
-    if (Boolean(a.favorite) !== Boolean(b.favorite)) {
-      return a.favorite ? -1 : 1;
-    }
-    const aZero = a.pricing.fixed === 0;
-    const bZero = b.pricing.fixed === 0;
-    if (aZero !== bZero) return aZero ? 1 : -1;
-    return a.pricing.fixed - b.pricing.fixed;
-  });
-}
-
 /**
  * Full pricing packages for a service page (detail fetch for features + WA copy).
  * Returns [] when brand lacks `prices` or API is empty/404 — hide pricing UI.
@@ -172,7 +160,7 @@ export function getPricingPackages(serviceSlug: PriceServiceSlug) {
         .filter((item): item is Price => item !== null)
         .map(mapPriceToPackage);
 
-      return sortPackages(packages);
+      return packages;
     },
     ["cms-prices", CMS_BRAND_ID, serviceSlug],
     { revalidate: CMS_ARTICLES_REVALIDATE },
