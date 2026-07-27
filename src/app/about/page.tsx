@@ -4,6 +4,8 @@ import type { Metadata } from "next"
 import { ReusableBanner } from "@/components/reusable-banner"
 import { WebPageSchema } from "@/components/seo/web-page-schema"
 import { pageSchemas } from "../data"
+import { Suspense } from "react"
+import { RunningClientsLogo } from "@/components/running-clients-logo"
 
 const WhoAreWe = dynamic(
     () => import("@/components/who-are-we").then((mod) => mod.WhoAreWe),
@@ -23,14 +25,6 @@ const OurSpecialty = dynamic(
 const WhyChooseUs = dynamic(
     () => import("@/components/why-us").then((mod) => mod.WhyChooseUs),
     { loading: () => <div className="h-87.5 animate-pulse bg-muted rounded-xl" /> }
-)
-
-const RunningClientsLogo = dynamic(
-    () =>
-        import("@/components/running-clients-logo").then(
-            (mod) => mod.RunningClientsLogo
-        ),
-    { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
 )
 
 const CTA = dynamic(
@@ -108,7 +102,9 @@ export default function About() {
             <VissionMission />
             <OurSpecialty />
             <WhyChooseUs />
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
             <CTA />
         </>
     )

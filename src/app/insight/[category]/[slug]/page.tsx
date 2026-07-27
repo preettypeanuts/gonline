@@ -1,6 +1,8 @@
-import { getArticles } from "@/lib/googleSheets"
-import { slugify } from "@/lib/slugify"
-import { notFound } from "next/navigation"
+import {
+  getArticleBySlug,
+  getRelatedArticles,
+} from "@/lib/cms/articles"
+import { notFound, redirect } from "next/navigation"
 import { formatDate } from "@/lib/formatDateTime"
 import type { Metadata } from "next"
 import { ArticleRecommendations } from "@/components/article-reccomendations"
@@ -16,17 +18,22 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/config/seo"
+import { articleDate, articlePath } from "@/types/article"
 
 interface Props {
   params: Promise<{ category: string; slug: string }>
+  searchParams: Promise<{ preview?: string }>
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category, slug } = await params
-  const articles = await getArticles()
-  const article = articles.find(
-    (a) => slugify(a.category) === category && a.slug === slug,
-  )
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
+  const { slug } = await params
+  const { preview } = await searchParams
+  const article = await getArticleBySlug(slug, {
+    preview: Boolean(preview),
+  })
 
   if (!article) {
     return {
@@ -35,72 +42,63 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
-  const url = absoluteUrl(`/insight/${category}/${slug}`)
+  const url = absoluteUrl(articlePath(article))
+  const description =
+    article.metaDescription || article.excerpt || article.title
+  const title = article.metaTitle || article.title
+  const image = article.coverImage
 
   return {
-    title: article.title,
-    description: article.excerpt,
+    title,
+    description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title,
+      description,
       url,
       siteName: SITE_NAME,
       locale: "id_ID",
       type: "article",
-      publishedTime: article.createdAt,
+      publishedTime: article.publishedAt || article.createdAt,
       modifiedTime: article.updatedAt || article.createdAt,
       tags: article.tags,
-      images: [
-        {
-          url: article.coverImage,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
+      images: image
+        ? [{ url: image, width: 1200, height: 630, alt: article.title }]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      title: article.title,
-      description: article.excerpt,
-      images: [article.coverImage],
+      title,
+      description,
+      images: image ? [image] : undefined,
     },
-    robots: INDEXABLE_ROBOTS,
+    robots:
+      article.status === "published" ? INDEXABLE_ROBOTS : { index: false, follow: false },
   }
 }
 
-export default async function ArticleDetailPage({ params }: Props) {
+export default async function ArticleDetailPage({
+  params,
+  searchParams,
+}: Props) {
   const { category, slug } = await params
-  const articles = await getArticles()
-  const article = articles.find(
-    (a) => slugify(a.category) === category && a.slug === slug,
-  )
+  const { preview } = await searchParams
+
+  const article = await getArticleBySlug(slug, {
+    preview: Boolean(preview),
+  })
 
   if (!article) notFound()
 
-  const articleUrl = absoluteUrl(`/insight/${category}/${slug}`)
+  // Keep URL category segment in sync with CMS category id
+  if (category !== article.category) {
+    redirect(`${articlePath(article)}${preview ? "?preview=1" : ""}`)
+  }
 
-  const related = articles
-    .filter((a) => a.category === article.category && a.slug !== article.slug)
-    .slice(0, 5)
-
-  const recommendations =
-    related.length >= 5
-      ? related
-      : [
-          ...related,
-          ...articles
-            .filter(
-              (a) =>
-                a.slug !== article.slug &&
-                !related.find((r) => r.slug === a.slug),
-            )
-            .filter((a) => a.highlight)
-            .slice(0, 5 - related.length),
-        ]
+  const articleUrl = absoluteUrl(articlePath(article))
+  const related = await getRelatedArticles(slug, 5)
 
   return (
     <section>
@@ -111,14 +109,12 @@ export default async function ArticleDetailPage({ params }: Props) {
           headline: article.title,
           description: article.excerpt,
           image: article.coverImage ? [article.coverImage] : undefined,
-          datePublished: article.createdAt,
+          datePublished: article.publishedAt || article.createdAt,
           dateModified: article.updatedAt || article.createdAt,
           inLanguage: "id-ID",
           author: {
-            "@type": "Organization",
-            "@id": ORGANIZATION_ID,
-            name: SITE_NAME,
-            url: SITE_URL,
+            "@type": "Person",
+            name: article.authorName || SITE_NAME,
           },
           publisher: {
             "@type": "Organization",
@@ -135,7 +131,7 @@ export default async function ArticleDetailPage({ params }: Props) {
             "@id": articleUrl,
           },
           keywords: article.tags.join(", "),
-          articleSection: article.category,
+          articleSection: article.categoryLabel || article.category,
           isAccessibleForFree: true,
         }}
       />
@@ -144,12 +140,12 @@ export default async function ArticleDetailPage({ params }: Props) {
           { name: "Home", path: "/" },
           { name: "Insight", path: "/insight" },
           {
-            name: article.category,
-            path: `/insight?category=${slugify(article.category)}`,
+            name: article.categoryLabel || article.category,
+            path: `/insight?category=${article.category}`,
           },
           {
             name: article.title,
-            path: `/insight/${category}/${slug}`,
+            path: articlePath(article),
           },
         ]}
       />
@@ -157,25 +153,28 @@ export default async function ArticleDetailPage({ params }: Props) {
       <main className="margin mt-4 md:mt-30 pb-10 max-w-4xl mx-4 md:mx-auto bg-white dark:bg-black rounded-main md:p-10 p-5">
         <div className="space-y-4 mb-8">
           <p className="text-thirdColor uppercase font-semibold text-xs">
-            {article.category}
+            {article.categoryLabel || article.category}
           </p>
           <h1 className="font-bold text-3xl md:text-4xl leading-tight">
             {article.title}
           </h1>
           <p className="text-neutral-500 text-sm">{article.excerpt}</p>
           <p className="font-semibold text-xs uppercase text-neutral-400">
-            {formatDate(article.updatedAt)}
+            {formatDate(articleDate(article))}
+            {article.authorName ? ` · ${article.authorName}` : ""}
           </p>
         </div>
 
-        <SmartImage
-          width={800}
-          height={450}
-          src={article.coverImage}
-          alt={article.title}
-          className="w-full rounded-3xl object-cover aspect-video mb-8"
-          priority
-        />
+        {article.coverImage ? (
+          <SmartImage
+            width={800}
+            height={450}
+            src={article.coverImage}
+            alt={article.title}
+            className="w-full rounded-3xl object-cover aspect-video mb-8"
+            priority
+          />
+        ) : null}
 
         <article
           className="prose dark:prose-invert max-w-none"
@@ -204,7 +203,7 @@ export default async function ArticleDetailPage({ params }: Props) {
       </main>
 
       <ArticleRecommendations
-        articles={recommendations}
+        articles={related}
         currentArticleSlug={article.slug}
       />
     </section>

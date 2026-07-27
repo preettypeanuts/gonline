@@ -1,6 +1,6 @@
 import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
-import { slugify } from "@/lib/slugify"
+import { articlePath } from "@/types/article"
 import SmartImage from "./smart-image"
 
 interface Props {
@@ -16,7 +16,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
             <div className="grid grid-cols-1 md:grid-cols-10 gap-3">
 
                 <a
-                    href={`/insight/${slugify(first.category)}/${first.slug}`}
+                    href={articlePath(first)}
                     className="col-span-1 md:col-span-6">
                     <div className="bg-white dark:bg-black rounded-main w-full h-full hover:scale-[0.99] duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950 relative">
                         <SmartImage
@@ -36,7 +36,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                                 {first.title}
                             </h2>
                             <div className="flex items-center justify-between gap-2 flex-wrap">
-                                <p className="text-thirdColor uppercase font-semibold text-xs">{first.category}</p>
+                                <p className="text-thirdColor uppercase font-semibold text-xs">{first.categoryLabel || first.category}</p>
                                 <p className="font-semibold text-xs uppercase text-neutral-500">{formatDate(first.updatedAt)}</p>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                 <div className="col-span-1 md:col-span-4 flex flex-col gap-3">
                     {articles.slice(1, 4).map((el, idx) => (
                         <a
-                            href={`/insight/${slugify(el.category)}/${el.slug}`}
+                            href={articlePath(el)}
                             key={idx}
                             className="flex-1"
                         >
@@ -70,7 +70,7 @@ export const FeaturedInsight = ({ articles }: Props) => {
                                         {el.title}
                                     </h3>
                                     <div className="flex items-center justify-between gap-1 flex-wrap">
-                                        <p className="text-thirdColor uppercase font-semibold text-[10px] sm:text-xs">{el.category}</p>
+                                        <p className="text-thirdColor uppercase font-semibold text-[10px] sm:text-xs">{el.categoryLabel || el.category}</p>
                                         <p className="font-semibold text-[10px] sm:text-xs uppercase text-neutral-500">{formatDate(el.updatedAt)}</p>
                                     </div>
                                 </div>

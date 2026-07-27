@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { HomeBanner } from "@/components/home-banner";
 import { HomeService } from "@/components/home-service";
 import { InsightRecommendations } from "@/components/insight-reccomendations";
@@ -106,7 +107,13 @@ export default function Home() {
         <InsightRecommendations heading="Insight Pilihan" limit={6} />
       </ViewportReveal>
       <ViewportReveal>
-        <RunningClientsLogo />
+        <Suspense
+          fallback={
+            <div className="h-50 animate-pulse bg-muted rounded-xl" />
+          }
+        >
+          <RunningClientsLogo />
+        </Suspense>
       </ViewportReveal>
       <ViewportReveal>
         <CTA />

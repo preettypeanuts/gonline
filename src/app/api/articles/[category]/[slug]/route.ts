@@ -1,15 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getArticleBySlug } from "@/lib/googleSheets";
+import { getArticleBySlug } from "@/lib/cms/articles";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ category: string; slug: string }> },
 ) {
   try {
     const { category, slug } = await params;
-    const article = await getArticleBySlug(category, slug);
+    const preview = req.nextUrl.searchParams.get("preview");
+    const article = await getArticleBySlug(slug, {
+      preview: Boolean(preview),
+    });
 
-    if (!article) {
+    if (!article || (category && article.category !== category)) {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
 

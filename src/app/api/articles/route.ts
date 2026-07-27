@@ -1,27 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getArticles } from "@/lib/googleSheets";
+import { listArticles } from "@/lib/cms/articles";
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
-    const category = searchParams.get("category");
+    const category = searchParams.get("category") ?? undefined;
     const highlight = searchParams.get("highlight");
+    const q = searchParams.get("q") ?? searchParams.get("search") ?? undefined;
+    const page = Number(searchParams.get("page") ?? 1);
+    const limit = Number(searchParams.get("limit") ?? 20);
 
-    let articles = await getArticles();
+    const result = await listArticles({
+      page,
+      limit,
+      category,
+      q,
+      highlighted: highlight === "true" ? true : undefined,
+    });
 
-    if (category) {
-      articles = articles.filter(
-        (a) => a.category.toLowerCase() === category.toLowerCase()
-      );
-    }
-
-    if (highlight === "true") {
-      articles = articles.filter((a) => a.highlight);
-    }
-
-    return NextResponse.json({ data: articles, total: articles.length });
+    return NextResponse.json({
+      data: result.data,
+      meta: { pagination: result.pagination },
+      total: result.pagination.total,
+    });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Failed to fetch articles" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch articles" },
+      { status: 500 },
+    );
   }
 }

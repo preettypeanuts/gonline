@@ -1,5 +1,5 @@
 import type { Article } from "@/types/article";
-import { slugify } from "@/lib/slugify";
+import { articleDate, articlePath } from "@/types/article";
 import { absoluteUrl } from "@/config/seo";
 import { ORGANIZATION_ID } from "./organization-schema";
 import { JsonLd } from "./json-ld";
@@ -25,9 +25,9 @@ export function BlogSchema({ articles }: Props) {
           "@type": "BlogPosting",
           headline: a.title,
           description: a.excerpt,
-          url: absoluteUrl(`/insight/${slugify(a.category)}/${a.slug}`),
-          datePublished: a.createdAt || undefined,
-          dateModified: a.updatedAt || a.createdAt || undefined,
+          url: absoluteUrl(articlePath(a)),
+          datePublished: articleDate(a) || undefined,
+          dateModified: a.updatedAt || articleDate(a) || undefined,
           image: a.coverImage || undefined,
         })),
       }}

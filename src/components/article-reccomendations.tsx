@@ -1,6 +1,6 @@
 import { Article } from "@/types/article"
 import { formatDate } from "@/lib/formatDateTime"
-import { slugify } from "@/lib/slugify"
+import { articlePath } from "@/types/article"
 import Image from "next/image"
 import Link from "next/link"
 import { ProblemScrollWrapper } from "./problem-scroll"
@@ -33,7 +33,7 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
                     {recommendations.map((el, idx) => (
                         <Link
                             key={idx}
-                            href={`/insight/${slugify(el.category)}/${el.slug}`}
+                            href={articlePath(el)}
                             className={`shrink-0 w-56 min-w-85 ${idx === 0 ? "ml-4 md:ml-73" : ""} ${idx === recommendations.length - 1 ? "mr-4 md:mr-73" : ""}`}
                         >
                             <div className="relative bg-white dark:bg-black rounded-2xl h-full flex flex-col hover:scale-99 duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-950">
@@ -52,7 +52,7 @@ export const ArticleRecommendations = ({ articles, currentArticleSlug }: Props) 
                                 <div className="p-7 space-y-2 flex flex-col justify-between grow">
                                     <h3 className="font-bold leading-snug text-lg line-clamp-3">{el.title}</h3>
                                     <div className="flex flex-row justify-between gap-1 mt-5">
-                                        <p className="text-thirdColor uppercase font-semibold text-xs">{el.category}</p>
+                                        <p className="text-thirdColor uppercase font-semibold text-xs">{el.categoryLabel || el.category}</p>
                                         <p className="font-semibold text-xs uppercase text-neutral-400">{formatDate(el.updatedAt)}</p>
                                     </div>
                                 </div>

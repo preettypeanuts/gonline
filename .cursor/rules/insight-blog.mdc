@@ -1,49 +1,40 @@
 ---
-description: Insight blog/posts patterns — list, detail, Sheets data, SEO
-globs: src/app/insight/**/*.{ts,tsx},src/components/**/*insight*.{ts,tsx},src/components/**/*article*.{ts,tsx},src/components/news-card.tsx,src/components/featured-insight.tsx,src/components/seo/blog-schema.tsx,src/lib/googleSheets.ts,src/lib/slugify.ts,src/types/article.ts,src/app/api/articles/**/*
+description: Insight blog/posts patterns — CMS public API, list, detail, SEO
+globs: src/app/insight/**/*.{ts,tsx},src/components/**/*insight*.{ts,tsx},src/components/**/*article*.{ts,tsx},src/components/news-card.tsx,src/components/featured-insight.tsx,src/components/seo/blog-schema.tsx,src/lib/cms/articles.ts,src/types/article.ts,src/app/api/articles/**/*,src/config/cms.ts
 alwaysApply: false
 ---
 
 # Insight (Blog / Posts)
 
-Public blog surface lives under **`/insight`**. Content source: **Google Sheets** via `src/lib/googleSheets.ts` — not a local CMS DB.
+Public blog surface lives under **`/insight`**. Content source: **CMS public API** (`cms.gonline.id`) via `src/lib/cms/articles.ts`.
+
+## Config
+- `CMS_API_URL` (default `https://cms.gonline.id`)
+- `CMS_BRAND_ID` (default `gonline`)
+- `CMS_PREVIEW_SECRET` — server-only; enable draft preview with `?preview=1`
+- Feature required on CMS brand: `articles`
+
+## Endpoints used
+- `GET /api/public/articles?brandId=`
+- `GET /api/public/articles/{slug}?brandId=`
+- `GET /api/public/articles/{slug}/related?brandId=`
+- `GET /api/public/article-categories?brandId=`
 
 ## Domain
-
-```ts
-// src/types/article.ts
-type Article = {
-  id: string
-  status: boolean
-  highlight: boolean
-  category: string
-  slug: string
-  title: string
-  content: string
-  excerpt: string
-  coverImage: string
-  createdAt: string
-  updatedAt: string
-  tags: string[]
-}
-```
-
-- Published filter: `status === true`
-- Featured: `highlight === true`
-- Routes: `/insight` (list + filters) · `/insight/[category]/[slug]` (detail)
-- Slug helpers: `src/lib/slugify.ts`
+Use `Article` / `ArticleCategory` from `src/types/article.ts`.
+- `category` = CMS category **id** (e.g. `web-development`)
+- `categoryLabel` = display label
+- `highlight` / `coverImage` are FE aliases of `highlighted` / `thumbnail`
+- Routes: `/insight` · `/insight/[category]/[slug]` (`category` must match id)
 
 ## Patterns
-
-- **Server Components** fetch articles; client only for filters / interactive UI
-- Keep list pagination / filter logic on the server when possible (`searchParams`)
-- Card / recommendation components stay presentational — data comes from parent or `getArticles()`
-- SEO: page `generateMetadata` + `BlogSchema` / article schemas — no fabricated dates or authors
-- API routes under `src/app/api/articles/` are read-only helpers for the public site
+- Server Components fetch via `listArticles` / `getArticleBySlug` / `getRelatedArticles`
+- Filters use CMS query params (category, q, highlighted, page, limit)
+- Related block uses `/related` — do not re-implement ranking client-side
+- Never import `CMS_PREVIEW_SECRET` into client components
 
 ## Do / Don't
-
-- ✅ Reuse `NewsCard`, featured, recommendations — don't fork near-duplicates
-- ✅ Sanitize / normalize category↔slug only in `lib/`
-- ❌ Build an admin CRUD UI for articles unless explicitly requested
-- ❌ Hardcode article bodies in components when Sheets already provides them
+- ✅ Reuse `NewsCard`, featured, recommendations
+- ✅ Prefer `articlePath(article)` for hrefs
+- ❌ Google Sheets for articles
+- ❌ Expose preview secret in client bundles

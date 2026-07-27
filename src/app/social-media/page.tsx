@@ -13,18 +13,12 @@ import { IntroBadges } from "@/components/intro-badges"
 import { ServiceSchema } from "@/components/seo/schema-service"
 import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
+import { Suspense } from "react"
+import { RunningClientsLogo } from "@/components/running-clients-logo"
 
 const SocmedWork = dynamic(
     () => import("@/components/socmed-work").then((mod) => mod.SocmedWork),
     { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
-
-const RunningClientsLogo = dynamic(
-    () =>
-        import("@/components/running-clients-logo").then(
-            (mod) => mod.RunningClientsLogo
-        ),
-    { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
 )
 
 const PricingCard = dynamic(
@@ -158,7 +152,9 @@ export default function SocialMediaPage() {
                 <SocmedWork />
             </SectionAnchor>
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <SectionAnchor id="pricing">
                 <PricingCard
@@ -180,13 +176,15 @@ export default function SocialMediaPage() {
                 />
             </SectionAnchor>
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <CtaService config={ctaConfigs.sosmed} />
 
             <SectionAnchor id="insight">
                 <InsightRecommendations
-                    topics={["Website Development", "UI/UX Design"]}
+                    topics={["social-media", "digital-marketing"]}
                     heading="Insight Seputar Socmed"
                     limit={6}
                 />

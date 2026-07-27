@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getArticles } from "@/lib/googleSheets";
-import { slugify } from "@/lib/slugify";
+import { getArticles } from "@/lib/cms/articles";
 import { SITE_URL } from "@/config/seo";
+import { articlePath } from "@/types/article";
 
-function safeDate(value: string | undefined): Date {
+function safeDate(value: string | undefined | null): Date {
   if (!value) return new Date();
   const d = new Date(value);
   return Number.isNaN(d.getTime()) ? new Date() : d;
@@ -71,15 +71,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let articleRoutes: MetadataRoute.Sitemap = [];
   try {
-    const articles = await getArticles();
+    const articles = await getArticles({ limit: 100 });
     articleRoutes = articles.map((article) => ({
-      url: `${SITE_URL}/insight/${slugify(article.category)}/${article.slug}`,
-      lastModified: safeDate(article.updatedAt || article.createdAt),
+      url: `${SITE_URL}${articlePath(article)}`,
+      lastModified: safeDate(
+        article.publishedAt || article.updatedAt || article.createdAt,
+      ),
       changeFrequency: "weekly" as const,
       priority: article.highlight ? 0.85 : 0.7,
     }));
   } catch {
-    // Keep static routes indexable even if Sheets is down
     articleRoutes = [];
   }
 

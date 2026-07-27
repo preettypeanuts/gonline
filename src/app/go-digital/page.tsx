@@ -13,18 +13,12 @@ import { IntroBadges } from "@/components/intro-badges"
 import { ServiceSchema } from "@/components/seo/schema-service"
 import { FaqSchema } from "@/components/seo/faq-schema"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
+import { Suspense } from "react"
+import { RunningClientsLogo } from "@/components/running-clients-logo"
 
 const Showcase = dynamic(
     () => import("@/components/showcase").then((mod) => mod.Showcase),
     { loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" /> }
-)
-
-const RunningClientsLogo = dynamic(
-    () =>
-        import("@/components/running-clients-logo").then(
-            (mod) => mod.RunningClientsLogo
-        ),
-    { loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" /> }
 )
 
 const PricingCard = dynamic(
@@ -150,7 +144,9 @@ export default function GoDIgitalaPge() {
                 <Showcase />
             </SectionAnchor>
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <SectionAnchor id="pricing">
                 <PricingCard
@@ -172,13 +168,15 @@ export default function GoDIgitalaPge() {
                 />
             </SectionAnchor>
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <CtaService config={ctaConfigs.godigital} />
 
             <SectionAnchor id="insight">
                 <InsightRecommendations
-                    topics={["Website Development", "UI/UX Design"]}
+                    topics={["web-development", "social-media", "digital-marketing"]}
                     heading="Insight Seputar Website"
                     limit={6}
                 />

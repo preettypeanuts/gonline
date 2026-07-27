@@ -13,6 +13,7 @@ import { IntroBadges } from "@/components/intro-badges"
 import { WebSpecialty } from "@/components/web-specialty"
 import { ctaConfigs, CtaService } from "@/components/cta-service"
 import { Suspense } from "react"
+import { RunningClientsLogo } from "@/components/running-clients-logo"
 import { WebWorkSkeleton } from "@/components/skeleton/web-work-skeleton"
 import { InsightRecommendations } from "@/components/insight-reccomendations"
 
@@ -22,16 +23,6 @@ const WebWork = dynamic(
         loading: () => <div className="h-100 animate-pulse bg-muted rounded-xl" />,
     }
 )
-const RunningClientsLogo = dynamic(
-    () =>
-        import("@/components/running-clients-logo").then(
-            (mod) => mod.RunningClientsLogo
-        ),
-    {
-        loading: () => <div className="h-50 animate-pulse bg-muted rounded-xl" />,
-    }
-)
-
 const PricingCard = dynamic(
     () =>
         import("@/components/pricing-card").then(
@@ -197,7 +188,9 @@ export default function WebsiteDevelopment() {
                 </Suspense>
             </SectionAnchor>
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <SectionAnchor id="pricing">
                 <PricingCard
@@ -212,14 +205,16 @@ export default function WebsiteDevelopment() {
             </SectionAnchor>
 
 
+            <Suspense fallback={<div className="h-50 animate-pulse bg-muted rounded-xl" />}>
             <RunningClientsLogo />
+            </Suspense>
 
             <CtaService config={ctaConfigs.website} />
 
 
             <SectionAnchor id="insight">
                 <InsightRecommendations
-                    topics={["Website Development", "UI/UX Design"]}
+                    topics={["web-development"]}
                     heading="Insight Seputar Website"
                     limit={6}
                 />
