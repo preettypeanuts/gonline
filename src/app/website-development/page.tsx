@@ -193,7 +193,6 @@ export default function WebsiteDevelopment() {
                     <ServicePricing
                         serviceSlug={PRICE_SERVICE_SLUG.website}
                         title="Website Packages"
-                        showStartingFrom
                     />
                 </Suspense>
             </SectionAnchor>

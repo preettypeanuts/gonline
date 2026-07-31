@@ -14,7 +14,6 @@ const GRID_COLS: Record<number, string> = {
 type PricingCardProps = {
     packages: PricingPackage[]
     title?: string
-    showStartingFrom?: boolean
     ctaLabel?: string
     favoriteCta?: string
 }
@@ -22,7 +21,6 @@ type PricingCardProps = {
 export const PricingCard = ({
     packages,
     title = "Packages",
-    showStartingFrom,
     ctaLabel = "Get Started",
     favoriteCta = "Get Started Now",
 }: PricingCardProps) => {
@@ -34,7 +32,6 @@ export const PricingCard = ({
             useGrid={useGrid}
             ctaLabel={ctaLabel}
             favoriteCta={favoriteCta}
-            showStartingFrom={showStartingFrom}
         />
     )
 

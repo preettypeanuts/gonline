@@ -5,7 +5,6 @@ import type { PriceServiceSlug } from "@/types/price";
 type ServicePricingProps = {
   serviceSlug: PriceServiceSlug;
   title: string;
-  showStartingFrom?: boolean;
   ctaLabel?: string;
   favoriteCta?: string;
 };
@@ -13,11 +12,11 @@ type ServicePricingProps = {
 /**
  * Server-fetched pricing for a service page.
  * Hides the whole section when brand lacks `prices` or API returns empty.
+ * Per-package "Starting from" / gimmick comes from CMS `showStartingFrom`.
  */
 export async function ServicePricing({
   serviceSlug,
   title,
-  showStartingFrom,
   ctaLabel,
   favoriteCta,
 }: ServicePricingProps) {
@@ -28,7 +27,6 @@ export async function ServicePricing({
     <PricingCard
       packages={packages}
       title={title}
-      showStartingFrom={showStartingFrom}
       ctaLabel={ctaLabel}
       favoriteCta={favoriteCta}
     />

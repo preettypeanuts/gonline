@@ -159,7 +159,6 @@ export default function SocialMediaPage() {
                     <ServicePricing
                         serviceSlug={PRICE_SERVICE_SLUG.social}
                         title="Social Media Packages"
-                        showStartingFrom
                     />
                 </Suspense>
             </SectionAnchor>

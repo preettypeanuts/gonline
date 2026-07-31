@@ -151,7 +151,6 @@ export default function GoDIgitalaPge() {
                     <ServicePricing
                         serviceSlug={PRICE_SERVICE_SLUG.goDigital}
                         title="GO Digital Packages"
-                        showStartingFrom
                     />
                 </Suspense>
             </SectionAnchor>

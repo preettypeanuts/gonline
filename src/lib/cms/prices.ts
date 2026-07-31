@@ -124,12 +124,17 @@ async function fetchPriceBySlug(slug: string): Promise<Price | null> {
 }
 
 export function mapPriceToPackage(price: Price): PricingPackage {
+  const showStartingFrom = Boolean(price.showStartingFrom);
+  const strikethrough = Number(price.strikethroughPrice) || 0;
+
   return {
     name: pickLocale(price.packageName),
     favorite: Boolean(price.highlighted),
+    showStartingFrom,
     pricing: {
       fixed: Number(price.price) || 0,
-      gimmick: Number(price.strikethroughPrice) || 0,
+      // CMS clears strike when starting-from is on — still guard on FE
+      gimmick: showStartingFrom ? 0 : strikethrough,
     },
     deliverables: (price.features ?? [])
       .map((f) => pickLocale(f.name))
@@ -162,7 +167,7 @@ export function getPricingPackages(serviceSlug: PriceServiceSlug) {
 
       return packages;
     },
-    ["cms-prices", CMS_BRAND_ID, serviceSlug],
+    ["cms-prices-v2", CMS_BRAND_ID, serviceSlug],
     { revalidate: CMS_ARTICLES_REVALIDATE },
   )();
 }

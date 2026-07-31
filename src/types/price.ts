@@ -13,6 +13,12 @@ export type PriceSummary = {
   packageName: LocalizedText;
   price: number;
   strikethroughPrice: number;
+  /**
+   * When true, FE shows "Starting from" + price (no strikethrough).
+   * Mutual exclusive with gimmick in CMS (`strikethroughPrice` forced to 0).
+   * Missing / undefined → treat as false.
+   */
+  showStartingFrom?: boolean;
   whatsappPhone: string;
   isActive: boolean;
   createdAt: string;

@@ -8,7 +8,65 @@ interface PricingItemsProps {
     useGrid: boolean
     ctaLabel: string
     favoriteCta: string
-    showStartingFrom?: boolean
+}
+
+function PackagePrice({
+    pkg,
+    isFavorite,
+}: {
+    pkg: PricingPackage
+    isFavorite: boolean
+}) {
+    const fixed = pkg.pricing.fixed
+    const strike = pkg.pricing.gimmick
+    const showFrom = pkg.showStartingFrom === true
+    const labelClass = isFavorite
+        ? "dark:text-thirdColor text-mainColor/70"
+        : "text-neutral-500"
+    const priceClass = `font-extrabold text-3xl leading-tight ${
+        isFavorite ? "text-darkColor dark:text-lightColor" : ""
+    }`
+
+    if (fixed === 0) {
+        return <h2 className={priceClass}>Talk With Us!</h2>
+    }
+
+    // Starting from — no strikethrough / discount
+    if (showFrom) {
+        return (
+            <>
+                <span
+                    className={`text-[10px] uppercase tracking-widest font-medium ${labelClass}`}
+                >
+                    Starting from
+                </span>
+                <h2 className={priceClass}>{formatToRupiah(fixed)}</h2>
+            </>
+        )
+    }
+
+    // Gimmick: display price + strikethrough original
+    if (strike > 0) {
+        const discountPct = Math.round((1 - fixed / strike) * 100)
+        return (
+            <>
+                <div className="flex flex-wrap items-baseline gap-2">
+                    <h2 className={priceClass}>{formatToRupiah(fixed)}</h2>
+                    {discountPct > 0 && (
+                        <span className="rounded-full bg-mainColor/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-mainColor dark:bg-thirdColor/15 dark:text-thirdColor">
+                            -{discountPct}%
+                        </span>
+                    )}
+                </div>
+                <p className={`text-sm line-through ${labelClass}`}>
+                    {formatToRupiah(strike)}
+                </p>
+            </>
+        )
+    }
+
+    // Plain price — no "Starting from", no strike
+    return <h2 className={priceClass}>{formatToRupiah(fixed)}</h2>
 }
 
 export const PricingItems = ({
@@ -16,7 +74,6 @@ export const PricingItems = ({
     useGrid,
     ctaLabel,
     favoriteCta,
-    showStartingFrom,
 }: PricingItemsProps) => {
     return (
         <>
@@ -44,9 +101,9 @@ export const PricingItems = ({
 
                         <div className={`flex flex-col h-full p-8 ${isFavorite ? "bg-white rounded-b-main rounded-tr-main dark:bg-black" : "bg-white dark:bg-black rounded-main"}`}>
                             <div className="flex items-center justify-between">
-                                <h1 className={`text-xl font-bold ${isFavorite ? "dark:text-thirdColor text-mainColor" : ""}`}>
+                                <h3 className={`text-xl font-bold ${isFavorite ? "dark:text-thirdColor text-mainColor" : ""}`}>
                                     {el.name}
-                                </h1>
+                                </h3>
                                 {isFavorite && (
                                     <div className="size-8 rounded-full bg-mainColor/10 border border-mainColor/30 flex items-center justify-center">
                                         <Star className="size-4 dark:text-thirdColor dark:fill-thirdColor text-mainColor fill-mainColor" />
@@ -57,14 +114,7 @@ export const PricingItems = ({
                             <div className={`mt-4 h-px w-full ${isFavorite ? "bg-mainColor/20 dark:bg-thirdColor/30" : "bg-neutral-200 dark:bg-neutral-800"}`} />
 
                             <div className="mt-4 min-h-15 flex flex-col justify-center">
-                                {showStartingFrom && el.pricing.fixed !== 0 && (
-                                    <span className={`text-[10px] uppercase tracking-widest font-medium ${isFavorite ? "dark:text-thirdColor text-mainColor/70" : "text-neutral-500"}`}>
-                                        Starting from
-                                    </span>
-                                )}
-                                <h2 className={`font-extrabold text-3xl leading-tight ${isFavorite ? "text-darkColor dark:text-lightColor" : ""}`}>
-                                    {el.pricing.fixed === 0 ? "Talk With Us!" : formatToRupiah(el.pricing.fixed)}
-                                </h2>
+                                <PackagePrice pkg={el} isFavorite={isFavorite} />
                             </div>
 
                             <div className="p-6 rounded-secondary -m-6 flex flex-col justify-between bg-lightColor dark:bg-darkColor mt-7 space-y-2.5 flex-1">
